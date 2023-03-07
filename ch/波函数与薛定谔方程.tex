@@ -1,0 +1,283 @@
+\section{波函数与薛定谔方程}
+
+\begin{question}{题目1}
+    求与下列各粒子相关的de Broglie波波长：
+    \begin{enumerate}
+        \item[(1)] 能量为100电子伏特的自由电子；
+        \item[(2)] 能量为0.1电子伏特的自由中子；
+        \item[(3)] 能量为0.1电子伏特、质量为1克的自由粒子；
+        \item[(4)] 温度$T=\qty{1}{k}$时，具有动能$E=\dfrac{3kT}{2}$的氦原子，其中$k$为玻尔兹曼常数.
+    \end{enumerate}
+\end{question}
+\begin{solution}
+    根据粒子的动能与动量之间的关系
+    \begin{equation}\label{能量与动量关系}
+        E=\frac{1}{2}mv^2=\frac{p^2}{2m}
+    \end{equation}
+    结合德布罗意波波长的表达式
+    \begin{equation}\label{德布罗意关系}
+        \lambda=\frac{h}{p}=\frac{h}{\sqrt{2mE}}
+    \end{equation}
+    (1) 题设自由电子的德布罗意波波长为
+    $$
+        \lambda_{e}=\frac{h}{\sqrt{2m_eE_e}}=1.23\times10^{-10}\,{\rm m}
+    $$
+    (2) 题设自由中子的德布罗意波波长为
+    $$
+        \lambda_{\rm n}=\frac{h}{\sqrt{2m_{\rm n}E_{\rm n}}}=9.04\times10^{-11}\,{\rm m}
+    $$
+    (3) 题设自由粒子的德布罗意波波长为
+    $$
+        \lambda=\frac{h}{\sqrt{2mE}}=1.17\times10^{-22} \,{\rm m}
+    $$
+    (4) 氦原子包含2个中子和2个质子，其德布罗意波波长为
+    $$
+        \lambda_{\rm He}=\frac{h}{\sqrt{2m_{\rm He}E_{\rm He}}}
+        =\frac{h}{\sqrt{2 \cdot m_{\rm He}\cdot\frac{3}{2}kT}}
+        =\frac{h}{\sqrt{3\cdot(4m_{\rm n})\cdot\frac{3}{2}kT}}
+        =1.25\times10^{-9} \,{\rm m}
+    $$
+\end{solution}
+
+\begin{question}{题目2}
+    设一电子被电势差$U$所加速，最后打在靶上. 若电子的动能转化为一光子，求当这光子相应的光波波长分别为5000\AA（可见光），1\AA（X射线），0.001\AA（$\gamma$射线）时，加速电子所需的电势差各是多少？
+\end{question}
+\begin{solution}
+    电子的动能为
+    $$
+        E_k=eU
+    $$
+    光子的能量为
+    $$
+        E=h\nu=\frac{hc}{\lambda}
+    $$
+    电子的动能会全部转化为光子的能量，因此电势差
+    $$
+        U=\frac{hc}{e\lambda}
+        =\frac{hc}{e}\cdot\frac{1}{\lambda}
+        =\frac{1.24\times10^{-6}}{\lambda}
+    $$
+    当光子对应的光波波长为 5000\AA 时，电势差为
+    $$
+        U=\frac{1.24\times10^{-6}}{\lambda}
+        =\frac{1.24\times10^{-6}}{5000\times10^{-10}}
+        =2.48\,\rm{V}
+    $$
+    当光子对应的光波波长为 1\AA 时，电势差为
+    $$
+        U=\frac{1.24\times10^{-6}}{\lambda}
+        =\frac{1.24\times10^{-6}}{10^{-10}}
+        =1.24\times10^4\,\rm{V}
+    $$
+    当光子对应的光波波长为 0.001\AA 时，电势差为
+    $$
+        U=\frac{1.24\times10^{-6}}{\lambda}
+        =\frac{1.24\times10^{-6}}{0.001\times10^{-10}}
+        =1.24\times10^{7}\,\rm{V}
+    $$
+\end{solution}
+
+\begin{question}{练习5}
+    设用球坐标表示，粒子波函数表为$\psi(\rho, \theta, \varphi)$，求：
+    \begin{enumerate}
+        \item[(1)] 粒子在球壳$(r, r+\mathrm{d}r)$中被测到的概率；
+        \item[(2)] 在$(\theta, \varphi)$方向的立体角元$\mathrm{d}\Omega=\sin\theta\,\mathrm{d}\theta\mathrm{d}\varphi$中找到粒子的概率.
+    \end{enumerate}
+\end{question}
+\begin{solution}
+    粒子在$(r\to r+\mathrm{d}r, \theta \to \theta+\mathrm{d}\theta, \varphi \to \varphi+\mathrm{d}\varphi)$范围内被探测到的概率为
+    $$
+        P = \left|\psi(r, \theta, \varphi)\right|^2r^2\sin\theta \,\mathrm{d}r\mathrm{d}\theta\mathrm{d}\varphi
+    $$
+    (1) 粒子在球壳$(r, r+\mathrm{d}r)$中被测到的概率为
+    $$
+        P=\left[\int_{0}^{\pi}\sin\theta\,\mathrm{d}\theta\int_{0}^{2\pi}\left|\psi(r, \theta, \varphi)\right|^2\,\mathrm{d}\varphi\right]r^2\,\mathrm{d}r
+    $$
+    (2) 在$(\theta, \varphi)$方向的立体角元内找到粒子的概率为
+    $$
+        P=\left[\int_{0}^{+\infty}\left|\psi(r, \theta, \varphi)\right|^2r^2\,\mathrm{d}r\right]\sin\theta\,\mathrm{d}\theta\mathrm{d}\varphi
+    $$
+\end{solution}
+
+
+\begin{question}{习题20}
+    设$\varphi(x)=Ax(a-x)$，其中$0 \leqslant x \leqslant a$，求：
+    \begin{enumerate}
+        \item[(1)] 归一化常数$A$
+        \item[(2)] 在何处找到粒子的概率最大？
+    \end{enumerate}
+\end{question}
+\begin{solution}
+    按照统计诠释，一个真实的波函数必须满足归一化条件
+    \begin{equation}\label{波函数归一化条件}
+        \iiint_{-\infty}^{+\infty}\left|\psi\left(\vec{r}\right)\right|^2\,\mathrm{d}x\mathrm{d}y\mathrm{d}z=1
+    \end{equation}
+    (1) 让波函数在全空间归一化
+    $$
+        \int_{-\infty}^{+\infty}|\varphi(x)|^2\,\mathrm{d}x
+        = \int_0^a |\varphi(x)|^2\,\mathrm{d}x
+        = \int_0^a |Ax(a-x)|^2\,\mathrm{d}x
+        = |A|^2\left(\frac15x^5-\frac12ax^4+\frac13a^2x^3\right)_0^a
+        = 1
+    $$
+    解得
+    $$
+        A=\sqrt{\frac{30}{a^5}}
+    $$
+    (2) 粒子的概率密度为
+    $$
+        \rho(x) = |Ax(a-x)|^2 = \frac{30}{a^5}x^2(a-x)^2
+    $$
+    对概率密度求导，寻找极值点
+    $$
+        \rho'(x)=\frac{30}{a^5}[4x^3-6ax^2+2a^2x]=\frac{60}{a^5}x(2x-a)(x-a)
+    $$
+    因此，$\rho(x)$在$\left(0,\dfrac{a}{2}\right)$上单调递增，在$\left(\dfrac{a}{2},a\right)$上单调递减，在极大值点$x=\dfrac{a}{2}$附近找到粒子的概率最大.
+\end{solution}
+
+
+\begin{question}{习题21}
+    若粒子只在一维空间中运动，它的状态可用波函数
+    $$
+        \Phi(x, t) = \begin{dcases}
+            A\sin\frac{\pi x}{a}\mathrm{e}^{-\frac{\mathrm{i}}{h}Et}, & 0 \leqslant x \leqslant a \\
+            0,                                                        & \text{其他}                 \\
+        \end{dcases}
+    $$
+    来描述，式中$E$和$a$分别为确定的常数，而$A$是任意常数，求：
+    \begin{itemize}
+        \item[(1)] 归一化的波函数；
+        \item[(2)] 概率密度$w(x, t)$；
+        \item[(3)] 在何处找到粒子的概率最大？
+        \item[(4)] $\bar{x}$和$\overline{x^2}$的值.
+    \end{itemize}
+\end{question}
+\begin{solution}
+    (1) 先将波函数归一化
+    $$
+        \int_{-\infty}^{+\infty}|\Phi(x)|^2\mathrm{d}x
+        =\int_0^a\left|A\sin\frac{\pi x}{a}\right|^2\mathrm{d}x
+        =\int_0^a\frac{A^2}{2}\left(1-\cos\frac{2\pi x}{a}\right)\mathrm{d}x
+        =\int_0^a\frac{A^2}{2}\mathrm{d}x
+        =1
+    $$
+    解得
+    $$
+        A = \sqrt{\frac{2}{a}}
+    $$
+    所以波函数为
+    $$
+        \Phi(x, t) = \begin{dcases}
+            \sqrt{\frac{2}{a}}\sin\frac{\pi x}{a}\mathrm{e}^{-\frac{\mathrm{i}}{h}Et}, & 0 \leqslant x \leqslant a \\
+            0,                                                                         & \text{其他}                 \\
+        \end{dcases}
+    $$
+    (2) 概率密度$w(x,t)$为
+    $$
+        w(x,t) = \begin{dcases}
+            \frac{2}{a}\sin^2\frac{\pi x}{a}\mathrm{e}^{-\frac{\mathrm{i}}{h}Et}, & 0 \leqslant x \leqslant a \\
+            0,                                                                    & \text{其他}
+        \end{dcases}
+    $$
+    (3) 对概率密度函数求导，寻找极值点
+    $$
+        \frac{\partial w(x,t)}{\partial x} = \begin{dcases}
+            \frac{2\pi}{a^2}\sin\frac{2\pi x}{a}, & 0\leqslant x\leqslant a \\
+            0,                                    & \text{其他}
+        \end{dcases}
+    $$
+    综上，$w(x, t)$在$\left(0,\dfrac{a}{2}\right)$上单调递增，在$\left(\dfrac{a}{2},a\right)$上单调递减，在极大值点$x=\dfrac{a}{2}$附近找到粒子的概率最大.\\
+    (4) 概率密度函数为
+    $$
+        w(x)=|\Phi(x)|^2
+        = \frac{2}{a}\sin^2\frac{\pi x}{a}
+        = \frac{1}{a}\left(1-\cos\frac{2\pi x}{a}\right)
+    $$
+    求变量$g(x)$均值的通用方法是
+    $$
+        \overline{g(x)} = \int_{-\infty}^{+\infty}w(x)g(x) \,\mathrm{d}x
+    $$
+    于是分别有
+    $$
+        \overline{x}
+        % =\int_{-\infty}^{+\infty}xw(x)\,\mathrm{d}x
+        =\int_0^a\frac{x}{a}\left(1-\cos\frac{2\pi x}{a}\right)\,\mathrm{d}x
+        =\left.\left(\frac{x^{2}}{2a}-\frac{a^{2}}{4\pi^{2}}\cos\frac{2\pi x}{a}+\frac{ax}{2\pi}\sin\frac{2\pi x}{a}\right)\right|_{0}^{a}
+        =\frac{a}{2}
+    $$
+    $$%积分的时候令k=2pi/a
+        \begin{aligned}
+            \overline{x^2}
+            %  & =\int_{-\infty}^{+\infty}x^2w(x)\,\mathrm{d}x 
+             & =\int_0^a\frac{x^2}{a}\left(1-\cos\frac{2\pi x}{a}\right)\mathrm{d}x
+             & =\left.\left(\frac{x^3}{3a}-\frac{x^2}{2\pi}\sin\frac{2\pi x}{a}-\frac{ax}{2\pi^2}\cos\frac{2\pi x}{a}+\frac{a^3}{4\pi^3}\sin\frac{2\pi x}{a}\right)\right|_0^a
+             & = \frac{a^2}{3} - \frac{a^2}{2\pi^2}
+        \end{aligned}
+    $$
+    备注：可能会用到的积分公式
+    $$
+        \int x\cos{ax}\,\mathrm{d}x = \frac{1}{a^2}\cos{ax}-\frac{1}{a}x\sin{ax}+C
+    $$
+    $$
+        \int x^2\cos{ax}\,\mathrm{d}x = \frac{1}{a}x^2\sin{ax}+\frac{2}{a^2}x\cos{ax}-\frac{2}{a^3}\sin{ax}+C
+    $$
+\end{solution}
+
+
+
+\begin{question}{题目1.3}
+    对于一维自由粒子：
+    \begin{enumerate}
+        \item[(a)] 设波函数为$\displaystyle \psi_p(x)=\frac{1}{\sqrt{2\pi\hbar}}\mathrm{e}^{\mathrm{i}px/\hbar}$，试用Hamilton算符$\displaystyle \hat{H}=\frac{\hat{p}^2}{2m}=-\frac{\hbar^2}{2m}\frac{\mathrm{d}^2}{\mathrm{d}x^2}$对$\psi_p(x)$运算，验证$\displaystyle \hat{H}\psi_p(x)=\frac{p^2}{2m}\psi_p(x)$. 说明动量本征态$\psi_p(x)$也是Hamliton量（能量）本征态，本征值为$\displaystyle E=\cfrac{p^2}{2m}$.
+        \item[(b)] 设粒子在初始（$t=0$）时刻$\psi(x,0)=\psi_p(x)$，求$\psi(x,t)$.
+        \item[(c)] 设波函数为$\displaystyle \psi(x)=\delta(x)=\frac{1}{2\pi}\int\mathrm{e}^{\mathrm{i}kx}\,\mathrm{d}k=\frac{1}{2\pi}\int\mathrm{e}^{\mathrm{i}px/\hbar}\,\mathrm{d}p$，可以看成是无穷多个平面波$\mathrm{e}^{\mathrm{i}px}$的叠加，即无穷多个动量本征态$\mathrm{e}^{\mathrm{i}px}$的叠加.试问$\psi(x)=\delta(x)$是否是能量本征态？
+        \item[(d)] 设粒子在$t=0$时刻$\psi(x,0)=\delta(x)$，求$\psi(x,t)$.
+    \end{enumerate}
+\end{question}
+\begin{solution}
+    (a) 我们对波函数使用Hamilton算符
+    $$
+        \hat{H}\psi_p(x)
+        =-\frac{\hbar}{2m}\frac{\mathrm{d}^2}{\mathrm{d}x^2}\left(\frac{1}{\sqrt{2\pi\hbar}}\mathrm{e}^{\mathrm{i}px/\hbar}\right)
+        =-\frac{\hbar^2}{2m}\left(\frac{\mathrm{i}p}{\hbar}\right)^2 \frac{1}{\sqrt{2\pi\hbar}}\mathrm{e}^{\mathrm{i}px/\hbar}
+        =\frac{p^2}{2m}\psi_p(x)
+    $$
+    这说明动量本征态$\psi_p(x)$也是Hamilton量（能量）本征态，本征值为$E=\cfrac{p^2}{2m}$\\
+    (b) 粒子在初始时刻$\psi(x,0) = \psi_p(x) = \mathrm{e}^{\mathrm{i}p_0x/\hbar}$，将动量表象波函数变换到坐标表象波函数
+    $$
+        \psi_p(x)=\mathcal{F}[\psi(x)]
+        =\frac{1}{\sqrt{2\pi\hbar}}\int_{-\infty}^{+\infty}\mathrm{e}^{\mathrm{i}px/\hbar}\left[\mathrm{e}^{-\mathrm{i}px/\hbar}\right]\,\mathrm{d}x
+        =\sqrt{2\pi\hbar}\delta(p-p_0)
+    $$
+    由于$\psi(x,0)$是能量本征态
+    $$
+        \psi(x, t) = \frac{1}{\sqrt{2\pi\hbar}}\int_{-\infty}^{+\infty}\sqrt{2\pi\hbar}\mathrm{e}^{\mathrm{i}px/\hbar}\delta(p-p_0)\,\mathrm{d}p\cdot\mathrm{e}^{-\mathrm{i}Et/\hbar}
+        =\mathrm{e}^{-\mathrm{i}p_0x/\hbar-\mathrm{i}Et/\hbar}
+    $$
+    (c) 对于自由粒子而言，动量本征态和能量本征态是等价的，但是题目中的$\psi(x, 0)=\delta(x)$是无穷多个动量本征态$\mathrm{e}^{\mathrm{i}px}$的叠加（即所谓叠加态），所以显然不是能量本征态。
+\end{solution}
+
+\begin{question}{习题12}
+    由下列两个定态波函数计算几率流密度：
+    \begin{enumerate}
+        \item[(1)] $\psi_1(r)=\frac{A}{r}\mathrm{e}^{\mathrm{i}kr}$
+        \item[(2)] $\psi_2(x)=\dfrac{A}{r}\mathrm{e}^{-\mathrm{i}kr}$
+    \end{enumerate}
+    从所得结果证明$\psi_1(r)$表示向外传播的球面波，$\psi_2(r)$表示向内（即向原点）传播的平面波.
+\end{question}
+\begin{solution}
+    概率流密度的表达式为
+    \begin{equation}
+        \vec{j}(\vec{r}, t) = -\frac{\mathrm{i}\hbar}{2m}\left(\psi^*\nabla\psi-\psi\nabla\psi^*\right)
+    \end{equation}
+    分别计算$\psi_1(x)$和$\psi_2(x)$的概率流密度
+    $$
+        \vec{j}_1(\vec{r}) = -\frac{\mathrm{i}\hbar}{2m}\left\{\left(\frac{A}{r}\mathrm{e}^{-\mathrm{i}kr}\cdot\frac{A}{r}\mathrm{e}^{\mathrm{i}kr}\mathrm{i}k\right) - \left[\frac{A}{r}\mathrm{e}^{\mathrm{i}kr}\cdot\frac{A}{r}\mathrm{e}^{-\mathrm{i}kr}(-\mathrm{i}k)\right]\right\}
+        =+\frac{\mathrm{i}\hbar}{m}\frac{A^2k}{r^2}
+    $$
+    $$
+        \vec{j}_2(\vec{r}) = -\frac{\mathrm{i}\hbar}{2m}\left\{\left[\frac{A}{r}\mathrm{e}^{\mathrm{i}kr}\cdot\frac{A}{r}\mathrm{e}^{-\mathrm{i}kr}(-\mathrm{i}k)\right]-\left(\frac{A}{r}\mathrm{e}^{-\mathrm{i}kr}\cdot\frac{A}{r}\mathrm{e}^{\mathrm{i}kr}\mathrm{i}k\right)\right\}
+        =-\frac{\mathrm{i}\hbar}{m}\frac{A^2k}{r^2}
+    $$
+    由此可见$\psi_1(r)$表示向外传播的球面波，$\psi_2(r)$表示向内（即向原点）传播的平面波.
+\end{solution}
