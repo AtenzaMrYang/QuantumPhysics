@@ -1,0 +1,122 @@
+\section{常用数学工具}
+
+
+\subsection{Fourier变换}
+\begin{enumerate}
+    \item 实数形式的傅里叶正弦变换
+          \begin{equation}\label{实数形式的傅里叶正弦变换}
+              \begin{dcases}
+                  f(x)=\sqrt{\frac{2}{\pi}}\int_0^{+\infty}B(\omega)\sin{\omega x}\,\mathrm{d}x      \\
+                  B(\omega)=\sqrt{\frac{2}{\pi}}\int_0^{+\infty}f(\xi)\sin{\omega\xi}\,\mathrm{d}\xi \\
+              \end{dcases}
+          \end{equation}
+    \item 实数形式的傅里叶余弦变换
+          \begin{equation}\label{实数形式的傅里叶余弦变换}
+              \begin{dcases}
+                  f(x)=\sqrt{\frac{2}{\pi}}\int_0^{+\infty}A(\omega)\cos{\omega x}\,\mathrm{d}x      \\
+                  A(\omega)=\sqrt{\frac{2}{\pi}}\int_0^{+\infty}f(\xi)\cos{\omega\xi}\,\mathrm{d}\xi \\
+              \end{dcases}
+          \end{equation}
+    \item 复数形式的傅里叶变换
+          \begin{equation}\label{复数形式的傅里叶变换}
+              \begin{dcases}
+                  F(\omega)=\frac{1}{\sqrt{2\pi}}\int_{-\infty}^{+\infty}f(x)\left[\mathrm{e}^{\mathrm{i}\omega x}\right]^*\,\mathrm{d}x \\
+                  f(x)=\frac{1}{\sqrt{2\pi}}\int_{-\infty}^{+\infty}F(\omega)\mathrm{e}^{\mathrm{i}\omega x}\,\mathrm{d}\omega           \\
+              \end{dcases}
+          \end{equation}
+\end{enumerate}
+
+
+
+\subsection{\texorpdfstring{$\delta$}{δ}函数}
+虽然$\delta$函数并没有具体解析式，但有一种十分符合物理直觉的定义
+$$
+    \delta(x-x_0) = \begin{cases}
+        \infty, & x = x_0    \\
+        0,      & x \neq x_0 \\
+    \end{cases} \quad
+    \int_{-\infty}^{+\infty} \delta(x-x_0) \,\mathrm{d}x = 1
+$$
+\begin{enumerate}
+    \item 原函数
+          \begin{equation}\label{delta函数的原函数}
+              H(x)=\int_{-\infty}^{x} \delta(t) \,\mathrm{d}t
+              =\begin{cases}
+                  0, & x<0 \\
+                  1, & x>0 \\
+              \end{cases}
+          \end{equation}
+    \item 奇偶性
+          \begin{equation}\label{delta函数的奇偶性}
+              \begin{aligned}
+                  \delta(-x)  & = \delta(x)   \\
+                  \delta'(-x) & = -\delta'(x) \\
+              \end{aligned}
+          \end{equation}
+    \item 挑选性
+          \begin{equation}\label{delta函数的挑选性}
+              \int_{a}^{b}\delta(x-x_0)f(x)\,\mathrm{d}x
+              =\begin{cases}
+                  f(x_0), & x_0\in(a,b)    \\
+                  0,      & x_0\notin(a,b) \\
+              \end{cases}
+          \end{equation}
+\end{enumerate}
+
+\subsection{Kronecker函数}
+\begin{equation}
+    \delta_{ij} = \begin{cases}
+        0, & i \neq j \\
+        1, & i = j    \\
+    \end{cases}
+\end{equation}
+
+\subsection{Laplace变换}
+\begin{equation}\label{拉普拉斯变换}
+    \bar{f}(p)=\int_{0}^{+\infty}f(t)\mathrm{e}^{-pt}\,\mathrm{d}t
+\end{equation}
+\begin{equation}\label{拉普拉斯逆变换}
+    f(t)=\frac{1}{2\pi\mathrm{i}}\int_{\sigma-\mathrm{i}\infty}^{\sigma+\mathrm{i}\infty}\bar{f}(p)\mathrm{e}^{pt}\,\mathrm{d}p
+\end{equation}
+
+
+\subsection{Hermite多项式}
+变系数微分方程
+\begin{equation}
+    u''-2zu'+(\lambda-1)u=0
+\end{equation}
+的系数必须满足
+\begin{equation}\label{变系数微分方程有解的条件}
+    \lambda-1=2n, \quad n=0,1,2\cdots
+\end{equation}
+其无穷级数解才会中断为一个多项式，多项式的生成函数为
+\begin{equation}\label{hermite多项式的生成函数}
+    \mathrm{e}^{-s^2+2zs}=\sum_{n=0}^{\infty}\frac{H_n(z)}{n!}s^n
+\end{equation}
+由此可以证明Hermite多项式的正交归一性
+\begin{equation}\label{hermite多项式的正交归一性}
+    \int_{-\infty}^{+\infty}H_m(z)H_n(z)\mathrm{e}^{-z^2}\,\mathrm{d}z=\sqrt{\pi}2^n\cdot n!\delta_{mn}
+\end{equation}
+和递推关系
+\begin{gather}\label{hermite多项式的递推关系}
+    H_{n+1}(z)-2zH_n(z)+2nH_{n-1}(z)=0  \\
+    H_n'(z)=2nH_{n-1}(z)
+\end{gather}
+
+\subsection{常用积分公式}\label{常用积分公式}
+\begin{equation}
+    \int x\sin{ax} \,\mathrm{d}x = \frac{1}{a^2}\sin{ax}-\frac{1}{a}x\cos{ax}+C
+\end{equation}
+\begin{equation}
+    \int x^2\sin{ax}\,\mathrm{d}x = -\frac{1}{a}x^2\cos{ax}+\frac{2}{a^2}x\sin{ax}+\frac{2}{a^3}\cos{ax}+C
+\end{equation}
+\begin{equation}
+    \int x\cos{ax}\,\mathrm{d}x = \frac{1}{a^2}\cos{ax}+\frac{1}{a}x\sin{ax}+C
+\end{equation}
+\begin{equation}
+    \int x^2\cos{ax}\,\mathrm{d}x = \frac{1}{a}x^2\sin{ax}+\frac{2}{a^2}x\cos{ax}-\frac{2}{a^3}\sin{ax}+C
+\end{equation}
+
+
+
+

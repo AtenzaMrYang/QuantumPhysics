@@ -1,0 +1,112 @@
+\section{中心力场}
+
+\begin{question}{题目5.1}
+    利用5.1.3节中的式(17)和式(18)，证明下列关系式：
+    \begin{enumerate}
+        \item 相对动量
+              $$
+                  \vec{p}=\mu\dot{\vec{r}}=\frac{1}{M}\left(m_2\vec{p}_1-m_1\vec{p}_2\right)
+              $$
+        \item 总动量
+              $$
+                  \vec{P}=M\dot{\vec{R}} = \vec{p}_1+\vec{p}_2
+              $$
+        \item 总轨道角动量
+              $$
+                  \vec{L}=\vec{l}_1+\vec{l}_2
+                  =\vec{r}_1\times\vec{p}_1+\vec{r}_2\times\vec{p}_2
+                  =\vec{R}\times\vec{P}+\vec{r}\times\vec{p}
+              $$
+        \item 总动能
+              $$
+                  T=\frac{\vec{p}_1^2}{2m_1}+\frac{\vec{p}_2^2}{2m_2}
+                  =\frac{\vec{P}^2}{2M}+\frac{\vec{p}^2}{2m}
+              $$
+              反之，有
+              $$
+                  \begin{aligned}
+                       & \vec{r}_1=\vec{R}+\frac{\mu}{m_1}\vec{r},   & \vec{r}_2=\vec{R}-\frac{\mu}{m_2}\vec{r} \\
+                       & \vec{p}_1 = \frac{\mu}{m_2}\vec{P}+\vec{p}, & \vec{p}_2=\frac{\mu}{m_1}\vec{P}-\vec{p}
+                  \end{aligned}
+              $$
+              以上各式中
+              $$
+                  \begin{aligned}
+                       & M=m_1+m_2, & \mu=\frac{m_1m_2}{m_1+m_2}
+                  \end{aligned}
+              $$
+    \end{enumerate}
+\end{question}
+\begin{solution}
+    质心坐标表示为
+    $$
+        \vec{R}=\frac{m_1\vec{r}_1+m_2\vec{r}_2}{m_1+m_2}
+    $$
+    相对半径表示为
+    $$
+        \vec{r}=\vec{r}_1-\vec{r}_2
+    $$
+    (1) 相对动量
+    $$
+        \vec{p}=\mu\dot{\vec{r}}
+        =\frac{m_1m_2}{m_1+m_2}\left(\dot{\vec{r}}_1-\dot{\vec{r}}_2\right)
+        =\frac{1}{M}[m_2(m_1\dot{\vec{r}}_1)-m_1(m_2\dot{\vec{r}}_2)]
+        =\frac{1}{M}(m_2\vec{p}_1-m_1\vec{p}_2)
+    $$
+    (2) 总动量
+    $$
+        \vec{P}=M\dot{\vec{R}}
+        =M\frac{m_1\dot{\vec{r}}_1+m_2\dot{\vec{r}}_2}{M}
+        =\vec{p}_1+\vec{p}_2
+    $$
+    (3) 总轨道角动量
+    $$
+        \begin{aligned}
+            \vec{R}\times\vec{P}+\vec{r}\times\vec{p} & =\frac{m_1\vec{r}_1+m_2\vec{r}_2}{M}\times\left(\vec{p}_1+\vec{p}_2\right)+\left(\vec{r}_1-\vec{r}_2\right)\times\frac{1}{M}\left(m_2\vec{p}_1+m_1\vec{p}_2\right) \\
+                                                      & =\frac{1}{M}[(m_1+m_2)\vec{r}_1\times\vec{p}_1 + (m_1+m_2)\vec{r}_2\times\vec{p}_2]                                                                                \\
+            \vec{L}=\vec{l}_1+\vec{l}_2               & =\vec{r}_1\times\vec{p}_1+\vec{r}_2\times\vec{p}_2                                                                                                                 \\
+        \end{aligned}
+    $$
+    (4) 总动能
+    $$
+        T=\frac{\vec{p}_1^2}{2m_1}+\frac{\vec{p}_2^2}{2m_2}
+    $$
+\end{solution}
+
+\begin{comment}
+\begin{question}{习题39}
+    氢原子处在基态$\displaystyle\psi(r, \theta, \varphi)=\frac{1}{\sqrt{\pi a_0^3}}\mathrm{e}^{-\frac{r}{a_0}}$，求：
+    \begin{enumerate}
+        \item $r$的平均值
+        \item 势能$U=-\frac{e_s^2}{r}$的平均值
+    \end{enumerate}
+\end{question}
+\begin{solution}
+    首先，我们需要将波函数$\psi(r,\theta,\phi)$表示成径向函数$R(r)$和角向函数$Y(\theta,\phi)$的乘积形式。由于氢原子的波函数具有球对称性，我们可以将波函数表示为径向函数$R(r)$和球谐函数$Y_{00}(\theta,\phi)$的乘积形式：
+    $$
+        \psi(r, \theta, \varphi) = R(r)Y_{00}(\theta, \varphi)
+    $$
+    其中，$Y_{00}(\theta,\phi)=\frac{1}{\sqrt{4\pi}}$是球谐函数的基态。
+    由于波函数是归一化的，因此可以得到径向函数$R(r)$的归一化条件：
+    $$
+        \int_{0}^{\infty}|R(r)|^2r^2\,\mathrm{d}r=1
+    $$
+    利用球坐标系下的拉普拉斯算符，可以得到径向波函数$R(r)$的运动方程：
+    $$
+        -\frac{\hbar}{2m}\frac{1}{r^2}\frac{\mathrm{d}}{\mathrm{d}r}
+    $$
+    其中，$m$是电子质量，$e$是电子电荷，$\epsilon_0$是真空介电常数，$E_R$是氢原子基态的能量。将波函数代入上述运动方程中，可以得到径向波函数$R(r)$的解：
+    $$
+        R(r)=\frac{2}{a_0^{3/2}}\mathrm{e}^{-\frac{x}{a_0}}
+    $$
+    其中，$a_0=\dfrac{4\pi\epsilon_0\hbar^2}{me^2}$是玻尔半径，因此氢原子的波函数可以表示为
+    $$
+        \psi(r, \theta, \varphi)=\frac{2}{\sqrt{\pi}a_0^{3/2}}\mathrm{e}^{-\frac{x}{a_0}}\frac{1}{\sqrt{4\pi}}
+    $$
+    接下来，我们可以计算$r$的平均值
+    $$
+        \bar{r}=\int_{0}^{\infty}r|\psi(r, \theta, \varphi)|^2\,\mathrm{d}r
+        =\frac{2}{\pi a_0^3}\int_{0}^{\infty}r^3\mathrm{e}^{-\frac{2r}{a_0}}\,\mathrm{d}r
+    $$
+\end{solution}
+\end{comment}

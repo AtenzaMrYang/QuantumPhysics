@@ -1,4 +1,164 @@
 \section{一维势场中的粒子}
+
+\subsection{一维势场中粒子能量本征态的一般性质}
+
+设质量为$m$的粒子，沿$x$方向运动，势能为$V(x)$，则薛定谔方程表示为
+\begin{equation}\label{薛定谔方程}
+    \mathrm{i}\hbar\frac{\partial \psi(x,t)}{\partial t} = \left[-\frac{\hbar^2}{2m}\frac{\partial^2 }{\partial x^2}+V(x)\right]\psi(x,t)
+\end{equation}
+对于定态，即具有一定能量$E$的状态，波函数形式为
+\begin{equation}
+    \psi(x,t)=\psi(x)\mathrm{e}^{-\mathrm{i}Et}
+\end{equation}
+代入$\eqref{薛定谔方程}$，可得$\psi(x)$满足的方程
+\begin{equation}\label{一维粒子的能量本征方程}
+    \left[-\frac{\hbar^2}{2m}\frac{\mathrm{d}^2}{\mathrm{d}x^2}+V(x)\right]\psi(x)=E\psi(x)
+\end{equation}
+此即一维粒子的能量本征方程. 在量子力学中，我们一般默认$V(x)$取实值，即
+\begin{equation}\label{量子力学中的势能是实数}
+    V^*(x) = V(x)
+\end{equation}
+
+
+
+\begin{theorem}\label{定理1}
+    设$\psi(x)$是方程$\eqref{一维粒子的能量本征方程}$的一个解，对应的能量本征值为$E$，则$\psi^*(x)$也是方程的一个解，对应的能量也是$E$.
+\end{theorem}
+\begin{proof}
+    对方程 $\eqref{一维粒子的能量本征方程}$ 取复共轭
+    $$
+        \left[-\frac{\hbar}{2m}\frac{\mathrm{d}^2}{\mathrm{d}x^2}+V(x)\right]\psi^*(x)=E\psi^*(x)
+    $$
+    即$\psi^*(x)$也满足方程$\eqref{一维粒子的能量本征方程}$，并且对应能量本征值为$E$.
+\end{proof}
+
+
+
+
+
+\begin{theorem}\label{定理2}
+    对于能量的某个本征值$E$，总可以找到方程$\eqref{一维粒子的能量本征方程}$的一组实数解，凡是属于$E$的任何解，均可表示为这一组实解的线性叠加.
+\end{theorem}
+\begin{proof}
+    设$\psi(x)$是能量本征值$E$的一个解，那$\psi^*(x)$也必定是能量本征值$E$的解，我们利用二者的线性叠加构造出一组实解
+    $$
+        \varphi(x)=\psi(x)+\psi^*(x), \quad
+        \chi(x) = -\mathrm{i}[\psi(x)-\psi^*(x)]
+    $$
+    显然这组实数解也是能量本征值$E$的一组解，我们只要将这组实数解适当地线性叠加，就能得到能量本征值$E$的所有解
+    $$
+        \psi=\frac{1}{2}(\varphi+\mathrm{i}\chi), \quad
+        \psi^*=\frac{1}{2}(\varphi-\mathrm{i}\chi)
+    $$
+\end{proof}
+
+
+
+\begin{theorem}\label{定理3}
+    设$V(x)$具有空间反射不变性，$V(-x)=V(x)$. 如$\psi(x)$是方程$\eqref{一维粒子的能量本征方程}$的对应于能量本征值$E$的解，则$\psi(-x)$也是方程$\eqref{一维粒子的能量本征方程}$的对应于能量$E$的解.
+\end{theorem}
+
+\begin{proof}
+    令$x=-x$，再代回能量本征方程
+    $$
+        \frac{\mathrm{d}^2}{\mathrm{d}(-x)^2}=\frac{\mathrm{d}^2}{\mathrm{d}x^2}, \quad V(-x)=V(x)
+    $$
+    结合空间反射不变性
+    $$
+        \left[-\frac{\hbar}{2m}\frac{\mathrm{d}^2}{\mathrm{d}x^2}+V(x)\right]\psi(-x)=E\psi(-x)
+    $$
+    显然$\psi(-x)$也满足方程，能量本征值也是$E$.
+\end{proof}
+
+
+
+
+\begin{theorem}\label{定理4}
+    设$V(x)=V(-x)$，则对应于任何一个能量本征值$E$，总可以找到方程组$\eqref{一维粒子的能量本征方程}$的一组解（每一个解都有确定的宇称），而属于能量本征值$E$的任何解，都可用它们来展开.
+\end{theorem}
+\begin{proof}
+    已知同属本征值$E$的一组解是$\psi(x)$和$\psi(-x)$，我们可以通过线性叠加构造出任意一组解
+    $$
+        f(x)=\psi(x)+\psi(-x), \quad g(x)=\psi(x)-\psi(-x)
+    $$
+    而$f(x)$和$g(x)$各自具有确定的宇称，不妨令
+    $$
+        f(-x)=f(x), \quad g(-x)=-g(x)
+    $$
+    由此反解出$\psi(x)$和$\psi(-x)$的线性表示
+    $$
+        \psi(x)=\frac{1}{2}[f(x)+g(x)], \quad \psi(-x)=\frac{1}{2}[f(x)-g(x)]
+    $$
+    实际上，任何一个实变函数都可以分解为偶函数$f(x)$和奇函数$g(x)$的和.
+\end{proof}
+
+
+
+
+\begin{theorem}\label{定理5}
+    对于阶梯形方势
+    $$
+        V(x) = \begin{cases}
+            V_1, & x<a \\
+            V_2, & x>a
+        \end{cases}
+    $$
+    如果$(V_2-V_1)$有限，则能量本征方程$\psi(x)$及其导数$\psi'(x)$必定是连续的.
+\end{theorem}
+\begin{proof}
+    对能量本征方程的两边同乘$\mathrm{d}x$
+    $$
+        \mathrm{d}\left[\frac{\mathrm{d}\psi(x)}{\mathrm{d}x}\right]
+        =-\frac{2m}{\hbar}[E-V(x)]\psi(x)\,\mathrm{d}x
+    $$
+    对于$\forall\varepsilon>0$，我们在区间$[a-\varepsilon, a+\varepsilon]$上对$x$积分
+    $$
+        \int_{a-\varepsilon}^{a+\varepsilon}\mathrm{d}\left[\frac{\mathrm{d}\psi(x)}{\mathrm{d}x}\right]
+        =-\frac{2m}{\hbar}\int_{-\varepsilon}^{+\varepsilon}[E-V(x)]\psi(x)\,\mathrm{d}x
+    $$
+    两边对$\varepsilon$取极限
+    $$
+        \lim_{\varepsilon\to0^+}\int_{a-\varepsilon}^{a+\varepsilon}\mathrm{d}\left[\psi'(x)\right]
+        =-\frac{2m}{\hbar}\lim_{\varepsilon\to0^+}\int_{-\varepsilon}^{+\varepsilon}[E-V(x)]\psi(x)\,\mathrm{d}x
+    $$
+    其中$[E-V(x)]\psi(x)$有限，所以方程右侧为零，进而有
+    $$
+        \psi'(a+0^+)-\psi'(a-0^+)=0
+    $$
+    这说明一阶导函数$\psi'(x)$在跳跃点$x=a$处存在，所以原函数$\psi(x)$必定连续.
+\end{proof}
+
+
+
+
+
+\begin{theorem}\label{定理6}
+    对于一维粒子，设$\psi_1(x)$与$\psi_2(x)$均为方程$\eqref{一维粒子的能量本征方程}$的属于同一能量$E$的解，则
+    $$
+        \psi_1\psi_2' - \psi_2\psi_1' = {\rm Const}
+    $$
+    且与$x$无关.
+\end{theorem}
+\begin{proof}
+\end{proof}
+
+
+
+
+
+
+\begin{theorem}\label{定理7}
+    设粒子在规则势场$V(x)$中运动，如存在束缚态，则必定是不简并的.
+\end{theorem}
+\begin{proof}
+\end{proof}
+
+
+
+
+
+\subsection{方势}
+
 \begin{question}{P32练习}
     试取无限深方势阱的中心为坐标原点，即
     $$
@@ -14,13 +174,52 @@
     但波函数表示为
     $$
         \psi_n(x) = \begin{cases}
-            \sqrt{\dfrac{a}{2}}\cos\left(\dfrac{n\pi x}{a}\right), n=1,3,5,\cdots, & |x|\leqslant\dfrac{a}{2} \\
-            \sqrt{\dfrac{a}{2}}\sin\left(\dfrac{n\pi x}{a}\right), n=2,4,6,\cdots, & |x|\leqslant\dfrac{a}{2} \\
-            0,                                                                     & |x|\geqslant\dfrac{a}{2} \\
+            \sqrt{\frac{a}{2}}\cos\left(\frac{n\pi x}{a}\right), n=1,3,5,\cdots, \\
+               & |x|<\frac{a}{2}                                                 \\
+            \sqrt{\frac{a}{2}}\sin\left(\frac{n\pi x}{a}\right), n=2,4,6,\cdots, \\
+            0, & |x|\geqslant\frac{a}{2}                                         \\
         \end{cases}
     $$
 \end{question}
 \begin{solution}
+    粒子在方势阱内的能量本征方程为
+    $$
+        \frac{\mathrm{d}^2\psi(x)}{\mathrm{d}x^2}+\frac{2mE}{\hbar}\psi(x)=0
+    $$
+    这个微分方程的解形如
+    $$
+        \psi(x)=A\sin\left(\frac{\sqrt{2mE}}{\hbar}x+\delta\right)
+    $$
+    其中$A$和$\delta$是待定系数，我们代入中心条件$\psi(0)=0$，得到$\delta=0$，再结合边界条件
+    $$
+        \begin{dcases}
+            \psi\left(-\frac{a}{2}\right) = 0 \\
+            \psi\left(\frac{a}{2}\right) = 0
+        \end{dcases}
+        \implies
+        \begin{dcases}
+            \frac{\sqrt{2mE}}{\hbar}\left(-\frac{a}{2}\right)= n\pi \\
+            \frac{\sqrt{2mE}}{\hbar}\left(\frac{a}{2}\right) = n\pi
+        \end{dcases}
+        \implies
+        E = E_n = \frac{2n^2\pi^2\hbar^2}{ma^2}
+    $$
+    此外，能量本征值$E_n$对应的本征波函数还要满足归一化条件
+    $$
+        \int_{-\frac{a}{2}}^{+\frac{a}{2}}|\psi_n(x)|^2\,\mathrm{d}x
+        = \int_{-\frac{a}{2}}^{+\frac{a}{2}}\left|A\sin\frac{2n\pi x}{a}\right|^2\,\mathrm{d}x
+        = A^2\int_{-\frac{a}{2}}^{+\frac{a}{2}}\frac{1}{2}\left(1-\cos\frac{2n\pi x}{a}\right)\,\mathrm{d}x
+        = 1
+    $$
+    解得$A=\dfrac{a}{2}$，并且
+    $$
+        \psi_n(x) = \begin{cases}
+            \sqrt{\frac{a}{2}}\cos\left(\frac{n\pi x}{a}\right), n=1,3,5,\cdots, \\
+               & |x|<\frac{a}{2}                                                 \\
+            \sqrt{\frac{a}{2}}\sin\left(\frac{n\pi x}{a}\right), n=2,4,6,\cdots, \\
+            0, & |x|\geqslant\frac{a}{2}                                         \\
+        \end{cases}
+    $$
 \end{solution}
 
 
@@ -31,12 +230,64 @@
     $$
         V(x) = \begin{cases}
             0,      & 0<x<a, 0<y<b, 0<z<c \\
-            \infty, & \text{else}         \\
+            \infty, & \text{其它位置}         \\
         \end{cases}
     $$
     求粒子的能量本征值和本征波函数. 如$a=b=c$，讨论能级的简并度.
 \end{question}
 \begin{solution}
+    粒子在矩形匣子中运动时，满足能量本征方程
+    $$
+        \nabla^2\psi(x,y,z) + \frac{2mE}{\hbar}\psi(x,y,z)= 0
+    $$
+    方程的解形如
+    $$
+        \psi(x,y,z)=A\sin(k_1x+\delta_1)\sin(k_2y+\delta_2)\sin(k_3z+\delta_3)
+    $$
+    根据边界条件$\psi(0,0,0)=0$确定$\delta_1=\delta_2=\delta_3=0$，再代入$\psi(a,b,c)=0$
+    $$
+        \begin{cases}
+            \sin(k_1a)=0 \\
+            \sin(k_2b)=0 \\
+            \sin(k_3c)=0 \\
+        \end{cases}
+        \implies
+        \begin{cases}
+            k_1a = n_1\pi, & n_1=1,2,3,\cdots \\
+            k_2b = n_2\pi, & n_2=1,2,3,\cdots \\
+            k_3c = n_3\pi, & n_3=1,2,3,\cdots \\
+        \end{cases}
+        \implies
+        \begin{dcases}
+            k_1=\frac{n_1\pi}{a}, & n_1=1,2,3,\cdots \\
+            k_2=\frac{n_2\pi}{a}, & n_2=1,2,3,\cdots \\
+            k_3=\frac{n_3\pi}{a}, & n_3=1,2,3,\cdots \\
+        \end{dcases}
+    $$
+    所以粒子的能量本征值为
+    $$
+        E=E_{n_1n_2n_3}=\frac{\hbar^2\pi^2}{2m}\left(\frac{n_1^2}{a^2}+\frac{n_2^2}{b^2}+\frac{n_3^2}{c^2}\right)
+    $$
+    再归一化能量本征函数
+    $$
+        \iiint_{-\infty}^{+\infty}|\psi(x,y,z)|^2\,\mathrm{d}x\mathrm{d}y\mathrm{d}z
+        =A^2\int_{0}^{a}\left|\sin\frac{n_1\pi x}{a}\right|^2\mathrm{d}x
+        \int_{0}^{b}\left|\sin\frac{n_2\pi y}{b}\right|^2\mathrm{d}y
+        \int_{0}^{c}\left|\sin\frac{n_3\pi z}{a}\right|^2\mathrm{d}z
+        =1
+    $$
+    得到
+    $$
+        \psi_{n_1n_2n_3}(x,y,z) = \sqrt{\frac{8}{abc}}\sin\frac{n_1\pi x}{a}\sin\frac{n_2\pi y}{a}\sin\frac{n_3\pi z}{a}
+    $$
+    如果匣子恰巧是边长为$a$的立方体
+    $$
+        E\psi(x,y,z) + \frac{\hbar^2\pi^2}{2ma^2}\left(n_1^2+n_3^2+n_2^2\right) = 0
+    $$
+    则此时的能级简并条件退化为
+    $$
+        n_1^2+n_2^2+n_3^2 = \frac{2ma^2E}{\hbar^2\pi^2}
+    $$
 \end{solution}
 
 
@@ -50,14 +301,243 @@
             \infty, & x<0, x>a \\
         \end{cases}
     $$
-    证明处于能量本征态$\psi_n(x)$的粒子，$\overline{x}=\cfrac{a}{2}$
-    $$
-        \overline{\left(x-\overline{x}\right)^2} = \frac{a^2}{12}\left(1-\frac{6}{n^2\pi^2}\right)
-    $$
-    讨论$n\to\infty$的情况，并于经典力学计算结果比较.
+    证明处于能量本征态$\psi_n(x)$的粒子
+    \begin{enumerate}
+        \item $\displaystyle \overline{x}=\frac{a}{2}$
+        \item $\displaystyle \overline{\left(x-\overline{x}\right)^2} = \frac{a^2}{12}\left(1-\frac{6}{n^2\pi^2}\right)$
+        \item 讨论$n\to\infty$的情况，并与经典力学计算结果比较.
+    \end{enumerate}
 \end{question}
 \begin{solution}
+    首先求解粒子的本征函数
+    $$
+        \psi_n(x) = \sqrt{\frac{a}{2}}\sin\left(\frac{n\pi x}{a}\right)
+    $$
+    所以
+    $$
+        \overline{x} = \int_{0}^{a}x|\psi(x)|^2\,\mathrm{d}x
+        = \frac{a}{2}\int_0^a\frac{x^2}{2}\left(1-\cos\frac{2n\pi x}{a}\right)\,\mathrm{d}x
+        = \frac{a}{2}
+    $$
+    $$
+        \overline{x^2}
+        = \int_{0}^{a}x^2|\psi(x)|^2\,\mathrm{d}x
+        = \frac{a}{2}\int_0^a\frac{x^2}{2}\left(1-\cos\frac{2n\pi x}{a}\right)\,\mathrm{d}x
+        = \frac{a^3}{3} - \frac{a^2}{2n^2\pi^2}
+    $$
+    $$
+        \overline{\left(x-\overline{x}\right)^2}
+        = \overline{x^2} - \overline{x}^2
+        = \frac{a^2}{12}\left(1-\frac{6}{n^2\pi^2}\right)
+    $$
+    而在经典力学的范畴内，粒子没有波动性
+    $$
+        \overline{x}
+        = \int_{0}^{a}\frac{x}{a}\,\mathrm{d}x
+        = \frac{a}{2}
+    $$
+    $$
+        \overline{x^2}
+        = \int_{0}^{a}\frac{x^2}{a}\,\mathrm{d}x
+        = \frac{a^2}{3}
+    $$
+    $$
+        \overline{\left(x-\overline{x}\right)^2}
+        = \overline{x^2} - \overline{x}^2
+        = \frac{a^2}{12}
+    $$
+    可见，当$n\to\infty$时，量子力学结果与经典力学结果一致.
+\end{solution}
+
+\subsection{\texorpdfstring{$\delta$}{δ}势}
+我们假设一个质量为$m$的粒子（能量$E>0$）从左入射，碰到$\delta$势垒
+$$
+    V(x)=\gamma\delta(x)
+$$
+代入不含时薛定谔方程
+$$
+    -\frac{\hbar}{2m}\frac{\mathrm{d}^2}{\mathrm{d}x^2}\psi(x)
+    =[E-\gamma\delta(x)]\psi(x)
+$$
+注意到$x=0$是方程的奇点，波函数在$x=0$处的一阶导数$\psi'$不连续，二阶导数$\psi''$不存在.
+\begin{proof}
+    对方程两边同乘$\mathrm{d}x$
+    $$
+        \mathrm{d}\left[\frac{\mathrm{d}\psi(x)}{\mathrm{d}x}\right]
+        =-\frac{2m}{\hbar}[E-\gamma\delta(x)]\psi(x)\,\mathrm{d}x
+    $$
+    对于$\forall\varepsilon>0$，我们在区间$[0-\varepsilon, 0+\varepsilon]$上对$x$积分，结合公式$\eqref{delta函数的挑选性}$
+    $$
+        \int_{-\varepsilon}^{+\varepsilon}\mathrm{d}\left[\frac{\mathrm{d}\psi(x)}{\mathrm{d}x}\right]
+        =-\frac{2m}{\hbar}\left[\int_{-\varepsilon}^{+\varepsilon}E\psi(x)\,\mathrm{d}x-\gamma\psi(0)\right]
+    $$
+    两边对$\varepsilon$取极限
+    $$
+        \lim_{\varepsilon\to0^+}\int_{-\varepsilon}^{+\varepsilon}\mathrm{d}\left[\psi'(x)\right]
+        =-\frac{2m}{\hbar}\left[\lim_{\varepsilon\to0^+}\int_{-\varepsilon}^{+\varepsilon}E\psi(x)\,\mathrm{d}x-\gamma\psi(0)\right]
+    $$
+    化简得（此处要结合公式$\eqref{delta函数的挑选性}$）
+    \begin{equation}\label{跃变条件}
+        \psi'(0^+)-\psi'(0^-) = -\frac{2m}{\hbar^2}[0-\gamma\psi(0)] \neq 0
+    \end{equation}
+    这说明$\psi'(x)$在$x=0$处一般不连续（除非$\psi(0)=0$），公式$\eqref{跃变条件}$也被称为$\delta$势中$\psi'$的跃变条件.
+\end{proof}
+
+
+
+\begin{question}{题目2.6}
+    设粒子（能量$E>0$）从左入射，碰到如图所示的势阱，求透射系数与反射系数.
+    \begin{center}
+        \begin{tikzpicture}
+            \draw (-3, -2)--(0, -2)--(0, 0)--(2, 0) node[below] {$x$};
+            \coordinate[label = below right:$0$] (O) at (0, 0);
+            \coordinate[label = right:$-V_0$] (V0) at (0, -2);
+            \draw[-latex] (-2, 1) -- (0, 1) node[right] {$E>0$};
+            % \draw[dashed] (-2, 0) -- (0, 0);
+        \end{tikzpicture}
+    \end{center}
+\end{question}
+\begin{solution}
+    透射系数和反射系数为
+    $$
+        T=\frac{4k/k'}{(1+k/k')^2}, \quad R=\frac{(1-k/k')^2}{(1+k/k')^2}.
+    $$
+    其中
+    $$
+        k=\frac{\sqrt{2mE}}{\hbar}, \quad k'=\frac{\sqrt{2m(E+V_0)}}{\hbar}.
+    $$
+    不难验证
+    $$
+        R+T=1.
+    $$
 \end{solution}
 
 
 
+\begin{question}{题目2.9}
+    谐振子处于$\psi_n$态下，计算
+    \begin{enumerate}
+        \item[(1)] $\Delta{x}=\sqrt{\overline{(x-\bar{x})^2}}$
+        \item[(2)] $\Delta{p}=\sqrt{\overline{(p-\bar{p})^2}}$
+        \item[(3)] $\Delta{x}\Delta{p}$
+    \end{enumerate}
+\end{question}
+\begin{solution}
+    已知Hermite多项式的递推关系
+    $$
+        H_{n+1}(x)-2xH_n(x)+2nH_{n-1}(x)=0
+    $$
+    结合波函数的递推关系
+    $$
+        \psi_{n-1}(x)=\sqrt{\frac{\alpha}{\sqrt{\pi}2^{n-1}(n-1)!}}\mathrm{e}^{-\frac{\alpha^2x^2}{2}}H_{n-1}(\alpha x)
+    $$
+    $$
+        \psi_n(x)=\sqrt{\frac{\alpha}{\sqrt{\pi}2^nn!}}\mathrm{e}^{-\frac{\alpha^2x^2}{2}}H_n(\alpha x)
+    $$
+    $$
+        \psi_{n+1}(x)=\sqrt{\frac{\alpha}{\sqrt{\pi}2^{n+1}(n+1)!}}\mathrm{e}^{-\frac{\alpha^2x^2}{2}}H_{n+1}(\alpha x) \\
+    $$
+    得到
+    $$
+        x\psi_n(x)=\frac{1}{\alpha}\left[\sqrt{\frac{n}{2}}\psi_{n-1}(x)+\sqrt{\frac{n+1}{2}}\psi_{n+1}(x)\right]
+    $$
+    利用本征函数之间的正交性，得到
+    $$
+        \overline{x}=0
+    $$
+    另外
+    $$
+        x^2\psi_n(x) = \frac{1}{2\alpha^2}\left[\sqrt{n(n-1)}\psi_{n-2}(x)+(2n+1)\psi_n(x)+\sqrt{(n+1)(n+2)}\psi_{n+2}(x)\right]
+    $$
+    利用Hermite多项式之间的求导递推关系
+    $$
+        H_n'(x) = 2nH_{n-1}(x)
+    $$
+    得到
+    $$
+        \frac{\mathrm{d}}{\mathrm{d}x}\psi_n(x)=\frac{\alpha^2}{2}\left[\sqrt{n(n-1)}\psi_{n-2}(x) - (2n+1)\psi_n(x) + \sqrt{(n+1)(n+2)}\psi_{n+2}(x)\right]
+    $$
+    于是得到
+    $$
+        \overline{p^2}=\int_{-\infty}^{+\infty}\psi_n^*(x)\left(-\hbar^2\frac{\partial^2}{\partial x^2}\right)\psi_n(x)\,\mathrm{d}x
+        =\frac{\hbar^2\alpha^2}{2}(2n+1)
+    $$
+    (1) 对于$\Delta{x}$
+    $$
+        \Delta{x}=\sqrt{\overline{x^2}-\overline{x}^2}
+        =\sqrt{\frac{1}{2\alpha^2}(2n+1)-0}
+        =\frac{1}{\alpha}\sqrt{\frac{2n+1}{2}}
+    $$
+    (2) 对于$\Delta{p}$
+    $$
+        \Delta{p}=\sqrt{\overline{p^2}-\overline{p}^2}
+        =\sqrt{\frac{\alpha^2\hbar^2}{2}(2n+1)-0}
+        =\alpha\hbar\sqrt{\frac{2n+1}{2}}
+    $$
+    (3) 对于$\Delta{x}\Delta{p}$
+    $$
+        \Delta{x}\Delta{p}=\frac{2n+1}{2}\hbar
+    $$
+\end{solution}
+
+
+
+\begin{question}{题目2.10}
+    电荷$q$的谐振子，受到外电场$\mathcal{E}$的作用
+    $$
+        V(x)=\frac{1}{2}m\omega^2x^2-q\mathcal{E}x
+    $$
+    求能量本征值和本征函数.
+\end{question}
+\begin{solution}
+    首先对势能$V(x)$配方
+    $$
+        V(x)=\frac{1}{2}m\omega^2(x-x_0)^2-\frac{1}{2}m\omega^2x_0^2,
+        \quad
+        x_0=\frac{q\mathcal{E}}{m\omega^2}
+    $$
+    能量本征值为
+    $$
+        E_n = \left(n+\frac{1}{2}\right)\hbar\omega-\frac{q^2\mathcal{E}^2}{2m\omega^2}, \quad n = 0, 1, 2, \cdots
+    $$
+    本征函数为
+    $$
+        \varphi_n(x)
+        = \psi_n(x-x_0)
+        = \sqrt{\frac{\alpha}{2\sqrt{\pi}2^nn!}}\mathrm{e}^{-\frac{\alpha^2(x-x_0)^2}{2}}H_n[\alpha(x-x_0)]
+    $$
+\end{solution}
+
+
+
+\begin{question}{题目2.11}
+    设粒子在下列势阱中运动，求粒子的能级
+    $$
+        V(x)=\begin{cases}
+            \infty,                   & x<0 \\
+            \dfrac{1}{2}m\omega^2x^2, & x>0 \\
+        \end{cases}
+    $$
+\end{question}
+\begin{solution}
+    粒子运动的薛定谔方程为
+    $$
+        -\frac{\hbar^2}{2m}\frac{\mathrm{d}^2}{\mathrm{d}x^2}\psi(x) + \frac{1}{2}m\omega^2x^2\psi(x) = E\psi(x)
+    $$
+    这个变系数微分方程想要得到多项式解，必须满足
+    $$
+        \lambda-1=2n
+    $$
+    此时方程的解写为
+    $$
+        \psi_n(x)=A_n\mathrm{e}^{-\frac{\alpha^2x^2}{4}}H_n(\alpha x)
+    $$
+    对应的能量本征值为
+    $$
+        E_n = \frac{2n+1}{2}\hbar\omega
+    $$
+    再考虑边界条件$\psi_n(0)=0$，$n$只能取奇数（$n=2m+1, \quad m=0, 1, 2, \cdots$）
+    $$
+        E_n=\frac{4m+3}{2}\hbar\omega
+    $$
+\end{solution}

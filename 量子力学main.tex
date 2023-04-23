@@ -3,7 +3,7 @@
 \usepackage{geometry}
 \geometry{a4paper, scale = 0.80}
 \usepackage{hyperref}
-\usepackage{amsmath, amssymb, mathtools}
+\usepackage{mathtools, amsthm, amssymb}
 \usepackage{BOONDOX-cal}
 \newtheorem{theorem}{定理}[section]
 \usepackage{tikz}
@@ -12,12 +12,15 @@
 \usepackage{tcolorbox}
 \tcbuselibrary{breakable, most, skins, theorems}
 \newtcolorbox{question}[2][breakable] {
-    colback = white,
     colframe = cyan,
+    colback = white,
     fonttitle = \bfseries,
+    coltitle = white,
     title = #2, #1
 }
 \newenvironment{solution}{\noindent{\color{cyan}\textbf{解答}}\quad}
+% \newenvironment{solution}{\noindent\textbf{解答}\quad}
+
 
 % \excludecomment{solution} % 编译这条指令就会隐藏所有解答
 
@@ -28,8 +31,12 @@
 \tableofcontents
 
 \input{ch/波函数与薛定谔方程.tex}
-% \input{ch/一维势场中的粒子.tex}
-\input{ch/常用物理学常量.tex}
+\input{ch/一维势场中的粒子.tex}
+\input{ch/力学量用算符表达.tex}
+\input{ch/力学量随时间的演化与对称性.tex}
+\input{ch/中心力场.tex}
+\input{app/常用物理学常量.tex}
+\input{app/常用数学工具.tex}
 % \bibliographystyle{unsrt}
 % \bibliography{ref/ref.bib}
 

@@ -1,0 +1,101 @@
+\section{力学量随时间的演化与对称性}
+\subsection{守恒量}
+力学量$A$的平均值表示为\footnote{波函数的标积定义为$$\left(\psi, \varphi\right) = \int_{}^{}\psi^*\varphi \,\mathrm{d}\tau$$}
+$$
+    \bar{A}(t) = \left(\psi(t), A\psi(t)\right)
+$$
+所以
+$$
+    \frac{\mathrm{d}}{\mathrm{d}t}\bar{A}(t)
+    =\left(\frac{\partial \psi}{\partial t}, A\psi\right) + \left(\psi, A\frac{\partial \psi}{\partial t}\right) + \left(\psi, \frac{\partial A}{\partial t}\psi\right) \\
+$$
+利用薛定谔方程
+$$
+    \mathrm{i}\hbar\frac{\partial \psi}{\partial t} = \hat{H}\psi
+$$
+对$\displaystyle \frac{\partial \psi}{\partial t}$进行代换
+$$
+    \begin{aligned}
+        \frac{\mathrm{d}}{\mathrm{d}t}\bar{A}(t)
+         & =\left(\frac{H\psi}{\mathrm{i}\hbar}, A\psi\right)+\left(\psi, A\frac{H\psi}{\mathrm{i}\hbar}\right) + \left(\psi, \frac{\partial A}{\partial t}\psi\right) \\
+         & =\frac{1}{-\mathrm{i}\hbar}(\psi, HA\psi) + \frac{1}{\mathrm{i}\hbar}(\psi, AH\psi) + \left(\psi, \frac{\partial A}{\partial t}\psi\right)                  \\
+         & =\frac{1}{\mathrm{i}\hbar}(\psi, [A,H]\psi) +  \left(\psi, \frac{\partial A}{\partial t}\psi\right)                                                         \\
+         & =\frac{1}{\mathrm{i}\hbar}\overline{[A,H]}+\frac{\overline{\partial A}}{\partial t}
+    \end{aligned}
+$$
+如果力学量$A$不显含$t$，则$\displaystyle \frac{\partial A}{\partial t}=0$
+\begin{equation}
+    \frac{\mathrm{d}}{\mathrm{d}t}\bar{A}(t)=\frac{1}{\mathrm{i}\hbar}\overline{[A,H]}
+\end{equation}
+如果恰好有$[A, H]=0$（即力学量$A$恰好与$H$对易），则$\displaystyle \frac{\mathrm{d}}{\mathrm{d}t}\bar{A}=0$，这说明力学量$A$在任何量子态下的平均值都不会随时间改变，这是体系的一个守恒量.
+
+\begin{question}{题目4.4}
+    设力学量 $A$ 不显含 $t$，$H$为体系的Hamilton量，证明：
+    $$
+        -\hbar^2\frac{\mathrm{d}^2}{\mathrm{d}t^2}\bar{A} = \overline{[[A, H], H]}.
+    $$
+\end{question}
+\begin{solution}
+    因为力学量$A$不显含$t$
+    $$
+        \frac{\mathrm{d}}{\mathrm{d}t}\bar{A}=\frac{1}{\mathrm{i}\hbar}\overline{[A, H]}
+    $$
+    上式两边再对$t$求导，则有
+    $$
+        \frac{\mathrm{d}^2}{\mathrm{d}t^2}\bar{A}
+        =\frac{\mathrm{d}}{\mathrm{d}t}\frac{1}{\mathrm{i}\hbar}\overline{[A, H]}
+        =\frac{1}{\mathrm{i}\hbar}\overline{\left[\frac{1}{\mathrm{i}\hbar}[A, H], H\right]}
+        =-\frac{1}{\hbar^2}\overline{\left[[A, H], H\right]}
+    $$
+    简单整理得到
+    $$
+        -\hbar^2\frac{\mathrm{d}^2}{\mathrm{d}t^2}\bar{A} = \overline{[[A, H], H]}
+    $$
+    证毕.
+\end{solution}
+
+
+
+
+\begin{question}{题目4.5}
+    设力学量$A$不显含$t$，证明在束缚定态下
+    $$
+        \frac{\mathrm{d}\bar{A}}{\mathrm{d}t} = 0
+    $$
+\end{question}
+\begin{solution}
+    定态$\psi$是体系的能量本征态，且束缚态可以归一化
+    $$
+        (\psi, \psi) = \text{有限值}
+    $$
+    因为力学量$A$不显含$t$
+    $$
+        \frac{\mathrm{d}\bar{A}}{\mathrm{d}t}=\frac{1}{\mathrm{i}\hbar}\overline{[A, H]}
+    $$
+    所以
+    $$
+        \frac{\mathrm{d}\bar{A}}{\mathrm{d}t}
+        =\frac{1}{\mathrm{i}\hbar}\frac{(\psi, [A,H]\psi)}{(\psi, \psi)}
+        =\frac{1}{\mathrm{i}\hbar}\frac{(\psi, AH\psi)-(\psi, HA\psi)}{(\psi, \psi)}
+    $$
+    利用能量本征方程和Hermite算符的性质
+    $$
+        \begin{aligned}
+             & (\psi, AH\psi) = (\psi, AE\psi) \\
+             & (\psi, HA\psi) = (H\psi, A\psi)
+        \end{aligned}
+    $$
+    得到
+    $$
+        \frac{\mathrm{d}\bar{A}}{\mathrm{d}t}
+        =\frac{1}{\mathrm{i}\hbar}\frac{(\psi, AE\psi)-(H\psi, A\psi)}{(\psi, \psi)}
+        =\frac{E}{\mathrm{i}\hbar}\frac{(\bar{A}-\bar{A})}{(\psi, \psi)}
+        =0
+    $$
+    证毕.
+\end{solution}
+
+
+
+
+
