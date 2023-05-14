@@ -25,13 +25,8 @@ C:.
 │  .gitignore
 │  indent.log
 │  README.md
-│  量子力学main.aux
-│  量子力学main.log
-│  量子力学main.out
 │  量子力学main.pdf
-│  量子力学main.synctex.gz
 │  量子力学main.tex
-│  量子力学main.toc
 │  
 ├─app
 │      常用数学工具.tex
@@ -43,6 +38,7 @@ C:.
 │      力学量用算符表达.tex
 │      力学量随时间的演化与对称性.tex
 │      波函数与薛定谔方程.tex
+│      量子力学的矩阵形式与表象变换.tex
 │
 └─ref
         ref.bib
