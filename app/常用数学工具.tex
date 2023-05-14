@@ -73,10 +73,10 @@ $$
 
 \subsection{Laplace变换}
 \begin{equation}\label{拉普拉斯变换}
-    \bar{f}(p)=\int_{0}^{+\infty}f(t)\mathrm{e}^{-pt}\,\mathrm{d}t
-\end{equation}
-\begin{equation}\label{拉普拉斯逆变换}
-    f(t)=\frac{1}{2\pi\mathrm{i}}\int_{\sigma-\mathrm{i}\infty}^{\sigma+\mathrm{i}\infty}\bar{f}(p)\mathrm{e}^{pt}\,\mathrm{d}p
+    \begin{dcases}
+        \bar{f}(p)=\int_{0}^{+\infty}f(t)\mathrm{e}^{-pt}\,\mathrm{d}t \\
+        f(t)=\frac{1}{2\pi\mathrm{i}}\int_{\sigma-\mathrm{i}\infty}^{\sigma+\mathrm{i}\infty}\bar{f}(p)\mathrm{e}^{pt}\,\mathrm{d}p
+    \end{dcases}
 \end{equation}
 
 
@@ -116,6 +116,171 @@ $$
 \begin{equation}
     \int x^2\cos{ax}\,\mathrm{d}x = \frac{1}{a}x^2\sin{ax}+\frac{2}{a^2}x\cos{ax}-\frac{2}{a^3}\sin{ax}+C
 \end{equation}
+
+
+\subsection{求矩阵的逆矩阵}
+求逆矩阵的相关方法大致可以分为四类
+\subsubsection{定义法} 寻找一个与$\boldsymbol{A}$同阶的方阵$\boldsymbol{B}$，使得
+$$
+    \boldsymbol{AB}=\boldsymbol{E}
+    ,\quad
+    \boldsymbol{BA}=\boldsymbol{E}
+$$
+\subsubsection{公式法}
+可利用矩阵行列式和代数余子式构成的伴随矩阵来求逆矩阵
+$$
+    \boldsymbol{A}^{-1} = \frac{1}{|\boldsymbol{A}|}\boldsymbol{A}^*
+$$
+例如矩阵$\begin{pmatrix} 1 & 2 \\ 2 & 5 \end{pmatrix}$的伴随矩阵为
+$$
+    \boldsymbol{A}^* = \begin{pmatrix}
+        M_{11}  & -M_{12} \\
+        -M_{21} & M_{22}
+    \end{pmatrix} = \begin{pmatrix}
+        5  & -2 \\
+        -2 & 1
+    \end{pmatrix}
+$$
+于是逆矩阵为
+$$
+    \boldsymbol{A}^{-1}
+    =\frac{1}{|\boldsymbol{A}|}\boldsymbol{A}^*
+    =\begin{pmatrix}
+        5  & -2 \\
+        -2 & 1
+    \end{pmatrix}
+$$
+\subsubsection{初等变换法}
+$$
+    \begin{pmatrix}
+        \boldsymbol{A} & \vdots & \boldsymbol{E}
+    \end{pmatrix}
+    \xrightarrow[]{\text{初等行变换}}
+    \begin{pmatrix}
+        \boldsymbol{E} & \vdots & \boldsymbol{A}^{-1}
+    \end{pmatrix}
+$$
+$$
+    \begin{pmatrix}
+        \boldsymbol{A} \\
+        \cdots         \\
+        \boldsymbol{E}
+    \end{pmatrix}
+    \xrightarrow[]{\text{初等列变换}}
+    \begin{pmatrix}
+        \boldsymbol{E} \\
+        \cdots         \\
+        \boldsymbol{A}^{-1}
+    \end{pmatrix}
+$$
+\subsubsection{分块矩阵法}
+当$\boldsymbol{A}, \boldsymbol{B}$均可逆时
+$$
+    \begin{pmatrix}
+        \boldsymbol{A} & \boldsymbol{O} \\
+        \boldsymbol{O} & \boldsymbol{B}
+    \end{pmatrix}^{-1}
+    =\begin{pmatrix}
+        \boldsymbol{A}^{-1} & \boldsymbol{O}      \\
+        \boldsymbol{O}      & \boldsymbol{B}^{-1}
+    \end{pmatrix}
+    ,\quad
+    \begin{pmatrix}
+        \boldsymbol{O} & \boldsymbol{A} \\
+        \boldsymbol{B} & \boldsymbol{O}
+    \end{pmatrix}^{-1}
+    \begin{pmatrix}
+        \boldsymbol{O}      & \boldsymbol{A}^{-1} \\
+        \boldsymbol{B}^{-1} & \boldsymbol{O}
+    \end{pmatrix}
+$$
+
+
+\subsection{Virial定理}
+\begin{question}{Virial定理}
+    当体系处于定态时，有
+    $$
+        2\overline{T} = \overline{\boldsymbol{r}\cdot\nabla{V(r)}}
+    $$
+    其中$T=\frac{p^2}{2m}$是粒子动能，$V\left(\vec{r}\right)$是势能.
+\end{question}
+\begin{proof}
+    系统的Hamilton算符为
+    $$
+        \hat{H}=\frac{\hat{p}^2}{2m}+V(\vec{r})
+    $$
+    考虑$\boldsymbol{r}\cdot\boldsymbol{p}$的平均值随时间演化\footnote{不显含$t$的力学量$A$，其平均值随时间演化
+        $$
+            \frac{\mathrm{d}}{\mathrm{d}t}\bar{A}=\frac{1}{\mathrm{i}\hbar}\overline{\left[A, H\right]}
+        $$
+    }
+    $$
+        \mathrm{i}\hbar\frac{\mathrm{d}}{\mathrm{d}t}(\boldsymbol{r}\cdot\boldsymbol{p})
+        =\overline{\left[\boldsymbol{r}\cdot\boldsymbol{p}, H\right]}
+        =\frac{1}{2m}\overline{\left[\boldsymbol{r}\cdot\boldsymbol{p}, \hat{p}^2\right]}+\overline{\left[\boldsymbol{r}\cdot\boldsymbol{p}, V(\vec{r})\right]}
+        % =\mathrm{i}\hbar\left(\frac{1}{m}\overline{\hat{p}^2}-\overline{\boldsymbol{r}\cdot\nabla{V}}\right)
+    $$
+    \paragraph{对于第一项}
+    因式$\left[\boldsymbol{r}\cdot\boldsymbol{p}, \hat{p}^2\right]$可以写为
+    $$
+        \left[\boldsymbol{r}\cdot\hat{\boldsymbol{p}}, \hat{p}^2\right]
+        =\left[x\hat{p}_x + y\hat{p}_y + z\hat{p}_z, \hat{p}_x^2+\hat{p}_y^2+\hat{p}_z^2\right]
+        =\left[x\hat{p}_x, \hat{p}_x^2\right] + \left[y\hat{p}_y, \hat{p}_y^2\right] + \left[z\hat{p}_z, \hat{p}_z^2\right]
+    $$
+    显然具有极佳的轮换对称性，根据对易式的代数恒等式
+    $$
+        \left[\hat{A}\hat{B}, \hat{C}\right]=\hat{A}\left[\hat{B}, \hat{C}\right]+\left[\hat{A}, \hat{C}\right]\hat{B}
+    $$
+    得到
+    $$
+        \begin{aligned}
+            \left[x\hat{p}_x, \hat{p}_x^2\right]
+             & = x\left[\hat{p}_x, \hat{p}_x^2\right] + \left[x, \hat{p}_x^2\right]\hat{p}_x            \\
+             & = 0 + \left[x, \hat{p}_x^2\right]\hat{p}_x                                               \\
+             & = 0 + \left[x, \hat{p}_x\hat{p}_x\right]\hat{p}_x                                        \\
+             & = 0 + \hat{p}_x\left[x, \hat{p}_x\right]\hat{p}_x + \left[x, \hat{p}_x\right]\hat{p}_x^2 \\
+        \end{aligned}
+    $$
+    再利用量子力学的基本对易式$[x, \hat{p}_x]=\mathrm{i}\hbar$，得到
+    $$
+        \left[x\hat{p}_x, \hat{p}_x^2\right]
+        =\hat{p}_x(\mathrm{i}\hbar)\hat{p}_x + (\mathrm{i}\hbar)\hat{p}_x^2
+        =2\mathrm{i}\hbar\hat{p}_x^2
+    $$
+    同理可得
+    $$
+        \left[x\hat{p}_y, \hat{p}_y^2\right] = 2\mathrm{i}\hbar\hat{p}_y^2 \quad
+        \left[x\hat{p}_z, \hat{p}_z^2\right] = 2\mathrm{i}\hbar\hat{p}_z^2
+    $$
+    于是
+    $$
+        \left[\boldsymbol{r}\cdot\hat{\boldsymbol{p}}, \hat{p}^2\right] = 2\mathrm{i}\hbar\left(\hat{p}_x^2 + \hat{p}_y^2 + \hat{p}_z^2\right)
+        =2\mathrm{i}\hbar\hat{p}^2
+    $$
+    \paragraph{对于第二项} 也利用相同的对易代数恒等式展开
+    $$
+        \left[\boldsymbol{r}\cdot\boldsymbol{p}, V(\vec{r})\right]
+        = \boldsymbol{r}\left[\boldsymbol{p}, V(\vec{r})\right] + \left[\boldsymbol{r}, V(\vec{r})\right]\boldsymbol{p}
+    $$
+    显然$\boldsymbol{r}$和$V(\vec{r})$相互对易
+    $$
+        \left[\boldsymbol{r}, V(\vec{r})\right]=0
+    $$
+    再将算符$\boldsymbol{r}\left[\boldsymbol{p}, V(\vec{r})\right]$作用在任意波函数$\psi$上
+    $$
+        \begin{aligned}
+            \boldsymbol{r}\left[\boldsymbol{p}, V(\vec{r})\right]\psi
+             & =\hat{p}[V(\vec{r})\psi]-V(\vec{r})\hat{p}\psi                                                                      \\
+             & = -\mathrm{i}\hbar\nabla[V(\vec r)\psi] + \mathrm{i}\hbar V(\vec r)\nabla\psi                                       \\
+             & = -\mathrm{i}\hbar V(\vec r)\nabla\psi - \mathrm{i}\hbar\psi\nabla[V(\vec r)] + \mathrm{i}\hbar V(\vec r)\nabla\psi \\
+             & = -\mathrm{i}\hbar\psi[\nabla V(\vec r)]
+        \end{aligned}
+    $$
+    所以这个算符的本质是
+    $$
+        \left[\hat{\boldsymbol{p}}, V(\vec{r})\right] = -\mathrm{i}\hbar\nabla{V(\vec r)}
+    $$
+\end{proof}
 
 
 

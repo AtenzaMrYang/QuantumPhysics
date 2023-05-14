@@ -1,0 +1,137 @@
+\section{量子力学的矩阵形式与表象变换}
+
+\begin{question}{题目7.3}
+    设一维粒子Hamilton量为$H=\dfrac{p^2}{2m}+V(x)$. 写出 $x$ 表象中$x,p,H$的矩阵元.
+\end{question}
+\begin{solution}
+    坐标$x$在坐标表象中表示为
+    $$
+        \langle x'|x|x'' \rangle = x'\delta(x'-x'')
+    $$
+    势能$V(x)$在坐标表象中表示为
+    $$
+        \langle x'|V(x)|x'' \rangle = V(x')\delta(x'-x'')
+    $$
+    由此可得各种矩阵元
+    $$
+        (x)_{x'x''} = \langle x'|x|x'' \rangle
+        = \int\delta(x-x')x\delta(x-x'')\,\mathrm{d}x
+        = x'\delta(x'-x'')
+    $$
+    $$
+        \begin{aligned}
+            (p)_{x'x''}
+             & = \langle x'|p|x'' \rangle = \int\delta(x-x')\left(-\mathrm{i}\hbar\frac{\partial }{\partial x}\right)\delta(x-x'')\,\mathrm{d}x \\
+             & = -\mathrm{i}\hbar\frac{\partial }{\partial x'}\int\delta(x-x')\delta(x-x'')\,\mathrm{d}x                                        \\
+             & = -\mathrm{i}\hbar\frac{\partial }{\partial x'}\delta(x'-x'')
+        \end{aligned}
+    $$
+    $$
+        \begin{aligned}
+            (H)_{x'x''}
+             & =\langle x'|H|x'' \rangle =\int\delta(x-x')H\delta(x-x'')\,\mathrm{d}x                                          \\
+             & =\int\delta(x-x')\left[-\frac{\hbar^2}{2m}\frac{\partial^2}{\partial x^2}+V(x)\right]\delta(x-x'')\,\mathrm{d}x \\
+             & =-\frac{\hbar^2}{2m}\frac{\partial^2}{\partial x'^2}\delta(x'-x'') + V(x')\delta(x'-x'')                        \\
+        \end{aligned}
+    $$
+\end{solution}
+
+
+\begin{question}{习题集Ex94}
+    已知在$\sigma^2-\sigma_z$表象中，算符$\hat{\sigma}_x$ 和 $\hat{\sigma}_y$的矩阵形式为
+    $$
+        \sigma_x=\begin{pmatrix}
+            0 & 1 \\
+            1 & 0
+        \end{pmatrix}
+        \quad
+        \sigma_y=\begin{pmatrix}
+            0          & -\mathrm{i} \\
+            \mathrm{i} & 0
+        \end{pmatrix}
+    $$
+    \begin{enumerate}
+        \item 求它们的本征值与本征函数.
+        \item 写出在$\sigma^2-\sigma_z$表象中，算符$\hat{\sigma}_x$的矩阵形式及其本征函数形式.
+    \end{enumerate}
+\end{question}
+\begin{solution}
+    (1) 对于算符$\hat{\sigma}_x$，其本征方程$\hat{\sigma}_x|\psi\rangle = \lambda|\psi\rangle$的矩阵形式为
+    $$
+        \begin{pmatrix}
+            0 & 1 \\
+            1 & 0
+        \end{pmatrix}\begin{pmatrix}
+            a \\
+            b
+        \end{pmatrix}
+        =\lambda\begin{pmatrix}
+            a \\
+            b
+        \end{pmatrix}
+    $$
+    也即方程组
+    $$
+        b = \lambda a, \quad
+        a =\lambda b
+    $$
+    解得
+    $$
+        \lambda_1=1, \quad |\psi_1\rangle=\begin{pmatrix}
+            1 \\ 1
+        \end{pmatrix}
+    $$
+    $$
+        \lambda_2=-1, \quad |\psi_2\rangle=\begin{pmatrix}
+            1 \\ -1
+        \end{pmatrix}
+    $$
+    类似地，算符$\hat{\sigma}_y$的本征值和对应的本征函数为
+    $$
+        \lambda_1=1, \quad |\psi_1\rangle=\begin{pmatrix}
+            1 \\ -\mathrm{i}
+        \end{pmatrix}
+    $$
+    $$
+        \lambda_2=-1, \quad |\psi_2\rangle=\begin{pmatrix}
+            -1 \\ \mathrm{i}
+        \end{pmatrix}
+    $$
+    (2) 在$\sigma^2-\sigma_z$表象中，算符$\hat{\sigma}_x$的矩阵形式可以通过变换矩阵$U$得到
+    $$
+        U=\frac{1}{\sqrt{2}}\begin{pmatrix}
+            1 & 1  \\
+            1 & -1
+        \end{pmatrix}
+    $$
+    算符$\hat{\sigma}_x$在$\sigma^2-\sigma_z$表象中的矩阵形式
+    $$
+        \hat{\sigma}_x' = U\sigma_xU^{-1} = \begin{pmatrix}
+            1 & 0 \\
+            0 & 1
+        \end{pmatrix}
+    $$
+    而$\hat{\sigma}_x$在此表象中的本征函数为
+    $$
+        |\psi_1\rangle=\begin{pmatrix}
+            1 \\
+            0
+        \end{pmatrix}
+        \quad
+        |\psi_2\rangle=\begin{pmatrix}
+            0 \\
+            1
+        \end{pmatrix}
+    $$
+\end{solution}
+
+
+
+
+
+
+
+
+
+
+

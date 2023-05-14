@@ -1,11 +1,35 @@
 \section{波函数与薛定谔方程}
-最小作用量原理
+
+\subsection{波函数的统计诠释}
+微观粒子具有波粒二象性，其波长和频率分别为
 $$
-    \delta\int_{A}^{B}p\,\mathrm{d}l = \delta\int_{A}^{B}\sqrt{2m(E-V)}\,\mathrm{d}l=0
+    \lambda=\frac{h}{p}, \quad \nu=\frac{E}{h}
 $$
-实物粒子的运动状态可以用平面波函数来描述
+微观粒子的运动状态可以用平面波函数来描述
 $$
     \psi_{\vec{p}}=A\exp\left[\frac{\mathrm{i}}{\hbar}\left(\vec{p}\cdot\vec{r}-Et\right)\right]
+$$
+对于概率分布来说，我们更关心相对概率分布
+$$
+    \left|\frac{C\psi(\vec{r}_1)}{C\psi(\vec{r}_2)}\right|^2 = \left|\frac{\psi(\vec{r}_1)}{\psi(\vec{r}_2)}\right|^2
+$$
+所以一般的波函数具有常数因子不定性，类似地
+$$
+    \left|\psi(\vec{r})\mathrm{e}^{\mathrm{i}\alpha}\right|^2
+    = |\psi(\vec{r})|^2\mathrm{e}^{\mathrm{i}\alpha}\cdot\mathrm{e}^{-\mathrm{i}\alpha}
+    = \left|\psi(\vec{r})\right|^2
+$$
+一般的波函数也具有位相因子不定性，当然，规范的波函数必须在全空间满足归一化
+$$
+    \iiint\left|\psi(\vec{r})\right|^2\,\mathrm{d}x\mathrm{d}y\mathrm{d}z=1
+$$
+为今后表述方便，可以引入符号
+$$
+    (\psi, \psi)=\int\psi^*\psi\,\mathrm{d}\tau=\int|\psi|^2\,\mathrm{d}\tau
+$$
+这样，归一化条件就可以简记为
+$$
+    (\psi, \psi)=1
 $$
 
 \subsection{力学量算符}
@@ -286,7 +310,7 @@ $$
 
     \paragraph{(b)}粒子在初始时刻$\psi(x,0) = \psi_p(x) = \mathrm{e}^{\mathrm{i}p_0x/\hbar}$，结合Fourier变换公式$\eqref{复数形式的傅里叶变换}$
     $$
-        \psi_p(x)=\mathcal{F}[\psi(x)]
+        \phi(p)=\mathcal{F}[\psi(x)]
         =\frac{1}{\sqrt{2\pi\hbar}}\int_{-\infty}^{+\infty}\mathrm{e}^{\mathrm{i}p_0x/\hbar}\mathrm{e}^{-\mathrm{i}px/\hbar}\,\mathrm{d}x
         =\sqrt{2\pi\hbar}\delta(p-p_0)
     $$
@@ -308,18 +332,18 @@ $$
     从所得结果证明$\psi_1(r)$表示向外传播的球面波，$\psi_2(r)$表示向内（即向原点）传播的平面波.
 \end{question}
 \begin{solution}
-    概率流密度的表达式为
+    概率流密度的表达式为\footnote{球坐标系中的$\nabla$算符为$$\nabla=\frac{\partial }{\partial r}\vec{e}_r + \frac{1}{r}\frac{\partial }{\partial \theta}\vec{e}_{\theta} + \frac{1}{r\sin\theta}\frac{\partial }{\partial \varphi}\vec{e}_{\varphi}$$}
     \begin{equation}\label{概率流密度}
         \vec{j}(\vec{r}, t) = -\frac{\mathrm{i}\hbar}{2m}\left(\psi^*\nabla\psi-\psi\nabla\psi^*\right)
     \end{equation}
     分别计算$\psi_1(x)$和$\psi_2(x)$的概率流密度
     $$
-        \vec{j}_1(\vec{r}) = -\frac{\mathrm{i}\hbar}{2m}\left\{\left(\frac{A}{r}\mathrm{e}^{-\mathrm{i}kr}\cdot\frac{A}{r}\mathrm{e}^{\mathrm{i}kr}\mathrm{i}k\right) - \left[\frac{A}{r}\mathrm{e}^{\mathrm{i}kr}\cdot\frac{A}{r}\mathrm{e}^{-\mathrm{i}kr}(-\mathrm{i}k)\right]\right\}
-        =\frac{\mathrm{i}\hbar}{m}\frac{A^2k}{r^2}
+        \vec{j}_1(\vec{r}) = -\frac{\mathrm{i}\hbar}{2m}\left\{\left(\frac{A}{r}\mathrm{e}^{-\mathrm{i}kr}\cdot\frac{A}{r}\mathrm{e}^{\mathrm{i}kr}\mathrm{i}k\right) - \left[\frac{A}{r}\mathrm{e}^{\mathrm{i}kr}\cdot\frac{A}{r}\mathrm{e}^{-\mathrm{i}kr}(-\mathrm{i}k)\right]\right\}\vec{e}_r
+        =\frac{\hbar}{m}\frac{A^2k}{r^2}\vec{e}_r
     $$
     $$
-        \vec{j}_2(\vec{r}) = -\frac{\mathrm{i}\hbar}{2m}\left\{\left[\frac{A}{r}\mathrm{e}^{\mathrm{i}kr}\cdot\frac{A}{r}\mathrm{e}^{-\mathrm{i}kr}(-\mathrm{i}k)\right]-\left(\frac{A}{r}\mathrm{e}^{-\mathrm{i}kr}\cdot\frac{A}{r}\mathrm{e}^{\mathrm{i}kr}\mathrm{i}k\right)\right\}
-        =-\frac{\mathrm{i}\hbar}{m}\frac{A^2k}{r^2}
+        \vec{j}_2(\vec{r}) = -\frac{\mathrm{i}\hbar}{2m}\left\{\left[\frac{A}{r}\mathrm{e}^{\mathrm{i}kr}\cdot\frac{A}{r}\mathrm{e}^{-\mathrm{i}kr}(-\mathrm{i}k)\right]-\left(\frac{A}{r}\mathrm{e}^{-\mathrm{i}kr}\cdot\frac{A}{r}\mathrm{e}^{\mathrm{i}kr}\mathrm{i}k\right)\right\}\vec{e}_r
+        =-\frac{\hbar}{m}\frac{A^2k}{r^2}\vec{e}_r
     $$
     由此可见，$\psi_1(r)$表示向外传播的球面波，$\psi_2(r)$表示向内（即向原点）传播的平面波.
 \end{solution}

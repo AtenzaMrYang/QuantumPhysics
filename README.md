@@ -23,13 +23,25 @@
 卷序列号为 56F4-13AC
 C:.
 │  .gitignore
+│  indent.log
 │  README.md
+│  量子力学main.aux
+│  量子力学main.log
+│  量子力学main.out
 │  量子力学main.pdf
+│  量子力学main.synctex.gz
 │  量子力学main.tex
+│  量子力学main.toc
 │  
+├─app
+│      常用数学工具.tex
+│      常用物理学常量.tex
+│      
 ├─ch
 │      一维势场中的粒子.tex
-│      常用物理学常量.tex
+│      中心力场.tex
+│      力学量用算符表达.tex
+│      力学量随时间的演化与对称性.tex
 │      波函数与薛定谔方程.tex
 │
 └─ref
