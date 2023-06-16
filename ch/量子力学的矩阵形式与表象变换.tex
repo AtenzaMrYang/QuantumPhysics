@@ -127,9 +127,72 @@
 
 
 
+\begin{question}{题目8.1}
+    \begin{enumerate}
+        \item 在$\sigma_z$表象中，求$\sigma_x$的本征态；
+        \item 求$\sigma_z$表象变换到$\sigma_x$表象的变换矩阵；
+        \item 验证
+              $$
+                  S\sigma_xS^{-1} = S\begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix}S^{-1}=\begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix}
+              $$
+    \end{enumerate}
+\end{question}
+\begin{solution}
+
+\end{solution}
 
 
 
+\begin{question}{题目8.3}
+    在$s_z$本征态$\chi_{1/2}(s_z)=\begin{pmatrix} 1 \\ 0 \end{pmatrix}$下，求 $\overline{(\delta{s_x})^2}$ 和 $\overline{(\delta{s_y})^2}$.
+\end{question}
+\begin{solution}
+
+\end{solution}
+
+
+
+\begin{question}{Ex103}
+    设两电子在弹性辏力场中运动，每个电子的势能为
+    $$
+        u(r)=\frac{1}{2}\mu\omega^2r^2
+    $$
+    如果电子之间的库仑能与$u(r)$相比可以忽略，求当一个电子处在基态，另一电子处于沿$x$方向运动时的第一激发态时，两电子组成体系的波函数。
+\end{question}
+\begin{solution}
+    设两个电子的坐标为$r_1$和$r_2$，则体系的总哈密顿算符为
+    $$
+        H=\frac{p_1^2}{2m}+\frac{p_2^2}{2m}+\frac{1}{2}m\omega^2(r_1^2+r_2^2)
+    $$
+    其中$m$是电子的质量，$\omega$是弹性势场的频率。可以用质心坐标$R=\frac{r_1+r_2}{2}$和相对坐标$r=r_1-r_2$将哈密顿算符分解为
+    $$
+        H=H_R+H_r=\frac{P_R^2}{4m}+\frac{p_r^2}{m}+m\omega^2R^2+\frac{1}{4}m\omega^2r^2
+    $$
+    其中$P_R=p_1+p_2$是质心动量，$p_r=\frac{p_1-p_2}{2}$是相对动量。由于质心运动和相对运动是分离的，可以分别求解它们的本征态和本征值。质心运动部分是一个一维谐振子，其本征态为
+    $$
+        \psi_n(R)=\left(\frac{m\omega}{\pi\hbar}\right)^{1/4}\frac{1}{\sqrt{2^n n!}}H_n(\sqrt{m\omega/\hbar}R)e^{-m\omega R^2/2\hbar}
+    $$
+    其中$n=0,1,2,\dots$，$H_n(x)$是$n$阶厄米多项式，本征值为
+    $$
+        E_n=\hbar\omega(n+1/2)
+    $$
+    相对运动部分是一个二维谐振子，其本征态为
+    $$\
+        phi_{nm}(r)=\left(\frac{m\omega}{\pi\hbar}\right)^{1/2}\frac{1}{\sqrt{2^n n! 2^m m!}}H_n(\sqrt{m\omega/\hbar}x)H_m(\sqrt{m\omega/\hbar}y)e^{-m\omega r^2/4\hbar}
+    $$
+    其中$n,m=0,1,2,\dots$，本征值为
+    $$
+        E_{nm}=2\hbar\omega(n+m+1)
+    $$
+    由于电子是费米子，它们的总波函数必须是反对称的。因此，如果一个电子处在基态$\psi_0(R)\phi_{00}(r)$，另一个电子处于沿$x$方向运动的第一激发态$\psi_0(R)\phi_{10}(r)$，则两电子组成体系的波函数为
+    $$
+        \Psi(r_1,r_2)=A[\psi_0(R)\phi_{00}(r)\chi_{+-}(s)-\psi_0(R)\phi_{10}(r)\chi_{-+}(s)]
+    $$
+    其中$A$是归一化常数，$\chi_{+-}(s)$和$\chi_{-+}(s)$是自旋单态波函数。这个波函数满足交换反对称性：
+    $$
+        \Psi(r_1,r_2)=-\Psi(r_2,r_1)
+    $$
+\end{solution}
 
 
 

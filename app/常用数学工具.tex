@@ -202,12 +202,12 @@ $$
     $$
         2\overline{T} = \overline{\boldsymbol{r}\cdot\nabla{V(r)}}
     $$
-    其中$T=\frac{p^2}{2m}$是粒子动能，$V\left(\vec{r}\right)$是势能.
+    其中$T=\dfrac{p^2}{2m}$是粒子动能，$V\left(\boldsymbol{r}\right)$是势能.
 \end{question}
 \begin{proof}
     系统的Hamilton算符为
     $$
-        \hat{H}=\frac{\hat{p}^2}{2m}+V(\vec{r})
+        \hat{H}=\frac{\hat{p}^2}{2m}+V(\boldsymbol{r})
     $$
     考虑$\boldsymbol{r}\cdot\boldsymbol{p}$的平均值随时间演化\footnote{不显含$t$的力学量$A$，其平均值随时间演化
         $$
@@ -217,7 +217,7 @@ $$
     $$
         \mathrm{i}\hbar\frac{\mathrm{d}}{\mathrm{d}t}(\boldsymbol{r}\cdot\boldsymbol{p})
         =\overline{\left[\boldsymbol{r}\cdot\boldsymbol{p}, H\right]}
-        =\frac{1}{2m}\overline{\left[\boldsymbol{r}\cdot\boldsymbol{p}, \hat{p}^2\right]}+\overline{\left[\boldsymbol{r}\cdot\boldsymbol{p}, V(\vec{r})\right]}
+        =\frac{1}{2m}\overline{\left[\boldsymbol{r}\cdot\boldsymbol{p}, \hat{p}^2\right]}+\overline{\left[\boldsymbol{r}\cdot\boldsymbol{p}, V(\boldsymbol{r})\right]}
         % =\mathrm{i}\hbar\left(\frac{1}{m}\overline{\hat{p}^2}-\overline{\boldsymbol{r}\cdot\nabla{V}}\right)
     $$
     \paragraph{对于第一项}
@@ -227,18 +227,18 @@ $$
         =\left[x\hat{p}_x + y\hat{p}_y + z\hat{p}_z, \hat{p}_x^2+\hat{p}_y^2+\hat{p}_z^2\right]
         =\left[x\hat{p}_x, \hat{p}_x^2\right] + \left[y\hat{p}_y, \hat{p}_y^2\right] + \left[z\hat{p}_z, \hat{p}_z^2\right]
     $$
-    显然具有极佳的轮换对称性，根据对易式的代数恒等式
+    这显然具有极佳的轮换对称性，我们根据对易式的代数恒等式
     $$
         \left[\hat{A}\hat{B}, \hat{C}\right]=\hat{A}\left[\hat{B}, \hat{C}\right]+\left[\hat{A}, \hat{C}\right]\hat{B}
     $$
-    得到
+    处理其中一项
     $$
         \begin{aligned}
             \left[x\hat{p}_x, \hat{p}_x^2\right]
-             & = x\left[\hat{p}_x, \hat{p}_x^2\right] + \left[x, \hat{p}_x^2\right]\hat{p}_x            \\
-             & = 0 + \left[x, \hat{p}_x^2\right]\hat{p}_x                                               \\
-             & = 0 + \left[x, \hat{p}_x\hat{p}_x\right]\hat{p}_x                                        \\
-             & = 0 + \hat{p}_x\left[x, \hat{p}_x\right]\hat{p}_x + \left[x, \hat{p}_x\right]\hat{p}_x^2 \\
+             & =x\left[\hat{p}_x, \hat{p}_x^2\right] + \left[x, \hat{p}_x^2\right]\hat{p}_x            \\
+             & =0 + \left[x, \hat{p}_x^2\right]\hat{p}_x                                               \\
+             & =0 + \left[x, \hat{p}_x\hat{p}_x\right]\hat{p}_x                                        \\
+             & =0 + \hat{p}_x\left[x, \hat{p}_x\right]\hat{p}_x + \left[x, \hat{p}_x\right]\hat{p}_x^2 \\
         \end{aligned}
     $$
     再利用量子力学的基本对易式$[x, \hat{p}_x]=\mathrm{i}\hbar$，得到
@@ -249,8 +249,8 @@ $$
     $$
     同理可得
     $$
-        \left[x\hat{p}_y, \hat{p}_y^2\right] = 2\mathrm{i}\hbar\hat{p}_y^2 \quad
-        \left[x\hat{p}_z, \hat{p}_z^2\right] = 2\mathrm{i}\hbar\hat{p}_z^2
+        \left[y\hat{p}_y, \hat{p}_y^2\right] = 2\mathrm{i}\hbar\hat{p}_y^2 \quad
+        \left[z\hat{p}_z, \hat{p}_z^2\right] = 2\mathrm{i}\hbar\hat{p}_z^2
     $$
     于是
     $$
@@ -259,26 +259,26 @@ $$
     $$
     \paragraph{对于第二项} 也利用相同的对易代数恒等式展开
     $$
-        \left[\boldsymbol{r}\cdot\boldsymbol{p}, V(\vec{r})\right]
-        = \boldsymbol{r}\left[\boldsymbol{p}, V(\vec{r})\right] + \left[\boldsymbol{r}, V(\vec{r})\right]\boldsymbol{p}
+        \left[\boldsymbol{r}\cdot\boldsymbol{p}, V(\boldsymbol{r})\right]
+        = \boldsymbol{r}\left[\boldsymbol{p}, V(\boldsymbol{r})\right] + \left[\boldsymbol{r}, V(\boldsymbol{r})\right]\boldsymbol{p}
     $$
-    显然$\boldsymbol{r}$和$V(\vec{r})$相互对易
+    显然$\boldsymbol{r}$和$V(\boldsymbol{r})$相互对易
     $$
-        \left[\boldsymbol{r}, V(\vec{r})\right]=0
+        \left[\boldsymbol{r}, V(\boldsymbol{r})\right]=0
     $$
-    再将算符$\boldsymbol{r}\left[\boldsymbol{p}, V(\vec{r})\right]$作用在任意波函数$\psi$上
+    再将算符$\boldsymbol{r}\left[\boldsymbol{p}, V(\boldsymbol{r})\right]$作用在任意波函数$\psi$上
     $$
         \begin{aligned}
-            \boldsymbol{r}\left[\boldsymbol{p}, V(\vec{r})\right]\psi
-             & =\hat{p}[V(\vec{r})\psi]-V(\vec{r})\hat{p}\psi                                                                      \\
-             & = -\mathrm{i}\hbar\nabla[V(\vec r)\psi] + \mathrm{i}\hbar V(\vec r)\nabla\psi                                       \\
-             & = -\mathrm{i}\hbar V(\vec r)\nabla\psi - \mathrm{i}\hbar\psi\nabla[V(\vec r)] + \mathrm{i}\hbar V(\vec r)\nabla\psi \\
-             & = -\mathrm{i}\hbar\psi[\nabla V(\vec r)]
+            \boldsymbol{r}\left[\boldsymbol{p}, V(\boldsymbol{r})\right]\psi
+             & =\hat{p}[V(\boldsymbol{r})\psi]-V(\boldsymbol{r})\hat{p}\psi                                                                                \\
+             & = -\mathrm{i}\hbar\nabla[V(\boldsymbol{r})\psi] + \mathrm{i}\hbar V(\boldsymbol{r})\nabla\psi                                               \\
+             & = -\mathrm{i}\hbar V(\boldsymbol{r})\nabla\psi - \mathrm{i}\hbar\psi\nabla[V(\boldsymbol{r})] + \mathrm{i}\hbar V(\boldsymbol{r})\nabla\psi \\
+             & = -\mathrm{i}\hbar\psi[\nabla V(\boldsymbol{r})]
         \end{aligned}
     $$
     所以这个算符的本质是
     $$
-        \left[\hat{\boldsymbol{p}}, V(\vec{r})\right] = -\mathrm{i}\hbar\nabla{V(\vec r)}
+        \left[\hat{\boldsymbol{p}}, V(\boldsymbol{r})\right] = -\mathrm{i}\hbar\nabla{V(\boldsymbol{r})}
     $$
 \end{proof}
 

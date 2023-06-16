@@ -84,30 +84,37 @@ $$
 \end{align}
 
 
-\begin{question}{证明题}定义$\hat{\boldsymbol{l}}^2 = \hat{l}_x^2 + \hat{l}_y^2 + \hat{l}_z^2$，试证明：
+\begin{question}{证明题}
+    定义$\hat{\boldsymbol{l}}^2 = \hat{l}_x^2 + \hat{l}_y^2 + \hat{l}_z^2$，试证明：
     $$
         \left[\hat{\boldsymbol{l}}^2, \hat{l}_{\alpha}\right] = 0,
         \quad \alpha=x,y,z
     $$
+    提示：利用基本对易关系能在很大程度上简化问题
 \end{question}
 \begin{solution}
     先证明$\alpha=x$的情形
     $$
         \begin{aligned}
             LHS
-             & = \left[\hat{\boldsymbol{l}}^2, \hat{l}_x\right] = \left[\left(\hat{l}_x^2+\hat{l}_y^2+\hat{l}_z^2\right), \hat{l}_x\right] \\
-             & = \left[\hat{l}_x^2, \hat{l}_x\right] + \left[\hat{l}_y^2, \hat{l}_x\right] + \left[\hat{l}_z^2, \hat{l}_x\right]           \\
-             & = \hat{l}_x^3-\hat{l}_x^3+\hat{l}_y^2\hat{l}_x-\hat{l}_x\hat{l}_y^2+\hat{l}_z^2\hat{l}_x-\hat{l}_x\hat{l}_z^2               \\
-             & = 0
+             & = \left[\hat{\boldsymbol{l}}^2, \hat{l}_x\right] = \left[\left(\hat{l}_x^2+\hat{l}_y^2+\hat{l}_z^2\right), \hat{l}_x\right]                                                     \\
+             & = \left[\hat{l}_x^2, \hat{l}_x\right] + \left[\hat{l}_y^2, \hat{l}_x\right] + \left[\hat{l}_z^2, \hat{l}_x\right]                                                               \\
+             & = 0+\hat{l}_y\left[\hat{l}_y, \hat{l}_x\right]+\left[\hat{l}_y, \hat{l}_x\right]\hat{l}_y+\hat{l}_z\left[\hat{l}_z, \hat{l}_x\right]+\left[\hat{l}_z, \hat{l}_x\right]\hat{l}_z \\
+             & =-\mathrm{i}\hbar\hat{l}_y\hat{l}_z-\mathrm{i}\hbar\hat{l}_z\hat{l}_y+\mathrm{i}\hbar\hat{l}_z\hat{l}_y+\mathrm{i}\hbar\hat{l}_y\hat{l}_z                                       \\
+             & =0
         \end{aligned}
     $$
-    可见$LHS=RHS$，同理也可以证明
+    以上过程需要利用角动量算符的基本对易关系
+    $$
+        \left[\hat{l}_{\alpha}, \hat{l}_{\beta}\right]=\varepsilon_{\alpha\beta\gamma}\mathrm{i}\hbar\hat{l}_{\gamma}
+    $$
+    同理也可以证明
     $$
         \left[\hat{\boldsymbol{l}}^2, \hat{l}_y\right] = 0,
         \quad
         \left[\hat{\boldsymbol{l}}^2, \hat{l}_z\right] = 0.
     $$
-    这说明角动量的平方$\hat{\boldsymbol{l}}^2$与角动量的任意分量$\hat{l}_{\alpha}$（$\alpha=x, y, z$）相互对易.
+    这说明角动量的平方算符 $\hat{\boldsymbol{l}}^2$ 与角动量的任意分量算符 $\hat{l}_{\alpha}$（$\alpha=x, y, z$）相互对易.
 \end{solution}
 
 
@@ -120,45 +127,39 @@ $$
     $$
     证明：
     \begin{enumerate}
-        \item[(19)] $\hat{l}_z\hat{l}_{\pm}=\hat{l}_{\pm}\left(\hat{l}_z \pm \hbar\right)$
+        \item[(19)] $\hat{l}_z\hat{l}_{\pm}=\hat{l}_{\pm}\left(\hat{l}_z \pm \hbar\right)$，即$\left[\hat{l}_z, \hat{l}_{\pm}\right]=\pm\mathrm{i}\hbar\hat{l}_{\pm}$
         \item[(20)] $\hat{l}_{\pm}\hat{l}_{\mp}=\hat{l}^2 - \hat{l}_z^2 \pm \hbar\hat{l}_z$
         \item[(21)] $\left[\hat{l}_{+}, \hat{l}_{-}\right]=2\hbar\hat{l}_z$
     \end{enumerate}
 \end{question}
 \begin{solution}
-    (19) 根据$\hat{l}_{\pm}$的定义
+    (19) 根据$\hat{l}_{\pm}$的定义和量子力学的基本对易式\footnote{$\left[\hat{l}_{\alpha}, \hat{l}_{\beta}\right]=\varepsilon_{\alpha\beta\gamma}\mathrm{i}\hbar\hat{l}_{\gamma}$}
     $$
-        LHS = \hat{l}_z\hat{l}_{\pm}
-        = \hat{l}_z\left(\hat{l}_x \pm \mathrm{i}\hat{l}_y\right)
-        = \hat{l}_z\hat{l}_x \pm \mathrm{i}\hat{l}_z\hat{l}_y
+        \left[\hat{l}_z, \hat{l}_{\pm}\right]
+        =\left[\hat{l}_z, \hat{l}_x\pm\mathrm{i}\hat{l}_y\right]
+        =\left[\hat{l}_z, \hat{l}_x\right]\pm\mathrm{i}\left[\hat{l}_z, \hat{l}_y\right]
+        =\mathrm{i}\hbar\hat{l}_y\pm\mathrm{i}(-\mathrm{i}\hbar)\hat{l}_x
+        =\pm\mathrm{i}\hbar\hat{l}_{\pm}
     $$
+    (20) 根据$\hat{l}_{\pm}$的定义，先证明
     $$
-        RHS = \left(\hat{l}_x \pm \mathrm{i}\hat{l}_y\right)\left(\hat{l}_z \pm \hbar\right)
+        \left(\hat{l}_x+\mathrm{i}\hat{l}_y\right)\left(\hat{l}_x-\mathrm{i}\hat{l}_y\right)
+        =\hat{l}_x^2+\mathrm{i}\left(-\hat{l}_x\hat{l}_y+\hat{l}_y\hat{l}_x\right)+\hat{l}_y^2
+        =\hat{l}^2-\hat{l}_z^2+\mathrm{i}\left[\hat{l}_y, \hat{l}_x\right]
+        =\hat{l}^2-\hat{l}_z^2+\hbar\hat{l}_z
     $$
-    所以
+    同理可证
     $$
-        RHS=LHS
-    $$
-    (20) 根据$\hat{l}_{\pm}$的定义
-    $$
-        LHS =
-    $$
-    $$
-        RHS =
-    $$
-    所以
-    $$
-        RHS=LHS
+        \left(\hat{l}_x-\mathrm{i}\hat{l}_y\right)\left(\hat{l}_x+\mathrm{i}\hat{l}_y\right)=\hat{l}^2-\hat{l}_z^2-\hbar\hat{l}_z
     $$
     (21) 根据$\hat{l}_{\pm}$的定义
     $$
         \begin{aligned}
-            LHS & = [\hat{l}_x+\mathrm{i}\hat{l}_y,\hat{l}_x-\mathrm{i}\hat{l}_y]                                                                       \\
-                & = [\hat{l}_x,\hat{l}_x-\mathrm{i}\hat{l}_y]+[\mathrm{i}\hat{l}_y,\hat{l}_x-\mathrm{i}\hat{l}_y]                                       \\
-                & = [\hat{l}_x,\hat{l}_x]-[\hat{l}_x,\mathrm{i}\hat{l}_y]+[\mathrm{i}\hat{l}_y,\hat{l}_x]-[\mathrm{i}\hat{l}_y,\mathrm{i}\hat{l}_y]     \\
-                & = 0-\mathrm{i}[\hat{l}_x,\hat{l}_y]-[\hat{l}_x,\mathrm{i}]\hat{l}_y+\mathrm{i}[\hat{l}_y,\hat{l}_x]+[\hat{l}_y,\mathrm{i}]\hat{l}_x-0 \\
-                & = 0-\mathrm{i}(\mathrm{i}\hbar\hat{l}_z)-0+\mathrm{i}(-\mathrm{i}\hbar\hat{l}_z)+0-0                                                  \\
-                & = 2\hbar\hat{l}_z = RHS                                                                                                               \\
+            \left[\hat{l}_{+}, \hat{l}_{-}\right]
+             & = [\hat{l}_x+\mathrm{i}\hat{l}_y,\hat{l}_x-\mathrm{i}\hat{l}_y]                                               \\
+             & = [\hat{l}_x,\hat{l}_x]-\mathrm{i}[\hat{l}_x,\hat{l}_y]+\mathrm{i}[\hat{l}_y,\hat{l}_x]+[\hat{l}_y,\hat{l}_y] \\
+             & = 0-\mathrm{i}(\mathrm{i}\hbar\hat{l}_z)+\mathrm{i}(-\mathrm{i}\hbar\hat{l}_z)+0                              \\
+             & = 2\hbar\hat{l}_z                                                                                             \\
         \end{aligned}
     $$
 \end{solution}
@@ -214,9 +215,11 @@ $$
     $F_{+}$与$F_{-}$均为Hermitian算符.
 \end{question}
 \begin{solution}
-    Hermitian算符就是一种自伴算符
+    已知$A$与$B$都是Hermitian算符（自伴算符）
     $$
-        A^\dagger = A, \quad B^\dagger = B, \quad (AB)^{\dagger}=B^{\dagger}A^{\dagger}=BA
+        A^\dagger = A, \quad
+        B^\dagger = B, \quad
+        (AB)^{\dagger}=B^{\dagger}A^{\dagger}=BA
     $$
     对于
     $$
@@ -364,6 +367,7 @@ $$
     $$
         \psi_n(x)=C\exp\left(-F_n\mathrm{e}^{-\mathrm{i}x}\right)
     $$
+    还没有归一化……
 \end{solution}
 
 
@@ -372,18 +376,19 @@ $$
     对于一维运动，求算符$\hat{F}=\hat{p}+x$的本征值和本征函数.
 \end{question}
 \begin{solution}
-    设量子本征态为$\psi_n(x)$，本征值为$F_n$，本征方程为
+    设量子本征态为$\psi(x)$，本征值为$\lambda$，本征方程为
     $$
-        \hat{F}\psi_n(x) = (\hat{p}_x+x)\psi_n(x) = F_n\psi_n(x)
+        \hat{F}\psi(x) = (\hat{p}+x)\psi(x) = \lambda\psi_n(x)
     $$
     代入动量算符，得到
     $$
-        -\mathrm{i}\hbar\frac{\mathrm{d}\psi_n(x)}{\mathrm{d}x}+(x-F_n)\psi_n(x)=0
+        -\mathrm{i}\hbar\frac{\mathrm{d}\psi(x)}{\mathrm{d}x}+(x-\lambda)\psi(x)=0
     $$
     分离变量后两边积分得到本征函数
     $$
-        \psi_n(x) = C\exp\left[-\frac{\mathrm{i}x}{2\hbar}(x-2F_n)\right]
+        \psi(x) = C\exp\left[-\frac{\mathrm{i}x}{2\hbar}(x-2\lambda)\right]
     $$
+    对于所有实数$\lambda$，波函数$\psi(x)$均满足标准条件。
 \end{solution}
 
 
