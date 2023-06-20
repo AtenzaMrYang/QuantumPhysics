@@ -1,5 +1,31 @@
 \section{量子力学的矩阵形式与表象变换}
-
+希尔伯特空间中，态矢的内积运算（行矩阵乘列矩阵）定义为
+$$
+    \langle f \mid g \rangle=f_1g_2+f_2g_2+\cdots
+$$
+波函数的内积
+$$
+    \langle f \mid g \rangle=\int_{-\infty}^{+\infty}f^*(x)g(x)\,\mathrm{d}x
+$$
+且一个波函数的模平方积分就是与自身的内积，必须是一个有限值（否则无法归一化）
+$$
+    \int_{a}^{b}|f(x)|^2\,\mathrm{d}x < \infty
+$$
+态矢的正交归一表示
+$$
+    \langle f_m \mid f_n \rangle=\delta_{mn}
+$$
+广义的态叠加原理：对任意一个希尔伯特空间中的态$\mid\psi\rangle$而言，都可以写成某个力学量算符$\hat{Q}$的本征函数族的线性组合
+$$
+    \mid\psi\rangle = \sum_{n}^{}c_n\mid\psi_n\rangle
+$$
+举例来说，动量空间波函数和位置空间波函数都能描述同一个量子态，二者可以用傅里叶变换相互转化
+$$
+    \varphi(x, t)=\frac{1}{\sqrt{2\pi\hbar}}\int_{-\infty}^{+\infty}\psi(p, t)\mathrm{e}^{-\mathrm{i}px/\hbar}\,\mathrm{d}p
+$$
+$$
+    \psi(p, t)=\frac{1}{\sqrt{2\pi\hbar}}\int_{-\infty}^{+\infty}\varphi(x, t)\mathrm{e}^{\mathrm{i}px/\hbar}\,\mathrm{d}x
+$$
 \begin{question}{题目7.3}
     设一维粒子Hamilton量为$H=\dfrac{p^2}{2m}+V(x)$. 写出 $x$ 表象中$x,p,H$的矩阵元.
 \end{question}
@@ -52,77 +78,81 @@
     $$
     \begin{enumerate}
         \item 求它们的本征值与本征函数.
-        \item 写出在$\sigma^2-\sigma_z$表象中，算符$\hat{\sigma}_x$的矩阵形式及其本征函数形式.
+        \item 写出在$\sigma^2-\sigma_x$表象中，算符$\hat{\sigma}_x$的矩阵形式及其本征函数形式.
     \end{enumerate}
 \end{question}
 \begin{solution}
-    (1) 对于算符$\hat{\sigma}_x$，其本征方程$\hat{\sigma}_x|\psi\rangle = \lambda|\psi\rangle$的矩阵形式为
+    (1) 设算符$\hat{\sigma}_x$的本征值为$\lambda$，由久期方程
+    $$
+        \begin{vmatrix}
+            -\lambda & 1        \\
+            1        & -\lambda
+        \end{vmatrix}=0
+        \implies
+        \lambda_1=1, \lambda_2=-1
+    $$
+    \paragraph{情形一} 当$\lambda_1=1$时，设相应的$\hat{\sigma}_z$的本征函数为$\psi_1=(a_1, a_2)^T$
     $$
         \begin{pmatrix}
             0 & 1 \\
             1 & 0
         \end{pmatrix}\begin{pmatrix}
-            a \\
-            b
-        \end{pmatrix}
-        =\lambda\begin{pmatrix}
-            a \\
-            b
-        \end{pmatrix}
-    $$
-    也即方程组
-    $$
-        b = \lambda a, \quad
-        a =\lambda b
-    $$
-    解得
-    $$
-        \lambda_1=1, \quad |\psi_1\rangle=\begin{pmatrix}
-            1 \\ 1
+            a_1 \\
+            a_2
+        \end{pmatrix} = \begin{pmatrix}
+            a_1 \\
+            a_2
         \end{pmatrix}
     $$
+    说明$a_1=a_2$，且波函数必须正交归一
     $$
-        \lambda_2=-1, \quad |\psi_2\rangle=\begin{pmatrix}
-            1 \\ -1
+        \psi^*\psi
+        =\begin{pmatrix}
+            a_1^* & a_2^*
+        \end{pmatrix}\begin{pmatrix}
+            a_1 \\
+            a_2
         \end{pmatrix}
+        =1 \implies a_1=a_2=\frac{1}{\sqrt{2}}
     $$
-    类似地，算符$\hat{\sigma}_y$的本征值和对应的本征函数为
+    \paragraph{情形二} 当$\lambda=-1$时，设算符$\hat{\sigma}_x$的本征函数为$\psi_2=(b_1, b_2)^T$，于是本征方程写为
     $$
-        \lambda_1=1, \quad |\psi_1\rangle=\begin{pmatrix}
-            1 \\ -\mathrm{i}
-        \end{pmatrix}
-    $$
-    $$
-        \lambda_2=-1, \quad |\psi_2\rangle=\begin{pmatrix}
-            -1 \\ \mathrm{i}
-        \end{pmatrix}
-    $$
-    (2) 在$\sigma^2-\sigma_z$表象中，算符$\hat{\sigma}_x$的矩阵形式可以通过变换矩阵$U$得到
-    $$
-        U=\frac{1}{\sqrt{2}}\begin{pmatrix}
-            1 & 1  \\
-            1 & -1
-        \end{pmatrix}
-    $$
-    算符$\hat{\sigma}_x$在$\sigma^2-\sigma_z$表象中的矩阵形式
-    $$
-        \hat{\sigma}_x' = U\sigma_xU^{-1} = \begin{pmatrix}
+        \begin{pmatrix}
+            0 & 1 \\
             1 & 0 \\
-            0 & 1
+        \end{pmatrix}\begin{pmatrix}
+            b_1 \\
+            b_2
+        \end{pmatrix}
+        =-\begin{pmatrix}
+            b_1 \\
+            b_2
         \end{pmatrix}
     $$
-    而$\hat{\sigma}_x$在此表象中的本征函数为
+    这说明$b_1=-b_2$，且波函数必须正交归一
     $$
-        |\psi_1\rangle=\begin{pmatrix}
-            1 \\
-            0
+        \psi^*\psi
+        =\begin{pmatrix}
+            b_1^* & b_2^*
+        \end{pmatrix}\begin{pmatrix}
+            b_1 \\
+            b_2
         \end{pmatrix}
+        =1 \implies b_1=-b_2=\frac{1}{\sqrt{2}}
+    $$
+    综上：
+    $$
+        \lambda_1=1,\psi_1=\frac{1}{\sqrt{2}}\begin{pmatrix}1\\1\end{pmatrix};
         \quad
-        |\psi_2\rangle=\begin{pmatrix}
-            0 \\
-            1
-        \end{pmatrix}
+        \lambda_2=-1,\psi_2=\frac{1}{\sqrt{2}}\begin{pmatrix}1\\-1\end{pmatrix}
     $$
+    同理，通过久期方程和本征方程，求得$\hat{\sigma}_y$的本征值和相应的本征函数
+    $$
+        \lambda_1'=1,\varphi_1=\frac{1}{\sqrt{2}}\begin{pmatrix}1\\\mathrm{i}\end{pmatrix};
+        \quad
+        \lambda_2'=-1,\varphi_2=\frac{1}{\sqrt{2}}\begin{pmatrix}1\\-\mathrm{i}\end{pmatrix}
+    $$
+    (2) 可以利用转移矩阵$U$将态矢从$\sigma^2-\sigma_z$表象变换到$\sigma^2-\sigma_x$表象
 \end{solution}
 
 
@@ -138,13 +168,12 @@
     \end{enumerate}
 \end{question}
 \begin{solution}
-
 \end{solution}
 
 
 
 \begin{question}{题目8.3}
-    在$s_z$本征态$\chi_{1/2}(s_z)=\begin{pmatrix} 1 \\ 0 \end{pmatrix}$下，求 $\overline{(\delta{s_x})^2}$ 和 $\overline{(\delta{s_y})^2}$.
+    在$s_z$本征态$\chi_{1/2}(s_z)=\begin{pmatrix} 1 \\ 0 \end{pmatrix}$下，求 $\overline{(\Delta{s_x})^2}$ 和 $\overline{(\Delta{s_y})^2}$.
 \end{question}
 \begin{solution}
 
@@ -160,38 +189,6 @@
     如果电子之间的库仑能与$u(r)$相比可以忽略，求当一个电子处在基态，另一电子处于沿$x$方向运动时的第一激发态时，两电子组成体系的波函数。
 \end{question}
 \begin{solution}
-    设两个电子的坐标为$r_1$和$r_2$，则体系的总哈密顿算符为
-    $$
-        H=\frac{p_1^2}{2m}+\frac{p_2^2}{2m}+\frac{1}{2}m\omega^2(r_1^2+r_2^2)
-    $$
-    其中$m$是电子的质量，$\omega$是弹性势场的频率。可以用质心坐标$R=\frac{r_1+r_2}{2}$和相对坐标$r=r_1-r_2$将哈密顿算符分解为
-    $$
-        H=H_R+H_r=\frac{P_R^2}{4m}+\frac{p_r^2}{m}+m\omega^2R^2+\frac{1}{4}m\omega^2r^2
-    $$
-    其中$P_R=p_1+p_2$是质心动量，$p_r=\frac{p_1-p_2}{2}$是相对动量。由于质心运动和相对运动是分离的，可以分别求解它们的本征态和本征值。质心运动部分是一个一维谐振子，其本征态为
-    $$
-        \psi_n(R)=\left(\frac{m\omega}{\pi\hbar}\right)^{1/4}\frac{1}{\sqrt{2^n n!}}H_n(\sqrt{m\omega/\hbar}R)e^{-m\omega R^2/2\hbar}
-    $$
-    其中$n=0,1,2,\dots$，$H_n(x)$是$n$阶厄米多项式，本征值为
-    $$
-        E_n=\hbar\omega(n+1/2)
-    $$
-    相对运动部分是一个二维谐振子，其本征态为
-    $$\
-        phi_{nm}(r)=\left(\frac{m\omega}{\pi\hbar}\right)^{1/2}\frac{1}{\sqrt{2^n n! 2^m m!}}H_n(\sqrt{m\omega/\hbar}x)H_m(\sqrt{m\omega/\hbar}y)e^{-m\omega r^2/4\hbar}
-    $$
-    其中$n,m=0,1,2,\dots$，本征值为
-    $$
-        E_{nm}=2\hbar\omega(n+m+1)
-    $$
-    由于电子是费米子，它们的总波函数必须是反对称的。因此，如果一个电子处在基态$\psi_0(R)\phi_{00}(r)$，另一个电子处于沿$x$方向运动的第一激发态$\psi_0(R)\phi_{10}(r)$，则两电子组成体系的波函数为
-    $$
-        \Psi(r_1,r_2)=A[\psi_0(R)\phi_{00}(r)\chi_{+-}(s)-\psi_0(R)\phi_{10}(r)\chi_{-+}(s)]
-    $$
-    其中$A$是归一化常数，$\chi_{+-}(s)$和$\chi_{-+}(s)$是自旋单态波函数。这个波函数满足交换反对称性：
-    $$
-        \Psi(r_1,r_2)=-\Psi(r_2,r_1)
-    $$
 \end{solution}
 
 

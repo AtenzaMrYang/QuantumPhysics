@@ -119,38 +119,37 @@ $$
 
 
 \subsection{求矩阵的逆矩阵}
-求逆矩阵的相关方法大致可以分为四类
-\subsubsection{定义法} 寻找一个与$\boldsymbol{A}$同阶的方阵$\boldsymbol{B}$，使得
+1. 定义法：寻找一个与$\boldsymbol{A}$同阶的方阵$\boldsymbol{B}$，使得
 $$
     \boldsymbol{AB}=\boldsymbol{E}
     ,\quad
     \boldsymbol{BA}=\boldsymbol{E}
 $$
-\subsubsection{公式法}
-可利用矩阵行列式和代数余子式构成的伴随矩阵来求逆矩阵
+2. 公式法：可利用矩阵行列式和代数余子式构成的伴随矩阵来求逆矩阵 \footnote{
+    例如矩阵$\begin{pmatrix} 1 & 2 \\ 2 & 5 \end{pmatrix}$的伴随矩阵为
+    $$
+        \boldsymbol{A}^* = \begin{pmatrix}
+            M_{11}  & -M_{12} \\
+            -M_{21} & M_{22}
+        \end{pmatrix} = \begin{pmatrix}
+            5  & -2 \\
+            -2 & 1
+        \end{pmatrix}
+    $$
+    于是逆矩阵为
+    $$
+        \boldsymbol{A}^{-1}
+        =\frac{1}{|\boldsymbol{A}|}\boldsymbol{A}^*
+        =\begin{pmatrix}
+            5  & -2 \\
+            -2 & 1
+        \end{pmatrix}
+    $$
+}
 $$
     \boldsymbol{A}^{-1} = \frac{1}{|\boldsymbol{A}|}\boldsymbol{A}^*
 $$
-例如矩阵$\begin{pmatrix} 1 & 2 \\ 2 & 5 \end{pmatrix}$的伴随矩阵为
-$$
-    \boldsymbol{A}^* = \begin{pmatrix}
-        M_{11}  & -M_{12} \\
-        -M_{21} & M_{22}
-    \end{pmatrix} = \begin{pmatrix}
-        5  & -2 \\
-        -2 & 1
-    \end{pmatrix}
-$$
-于是逆矩阵为
-$$
-    \boldsymbol{A}^{-1}
-    =\frac{1}{|\boldsymbol{A}|}\boldsymbol{A}^*
-    =\begin{pmatrix}
-        5  & -2 \\
-        -2 & 1
-    \end{pmatrix}
-$$
-\subsubsection{初等变换法}
+3. 初等变换法：
 $$
     \begin{pmatrix}
         \boldsymbol{A} & \vdots & \boldsymbol{E}
@@ -159,8 +158,7 @@ $$
     \begin{pmatrix}
         \boldsymbol{E} & \vdots & \boldsymbol{A}^{-1}
     \end{pmatrix}
-$$
-$$
+    \quad
     \begin{pmatrix}
         \boldsymbol{A} \\
         \cdots         \\
@@ -173,8 +171,7 @@ $$
         \boldsymbol{A}^{-1}
     \end{pmatrix}
 $$
-\subsubsection{分块矩阵法}
-当$\boldsymbol{A}, \boldsymbol{B}$均可逆时
+4. 分块矩阵法：当$\boldsymbol{A}, \boldsymbol{B}$均可逆时
 $$
     \begin{pmatrix}
         \boldsymbol{A} & \boldsymbol{O} \\
@@ -183,8 +180,8 @@ $$
     =\begin{pmatrix}
         \boldsymbol{A}^{-1} & \boldsymbol{O}      \\
         \boldsymbol{O}      & \boldsymbol{B}^{-1}
-    \end{pmatrix}
-    ,\quad
+    \end{pmatrix},
+    \quad
     \begin{pmatrix}
         \boldsymbol{O} & \boldsymbol{A} \\
         \boldsymbol{B} & \boldsymbol{O}
@@ -194,94 +191,6 @@ $$
         \boldsymbol{B}^{-1} & \boldsymbol{O}
     \end{pmatrix}
 $$
-
-
-\subsection{Virial定理}
-\begin{question}{Virial定理}
-    当体系处于定态时，有
-    $$
-        2\overline{T} = \overline{\boldsymbol{r}\cdot\nabla{V(r)}}
-    $$
-    其中$T=\dfrac{p^2}{2m}$是粒子动能，$V\left(\boldsymbol{r}\right)$是势能.
-\end{question}
-\begin{proof}
-    系统的Hamilton算符为
-    $$
-        \hat{H}=\frac{\hat{p}^2}{2m}+V(\boldsymbol{r})
-    $$
-    考虑$\boldsymbol{r}\cdot\boldsymbol{p}$的平均值随时间演化\footnote{不显含$t$的力学量$A$，其平均值随时间演化
-        $$
-            \frac{\mathrm{d}}{\mathrm{d}t}\bar{A}=\frac{1}{\mathrm{i}\hbar}\overline{\left[A, H\right]}
-        $$
-    }
-    $$
-        \mathrm{i}\hbar\frac{\mathrm{d}}{\mathrm{d}t}(\boldsymbol{r}\cdot\boldsymbol{p})
-        =\overline{\left[\boldsymbol{r}\cdot\boldsymbol{p}, H\right]}
-        =\frac{1}{2m}\overline{\left[\boldsymbol{r}\cdot\boldsymbol{p}, \hat{p}^2\right]}+\overline{\left[\boldsymbol{r}\cdot\boldsymbol{p}, V(\boldsymbol{r})\right]}
-        % =\mathrm{i}\hbar\left(\frac{1}{m}\overline{\hat{p}^2}-\overline{\boldsymbol{r}\cdot\nabla{V}}\right)
-    $$
-    \paragraph{对于第一项}
-    因式$\left[\boldsymbol{r}\cdot\boldsymbol{p}, \hat{p}^2\right]$可以写为
-    $$
-        \left[\boldsymbol{r}\cdot\hat{\boldsymbol{p}}, \hat{p}^2\right]
-        =\left[x\hat{p}_x + y\hat{p}_y + z\hat{p}_z, \hat{p}_x^2+\hat{p}_y^2+\hat{p}_z^2\right]
-        =\left[x\hat{p}_x, \hat{p}_x^2\right] + \left[y\hat{p}_y, \hat{p}_y^2\right] + \left[z\hat{p}_z, \hat{p}_z^2\right]
-    $$
-    这显然具有极佳的轮换对称性，我们根据对易式的代数恒等式
-    $$
-        \left[\hat{A}\hat{B}, \hat{C}\right]=\hat{A}\left[\hat{B}, \hat{C}\right]+\left[\hat{A}, \hat{C}\right]\hat{B}
-    $$
-    处理其中一项
-    $$
-        \begin{aligned}
-            \left[x\hat{p}_x, \hat{p}_x^2\right]
-             & =x\left[\hat{p}_x, \hat{p}_x^2\right] + \left[x, \hat{p}_x^2\right]\hat{p}_x            \\
-             & =0 + \left[x, \hat{p}_x^2\right]\hat{p}_x                                               \\
-             & =0 + \left[x, \hat{p}_x\hat{p}_x\right]\hat{p}_x                                        \\
-             & =0 + \hat{p}_x\left[x, \hat{p}_x\right]\hat{p}_x + \left[x, \hat{p}_x\right]\hat{p}_x^2 \\
-        \end{aligned}
-    $$
-    再利用量子力学的基本对易式$[x, \hat{p}_x]=\mathrm{i}\hbar$，得到
-    $$
-        \left[x\hat{p}_x, \hat{p}_x^2\right]
-        =\hat{p}_x(\mathrm{i}\hbar)\hat{p}_x + (\mathrm{i}\hbar)\hat{p}_x^2
-        =2\mathrm{i}\hbar\hat{p}_x^2
-    $$
-    同理可得
-    $$
-        \left[y\hat{p}_y, \hat{p}_y^2\right] = 2\mathrm{i}\hbar\hat{p}_y^2 \quad
-        \left[z\hat{p}_z, \hat{p}_z^2\right] = 2\mathrm{i}\hbar\hat{p}_z^2
-    $$
-    于是
-    $$
-        \left[\boldsymbol{r}\cdot\hat{\boldsymbol{p}}, \hat{p}^2\right] = 2\mathrm{i}\hbar\left(\hat{p}_x^2 + \hat{p}_y^2 + \hat{p}_z^2\right)
-        =2\mathrm{i}\hbar\hat{p}^2
-    $$
-    \paragraph{对于第二项} 也利用相同的对易代数恒等式展开
-    $$
-        \left[\boldsymbol{r}\cdot\boldsymbol{p}, V(\boldsymbol{r})\right]
-        = \boldsymbol{r}\left[\boldsymbol{p}, V(\boldsymbol{r})\right] + \left[\boldsymbol{r}, V(\boldsymbol{r})\right]\boldsymbol{p}
-    $$
-    显然$\boldsymbol{r}$和$V(\boldsymbol{r})$相互对易
-    $$
-        \left[\boldsymbol{r}, V(\boldsymbol{r})\right]=0
-    $$
-    再将算符$\boldsymbol{r}\left[\boldsymbol{p}, V(\boldsymbol{r})\right]$作用在任意波函数$\psi$上
-    $$
-        \begin{aligned}
-            \boldsymbol{r}\left[\boldsymbol{p}, V(\boldsymbol{r})\right]\psi
-             & =\hat{p}[V(\boldsymbol{r})\psi]-V(\boldsymbol{r})\hat{p}\psi                                                                                \\
-             & = -\mathrm{i}\hbar\nabla[V(\boldsymbol{r})\psi] + \mathrm{i}\hbar V(\boldsymbol{r})\nabla\psi                                               \\
-             & = -\mathrm{i}\hbar V(\boldsymbol{r})\nabla\psi - \mathrm{i}\hbar\psi\nabla[V(\boldsymbol{r})] + \mathrm{i}\hbar V(\boldsymbol{r})\nabla\psi \\
-             & = -\mathrm{i}\hbar\psi[\nabla V(\boldsymbol{r})]
-        \end{aligned}
-    $$
-    所以这个算符的本质是
-    $$
-        \left[\hat{\boldsymbol{p}}, V(\boldsymbol{r})\right] = -\mathrm{i}\hbar\nabla{V(\boldsymbol{r})}
-    $$
-\end{proof}
-
 
 
 

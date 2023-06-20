@@ -18,11 +18,12 @@
     \left(\hat{A}\hat{B}\right)\psi = \hat{A}\left(\hat{B}\psi\right)
 \end{equation}
 
-\subsubsection{量子力学的基本对易式}
-量子力学中最基本的对易关系是\footnote{
+\paragraph{量子力学的基本对易式}
+量子力学中最早被发现并证实的对易关系是动量算符和位置算符\footnote{
     动量算符表示为
     $$
-        \hat{p} = \mathrm{i}\hbar\left( \frac{\partial }{\partial x}\hat{e}_x + \frac{\partial }{\partial y}\hat{e}_y + \frac{\partial }{\partial z}\hat{e}_y \right)
+        \hat{p} = -\mathrm{i}\hbar\nabla
+        = -\mathrm{i}\hbar\left(\frac{\partial }{\partial x} + \frac{\partial }{\partial y} + \frac{\partial }{\partial z}\right)
     $$
     Kronecker函数的含义是
     $$
@@ -33,20 +34,22 @@
     $$
 }
 $$
-    x_{\alpha}\hat{p}_{\beta}-\hat{p}_{\beta}x_{\alpha}=\mathrm{i}\hbar\delta_{\alpha\beta}, \quad \alpha,\beta=x,y,z
+    x_{\alpha}\hat{p}_{\beta}-\hat{p}_{\beta}x_{\alpha} = \mathrm{i}\hbar\delta_{\alpha\beta},
+    \quad
+    \alpha,\beta=x,y,z
 $$
-抽象但普遍的量子力学对易式
+为了简洁和方便，我们可以定义符号$\left[\right]$来表达类似的对易关系
 \begin{equation}
     \left[\hat{A}, \hat{B}\right] \equiv \hat{A}\hat{B}-\hat{B}\hat{A}
 \end{equation}
-而对易式满足下列恒等式：
+根据对易式的定义，可以推出下列对易恒等式：
 \begin{align}
     \left[\hat{A}, \hat{B}\right]         & = -\left[\hat{B}, \hat{A}\right]                                              \\
     \left[\hat{A}, \hat{B}+\hat{C}\right] & = \left[\hat{A}, \hat{B}\right] + \left[\hat{A}, \hat{C}\right]               \\
     \left[\hat{A}, \hat{B}\hat{C}\right]  & = \hat{B}\left[\hat{A}, \hat{C}\right] + \left[\hat{A}, \hat{B}\right]\hat{C} \\
     \left[\hat{A}\hat{B}, \hat{C}\right]  & = \hat{A}\left[\hat{B}, \hat{C}\right] + \left[\hat{A}, \hat{C}\right]\hat{B}
 \end{align}
-进一步可以证明Jacobi恒等式\footnote{李代数是满足Jacobi恒等式代数结构的一个主要例子}
+进一步可以证明Jacobi恒等式\footnote{题外话：群论中的李代数是满足Jacobi恒等式代数结构的一个主要例子}
 \begin{equation}
     \left[\hat{A}, \left[\hat{B},\hat{C}\right]\right] + \left[\hat{B}, \left[\hat{C},\hat{A}\right]\right] + \left[\hat{C}, \left[\hat{A},\hat{B}\right]\right] = 0
 \end{equation}
@@ -57,6 +60,12 @@ $$
 角动量算符定义为
 $$
     \hat{\boldsymbol{l}} = \boldsymbol{r} \times \hat{\boldsymbol{p}}
+    =\boldsymbol{r}\times\left(-\mathrm{i}\hbar\boldsymbol{\nabla}\right)
+    =-\mathrm{i}\hbar\begin{vmatrix}
+        i                            & j                            & k                            \\
+        x                            & y                            & z                            \\
+        \frac{\partial }{\partial x} & \frac{\partial }{\partial y} & \frac{\partial }{\partial z}
+    \end{vmatrix}
 $$
 各个分量表示为
 $$
@@ -108,20 +117,20 @@ $$
     $$
         \left[\hat{l}_{\alpha}, \hat{l}_{\beta}\right]=\varepsilon_{\alpha\beta\gamma}\mathrm{i}\hbar\hat{l}_{\gamma}
     $$
-    同理也可以证明
+    同理也可以证明$\alpha=y,z$的情形
     $$
-        \left[\hat{\boldsymbol{l}}^2, \hat{l}_y\right] = 0,
+        \left[\hat{\boldsymbol{l}}^2, \hat{l}_y\right] = 0
         \quad
-        \left[\hat{\boldsymbol{l}}^2, \hat{l}_z\right] = 0.
+        \left[\hat{\boldsymbol{l}}^2, \hat{l}_z\right] = 0
     $$
-    这说明角动量的平方算符 $\hat{\boldsymbol{l}}^2$ 与角动量的任意分量算符 $\hat{l}_{\alpha}$（$\alpha=x, y, z$）相互对易.
+    这说明角动量的平方算符 $\hat{\boldsymbol{l}}^2$ 与角动量的任意分量算符 $\hat{l}_{\alpha}$（$\alpha=x, y, z$）相互对易。
 \end{solution}
 
 
 
 
 \begin{question}{证明题}
-    定义
+    定义角动量的升降阶算符$\hat{l}_{\pm}$
     $$
         \hat{l}_{\pm} = \hat{l}_x \pm \mathrm{i}\hat{l}_y
     $$
@@ -133,7 +142,7 @@ $$
     \end{enumerate}
 \end{question}
 \begin{solution}
-    (19) 根据$\hat{l}_{\pm}$的定义和量子力学的基本对易式\footnote{$\left[\hat{l}_{\alpha}, \hat{l}_{\beta}\right]=\varepsilon_{\alpha\beta\gamma}\mathrm{i}\hbar\hat{l}_{\gamma}$}
+    (19) 根据$\hat{l}_{\pm}$的定义和量子力学的基本对易式\footnote{任意两个角动量分量算符$\hat{l}_{\alpha}$和$\hat{l}_{\beta}$的对易关系在前文已经证明过：$$\left[\hat{l}_{\alpha}, \hat{l}_{\beta}\right]=\varepsilon_{\alpha\beta\gamma}\mathrm{i}\hbar\hat{l}_{\gamma}$$}
     $$
         \left[\hat{l}_z, \hat{l}_{\pm}\right]
         =\left[\hat{l}_z, \hat{l}_x\pm\mathrm{i}\hat{l}_y\right]
@@ -143,14 +152,15 @@ $$
     $$
     (20) 根据$\hat{l}_{\pm}$的定义，先证明
     $$
-        \left(\hat{l}_x+\mathrm{i}\hat{l}_y\right)\left(\hat{l}_x-\mathrm{i}\hat{l}_y\right)
+        \hat{l}_{+}\hat{l}_{-}
+        =\left(\hat{l}_x+\mathrm{i}\hat{l}_y\right)\left(\hat{l}_x-\mathrm{i}\hat{l}_y\right)
         =\hat{l}_x^2+\mathrm{i}\left(-\hat{l}_x\hat{l}_y+\hat{l}_y\hat{l}_x\right)+\hat{l}_y^2
-        =\hat{l}^2-\hat{l}_z^2+\mathrm{i}\left[\hat{l}_y, \hat{l}_x\right]
+        =\hat{l}_x^2+\mathrm{i}\left[\hat{l}_y, \hat{l}_x\right]+\hat{l}_y^2
         =\hat{l}^2-\hat{l}_z^2+\hbar\hat{l}_z
     $$
     同理可证
     $$
-        \left(\hat{l}_x-\mathrm{i}\hat{l}_y\right)\left(\hat{l}_x+\mathrm{i}\hat{l}_y\right)=\hat{l}^2-\hat{l}_z^2-\hbar\hat{l}_z
+        \hat{l}_{-}\hat{l}_{+}=\left(\hat{l}_x-\mathrm{i}\hat{l}_y\right)\left(\hat{l}_x+\mathrm{i}\hat{l}_y\right)=\hat{l}^2-\hat{l}_z^2-\hbar\hat{l}_z
     $$
     (21) 根据$\hat{l}_{\pm}$的定义
     $$
@@ -182,12 +192,16 @@ $$
 \subsubsection{转置算符}
 算符$\hat{A}$的转置算符定义为
 $$
-    \int\mathrm{d}\tau \,\psi^*\tilde{\hat{A}}\varphi = \int\mathrm{d}\tau \,\varphi\hat{A}\psi
+    \int_{}^{}\psi^*\tilde{\hat{A}}\varphi \,\mathrm{d}\tau = \int_{}^{} \varphi\hat{A}\psi^* \,\mathrm{d}\tau
 $$
 表示为
 \begin{equation}
-    \left(\psi, \tilde{\hat{A}}\varphi\right) = \left(\varphi^*, \hat{A}\psi^*\right)
+    \left( \psi,\tilde{\hat{A}}\varphi \right) = \left( \varphi^*, \hat{A}\psi^* \right)
 \end{equation}
+实际上对于算符之积，有
+$$
+    \widetilde{\hat{A}\hat{B}}=\tilde{\hat{B}}\tilde{\hat{A}}
+$$
 
 
 
@@ -200,6 +214,33 @@ $$
 \begin{equation}
     \left(\psi, \hat{A}^{\dagger}\varphi\right) = \left(\hat{A}\psi, \varphi\right)
 \end{equation}
+\begin{question}{证明题}
+    证明：动量算符$-\mathrm{i}\hbar\frac{\partial}{\partial x}$是Hermitian算符。
+\end{question}
+\begin{proof}
+    一方面，当$\hat{p}$作用在右矢时\footnote{满足归一化条件的规范波函数必须满足$\psi(+\infty)=\psi(-\infty)=0$}
+    $$
+        \langle \psi\mid\hat{p}\psi \rangle
+        = \int_{-\infty}^{+\infty}\psi^*\left(-\mathrm{i}\hbar\frac{\partial \psi}{\partial x}\right)\mathrm{d}x
+        =-\mathrm{i}\hbar\int_{-\infty}^{+\infty}\psi^*\mathrm{d}\psi
+        =-\mathrm{i}\hbar\left(\psi^*\psi\Big|_{-\infty}^{+\infty} - \int_{-\infty}^{+\infty}\psi\mathrm{d}\psi^*\right)
+        =\mathrm{i}\hbar\int_{-\infty}^{+\infty}\psi\mathrm{d}\psi^*
+    $$
+    另一方面
+    $$
+        \langle \hat{p}\psi\mid\psi \rangle
+        =\int_{-\infty}^{+\infty}\left(\hat{p}\psi\right)^*\psi\,\mathrm{d}x
+        =\int_{-\infty}^{+\infty}\left(-\mathrm{i}\hbar\frac{\partial \psi}{\partial x}\right)^*\psi\,\mathrm{d}x
+        =\mathrm{i}\hbar\int_{-\infty}^{+\infty}\frac{\partial \psi^*}{\partial x}\psi\,\mathrm{d}x
+        =\mathrm{i}\hbar\int_{-\infty}^{+\infty}\psi\mathrm{d}\psi^*
+    $$
+    由此可见$\langle \psi\mid\hat{p}\psi \rangle=\langle \hat{p}\psi\mid\psi \rangle$，说明动量算符是Hermitian算符
+\end{proof}
+\begin{question}{扩展问题}
+    微分算符$\frac{\mathrm{d}}{\mathrm{d}x}$是Hermitian算符吗？
+    \tcblower
+    提示：考虑$\left\langle \psi \middle| \frac{\mathrm{d}}{\mathrm{d}x}\psi\right\rangle$与$\left\langle \frac{\mathrm{d}}{\mathrm{d}x}\psi \middle| \psi\right\rangle$是否相等？可以证明微分算符是反Hermitian算符。
+\end{question}
 
 \subsubsection{转置并取复共轭}
 $$
@@ -281,7 +322,8 @@ $$
 \subsubsection{涨落}
 对于处于量子态$\psi$的体系，力学量$A$的测量结果会围绕平均值涨落，即：
 $$
-    \overline{\Delta A^2} = \overline{\left(\hat{A}-\overline{A}\right)^2}
+    \overline{\Delta A^2}
+    = \overline{\left(\hat{A}-\overline{A}\right)^2}
     = \int_{}^{}\psi^*\left(\hat{A}-\overline{A}\right)^2\psi\,\mathrm{d}\tau
 $$
 因为$\hat{A}$是Hermitian算符，$\overline{A}$必为实数，因此$\overline{\Delta A}=\left(\hat{A}-\overline{A}\right)$仍然是Hermitian算符
@@ -307,11 +349,24 @@ $$
     Hermitian算符的本征值必为实.
 \end{theorem}
 \begin{proof}
-    在本征态$\psi_n$下
+    对于Hermitian算符$\hat{A}$其本征方程可以写为
     $$
-        \overline{A} = \left(\psi_n, \hat{A}\psi_n\right) = A_n(\psi_n,\psi_n) = A_n
+        \hat{A}\psi = A_n\psi
     $$
-    因为$\overline{A}$必为实数，所以本征值$A_n$也一定是实数.
+    再根据算符的自伴性质，其平均值有以下两种等价的计算方式
+    $$
+        \langle\psi\mid\hat{A}\psi\rangle
+        =\int\psi^*\left(\hat{A}\psi\right)\,\mathrm{d}\tau
+        =A_n\int\psi^*\psi\,\mathrm{d}\tau
+        =A_n
+    $$
+    $$
+        \langle\hat{A}\psi\mid\psi\rangle
+        =\int\left(\hat{A}\psi\right)^*\psi\,\mathrm{d}\tau
+        =A_n^*\int\psi^*\psi\,\mathrm{d}\tau
+        =A_n^*
+    $$
+    所以理应有$A_n=A_n^*$，也即本征值为实数。
 \end{proof}
 
 
@@ -326,7 +381,6 @@ $$
 
 
 \subsubsection{本征态简并}
-本征态简并往往与体系的对称性密切相关，在能级简并的情况下，仅根据能量本征值并不能完全确定各能量简并态.
 
 设力学量$\hat{A}$的本征方程为
 $$
@@ -334,7 +388,7 @@ $$
 $$
 即属于本征值$A_n$的本征态有$f_n$个，本征值$A_n$为$f_n$重简并.
 
-在出现简并态时，简并态的选择并不唯一，而且往往也不彼此正交，但只要把它们适当地线性叠加，就能获得一组彼此正交的简并态
+虽然在出现简并态时，简并态的选择并不唯一，而且往往也不彼此正交，但只要把它们适当地线性叠加，我们还是能获得一组彼此正交的简并态
 $$
     \phi_{n\beta} = \sum_{a}^{f_n} \alpha_{\beta\alpha}\hat{A}\psi_{n\alpha}, \quad \beta = 1, 2, \cdots, f_{\alpha}
 $$
@@ -376,17 +430,21 @@ $$
     对于一维运动，求算符$\hat{F}=\hat{p}+x$的本征值和本征函数.
 \end{question}
 \begin{solution}
-    设量子本征态为$\psi(x)$，本征值为$\lambda$，本征方程为
+    设算符$\hat{F}$的本征态为$\psi(x)$，对应的本征值为$\lambda$
     $$
-        \hat{F}\psi(x) = (\hat{p}+x)\psi(x) = \lambda\psi_n(x)
+        \hat{F}\psi(x) = (\hat{p}+x)\psi(x) = \lambda\psi(x)
     $$
-    代入动量算符，得到
+    代入动量算符$\hat{p}=-\mathrm{i}\hbar\frac{\partial}{\partial x}$，得到
     $$
         -\mathrm{i}\hbar\frac{\mathrm{d}\psi(x)}{\mathrm{d}x}+(x-\lambda)\psi(x)=0
     $$
-    分离变量后两边积分得到本征函数
+    整理成分离变量的形式
     $$
-        \psi(x) = C\exp\left[-\frac{\mathrm{i}x}{2\hbar}(x-2\lambda)\right]
+        \frac{\mathrm{d}\psi(x)}{\mathrm{d}x}=-\frac{\mathrm{i}}{\hbar}(x-\lambda)\psi(x)
+    $$
+    再两边积分得到本征函数
+    $$
+        \psi(x)=\frac{1}{2}\exp\left[-\frac{\mathrm{i}}{\hbar}(x^2-2\lambda x)\right]+C
     $$
     对于所有实数$\lambda$，波函数$\psi(x)$均满足标准条件。
 \end{solution}
@@ -430,31 +488,37 @@ $$
 \subsection{共同本征函数}
 
 \begin{question}{题目3.14}
-    证明在$l_z$的本征态下，$\overline{l_x}=\overline{l_y}=0$. （提示：利用$l_yl_z-l_zl_y=\mathrm{i}\hbar l_x$，求平均）
+    证明在$\hat{l}_z$的本征态下，$\overline{l_x}=\overline{l_y}=0$.
+    \tcblower
+    提示：可以利用对易式$\hat{l}_y\hat{l}_z-\hat{l}_z\hat{l}_y=\mathrm{i}\hbar\hat{l}_x$进行代换
 \end{question}
 \begin{solution}
-    对于球谐函数$Y_{lm}$
+    角动量$z$分量算符$\hat{l}_z$的本征值是我们熟知的$m\hbar$，本征方程为
     $$
-        l_zY_{lm} = m\hbar Y_{lm}, \quad m = l, l-1, \cdots, -l+1, -l
+        \hat{l}_z\psi = m\hbar\psi
     $$
-    设$\psi_m$是$l_z$的本征态，且相应的本征值是$m\hbar$
+    再根据角动量的对易关系
     $$
-        l_z\psi_m = m\hbar\psi_m
+        \left[\hat{l}_y,\hat{l}_z\right]=l_yl_z-l_zl_y=\mathrm{i}\hbar l_x
     $$
-    根据角动量的对易关系
-    $$
-        l_yl_z-l_zl_y=\mathrm{i}\hbar l_x
-    $$
-    得到
+    建立算符$\hat{l}_x$与算符$\hat{l}_z$的关系，最后利用$\hat{l}_z$的本征方程求得算符$\hat{l}_x$平均值
     $$
         \begin{aligned}
             \overline{l_x}
-             & = \frac{1}{\mathrm{i}\hbar}\int\psi_m^*\left(l_yl_z - l_zl_y\right)\psi_m \,\mathrm{d}x                                          \\
-             & = \frac{1}{\mathrm{i}\hbar}\left[\int\psi_m^*l_yl_z\psi_m\,\mathrm{d}x - \int\psi_m^*l_zl_y\psi_m \,\mathrm{d}x\right]           \\
-             & = \frac{1}{\mathrm{i}\hbar}\left[m\hbar\int\psi_m^*l_y\,\mathrm{d}x - \int\left(l_z\psi_m\right)^*l_y\psi_m \,\mathrm{d}x\right] \\
-             & = \frac{1}{\mathrm{i}\hbar}m\hbar\left[\overline{l_y} - \overline{l_z}\right]                                                    \\
-             & = 0                                                                                                                              \\
+             & =\int\psi^*\hat{l}_x\psi\,\mathrm{d}x=\frac{1}{\mathrm{i}\hbar}\int\psi^*\left(\hat{l}_y\hat{l}_z-\hat{l}_z\hat{l}_y\right)\psi \,\mathrm{d}x \\
+             & =\frac{1}{\mathrm{i}\hbar}\left[\int\psi^*\hat{l}_y\hat{l}_z\psi\,\mathrm{d}x-\int\psi^*\hat{l}_z\hat{l}_y\psi \,\mathrm{d}x\right]           \\
+             & =\frac{1}{\mathrm{i}\hbar}\left[m\hbar\int\psi^*\hat{l}_y\psi\,\mathrm{d}x-\int\left(\hat{l}_z\psi\right)^*\hat{l}_y\psi \,\mathrm{d}x\right] \\
+             & =\frac{1}{\mathrm{i}\hbar}m\hbar\left(\overline{l_y} - \overline{l_y}\right)                                                                  \\
+             & =0                                                                                                                                            \\
         \end{aligned}
+    $$
+    同理，再利用$\left[\hat{l}_z,\hat{l}_x\right]=\mathrm{i}\hbar\hat{l}_y$可得
+    $$
+        \overline{l_y}
+        =\frac{1}{\mathrm{i}\hbar}\int\psi^*(\hat{l}_z\hat{l}_x-\hat{l}_x\hat{l}_y)\psi\,\mathrm{d}y
+        =\frac{1}{\mathrm{i}\hbar}\left[\int(\hat{l}_z\psi)^*\hat{l}_x\psi\,\mathrm{d}y-\int\psi^*\hat{l}_x(\hat{l}_z\psi)\,\mathrm{d}y\right]
+        =\frac{1}{\mathrm{i}\hbar}m\hbar\left(\overline{l_x}-\overline{l_x}\right)
+        =0
     $$
 \end{solution}
 
@@ -462,15 +526,14 @@ $$
 
 
 \begin{question}{题目3.15}
-    设粒子处于$Y_{lm}(\theta,\varphi)$状态下，求$\overline{(\Delta l_x)^2}$和$\overline{(\Delta l_y)^2}$.
+    设粒子处于$\mathrm{Y}_{lm}(\theta,\varphi)$状态下，求$\overline{(\Delta l_x)^2}$和$\overline{(\Delta l_y)^2}$.
 \end{question}
 \begin{solution}
-    球谐函数$Y_{lm}(\theta, \varphi)$是$\boldsymbol{l}^2$和$l_z$的本征函数
+    球谐函数$\mathrm{Y}_{lm}(\theta, \varphi)$是$\boldsymbol{l}^2$和$l_z$的共同本征函数，两个本征方程分别为
     $$
-        \begin{aligned}
-            \boldsymbol{l}^2Y_{lm}(\theta, \varphi) & = l(l+1)\hbar^2Y_{lm}(\theta, \varphi), \\
-            l_zY_{lm}(\theta, \varphi)              & = m\hbar^2Y_{lm}(\theta, \varphi)
-        \end{aligned}
+        \hat{\boldsymbol{l}}^2\mathrm{Y}_{lm}(\theta, \varphi)=l(l+1)\hbar^2\mathrm{Y}_{lm}(\theta,\varphi)
+        \quad
+        \hat{l}_z\mathrm{Y}_{lm}(\theta, \varphi)=m\hbar\mathrm{Y}_{lm}(\theta,\varphi)
     $$
     考虑到球谐函数的对称性，有
     $$
@@ -479,12 +542,11 @@ $$
     $$
         \overline{l_x^2} = \overline{l_y^2} = \frac{1}{2}\overline{\left(\boldsymbol{l}^2-l_z^2\right)} = \frac{\hbar^2}{2}\left[l(l+1)-m^2\right]
     $$
-    根据概率统计的相关知识
+    根据概率统计的相关知识$D(x)=E(X^2)-E^2(X)$
     $$
         \overline{(\Delta l_x)^2} = \overline{(\Delta l_z)^2} = \frac{\hbar^2}{2}\left[l(l+1)-m^2\right]
     $$
 \end{solution}
-
 
 
 
@@ -525,14 +587,14 @@ $$
 \begin{question}{习题Ex55}
     线性谐振子在初始时刻处于下面归一化状态：
     $$
-        \psi(x) = \sqrt{\frac{1}{5}}\psi_0(x) + \sqrt{\frac{1}{2}}\psi_2(x) + c_5\psi_5(x)
+        \psi(x)=\sqrt{\frac{1}{5}}\psi_0(x)+\sqrt{\frac{1}{2}}\psi_2(x)+c_5\psi_5(x)
     $$
     式中$\psi_n(x)$表示谐振子第 $n$ 个定态波函数，求：
     \begin{enumerate}
-        \item[(1)] 系数 $c_5$；
-        \item[(2)] $t$时刻的波函数；
-        \item[(3)] $t=0$时刻谐振子能量的可能取值及其相应几率，并求其平均值；
-        \item[(4)] $t$时刻谐振子能量的可能取值及其相应的几率，并求其平均值.
+        \item 系数 $c_5$；
+        \item $t$时刻的波函数；
+        \item $t=0$时刻谐振子能量的可能取值及其相应几率，并求其平均值；
+        \item $t$时刻谐振子能量的可能取值及其相应的几率，并求其平均值.
     \end{enumerate}
 \end{question}
 \begin{solution}

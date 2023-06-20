@@ -1,46 +1,111 @@
 \section{力学量随时间的演化与对称性}
 \subsection{守恒量}
-力学量$A$的平均值表示为\footnote{波函数的标积定义为$$\left(\psi, \varphi\right) = \int_{}^{}\psi^*\varphi \,\mathrm{d}\tau$$}
+力学量$A$的平均值$\overline{A}$表示为\footnote{
+    虽然在《量子力学教程》中，波函数的标积表示为
+    $$
+        (\psi, \varphi)=\int\psi^*\varphi\,\mathrm{d}\tau
+    $$
+    但最好还是用Dirac符号表示
+    $$
+        \langle\psi\mid\varphi\rangle=\int\psi^*\varphi\,\mathrm{d}\tau
+    $$
+}
 $$
-    \bar{A}(t) = \left(\psi(t), A\psi(t)\right)
+    \overline{A}=\langle\psi(t)\mid\hat{A}\psi(t)\rangle=\int\psi^*\hat{A}\psi\,\mathrm{d}\tau
 $$
 所以
 $$
-    \frac{\mathrm{d}}{\mathrm{d}t}\bar{A}(t)
-    =\left(\frac{\partial \psi}{\partial t}, A\psi\right) + \left(\psi, A\frac{\partial \psi}{\partial t}\right) + \left(\psi, \frac{\partial A}{\partial t}\psi\right) \\
+    \frac{\mathrm{d}}{\mathrm{d}t}\overline{A}
+    =\frac{\mathrm{d}}{\mathrm{d}t}\int\psi^*\hat{A}\psi\,\mathrm{d}\tau
+    =\int\frac{\mathrm{d}}{\mathrm{d}t}(\psi^*\hat{A}\psi)\,\mathrm{d}\tau
+    =\int\left(\dot{\psi^*}\hat{A}\psi + \psi^*\dot{\hat{A}}\psi + \psi^*\hat{A}\dot{\psi}\right)\,\mathrm{d}\tau
 $$
-利用薛定谔方程
+利用薛定谔方程做代换$\frac{\partial \psi}{\partial t}=\frac{\hat{H}}{\mathrm{i}\hbar}\psi$
 $$
-    \mathrm{i}\hbar\frac{\partial \psi}{\partial t} = \hat{H}\psi
+    \frac{\mathrm{d}}{\mathrm{d}t}\overline{A}
+    =\int\left( \frac{\hat{H}\psi^*}{-\mathrm{i}\hbar}\hat{A}\psi
+    + \psi^*\frac{\partial \hat{A}}{\partial t}\psi
+    + \psi^*\hat{A}\frac{\hat{H}\psi}{\mathrm{i}\hbar}
+    \right)\mathrm{d}\tau
 $$
-对$\displaystyle \frac{\partial \psi}{\partial t}$进行代换
-$$
-    \begin{aligned}
-        \frac{\mathrm{d}}{\mathrm{d}t}\bar{A}(t)
-         & =\left(\frac{H\psi}{\mathrm{i}\hbar}, A\psi\right)+\left(\psi, A\frac{H\psi}{\mathrm{i}\hbar}\right) + \left(\psi, \frac{\partial A}{\partial t}\psi\right) \\
-         & =\frac{1}{-\mathrm{i}\hbar}(\psi, HA\psi) + \frac{1}{\mathrm{i}\hbar}(\psi, AH\psi) + \left(\psi, \frac{\partial A}{\partial t}\psi\right)                  \\
-         & =\frac{1}{\mathrm{i}\hbar}(\psi, [A,H]\psi) +  \left(\psi, \frac{\partial A}{\partial t}\psi\right)                                                         \\
-         & =\frac{1}{\mathrm{i}\hbar}\overline{[A,H]}+\frac{\overline{\partial A}}{\partial t}
-    \end{aligned}
-$$
-如果力学量$A$不显含$t$，则$\displaystyle \frac{\partial A}{\partial t}=0$
+如果力学量$A$不显含$t$（也即$\frac{\partial A}{\partial t}=0$），上式还能消去一项
 \begin{equation}
-    \frac{\mathrm{d}}{\mathrm{d}t}\bar{A}(t)=\frac{1}{\mathrm{i}\hbar}\overline{[A,H]}
+    \frac{\mathrm{d}}{\mathrm{d}t}\bar{A}
+    =\frac{1}{\mathrm{i}\hbar}\int\left(-\hat{H}\psi^*\hat{A}\psi + \psi^*\hat{A}\hat{H}\psi\right)\,\mathrm{d}\tau
+    =\frac{1}{\mathrm{i}\hbar}\int\psi^*(\hat{A}\hat{H}-\hat{H}\hat{A})\psi\,\mathrm{d}\tau
+    =\frac{1}{\mathrm{i}\hbar}\overline{[A,H]}
 \end{equation}
-如果恰好有$[A, H]=0$（即力学量$A$恰好与$H$对易），则$\displaystyle \frac{\mathrm{d}}{\mathrm{d}t}\bar{A}=0$，这说明力学量$A$在任何量子态下的平均值都不会随时间改变，这是体系的一个守恒量.
+如果恰好有$[A, H]=0$（即力学量$A$恰好与$H$对易），则$\frac{\mathrm{d}}{\mathrm{d}t}\bar{A}=0$，这说明力学量$A$在任何量子态下的平均值都不会随时间改变，这是体系的一个守恒量.
+
+\begin{theorem}[Virial定理]
+    当体系处于定态时，有
+    $$
+        2\overline{T} = \overline{\boldsymbol{r} \cdot \nabla V}
+    $$
+    其中$T=\frac{p^2}{2m}$是粒子动能，$V\left(\boldsymbol{r}\right)$是势能.
+\end{theorem}
+\begin{proof}
+    系统的Hamilton算符为
+    $$
+        \hat{H}=\frac{\hat{p}^2}{2m}+V(\boldsymbol{r})
+    $$
+    考虑$\boldsymbol{r}\cdot\boldsymbol{p}$的平均值随时间演化\footnote{不显含$t$的力学量$A$，其平均值随时间演化
+        $$
+            \frac{\mathrm{d}}{\mathrm{d}t}\bar{A}=\frac{1}{\mathrm{i}\hbar}\overline{\left[A, H\right]}
+        $$
+        如果在此基础上，力学量$A$又恰好与$H$对易，则$\frac{\mathrm{d}\bar{A}}{\mathrm{d}t}=0$，也即$A$是体系的一个守恒量。
+    }
+    $$
+        \mathrm{i}\hbar\frac{\mathrm{d}}{\mathrm{d}t}\overline{\boldsymbol{r}\cdot\boldsymbol{p}}
+        =\overline{\left[\boldsymbol{r}\cdot\boldsymbol{p}, H\right]}
+        =\frac{1}{2m}\overline{\left[\boldsymbol{r}\cdot\boldsymbol{p}, \hat{p}^2\right]}+\overline{\left[\boldsymbol{r}\cdot\boldsymbol{p}, V(\boldsymbol{r})\right]}
+        % =\mathrm{i}\hbar\left(\frac{1}{m}\overline{\hat{p}^2}-\overline{\boldsymbol{r}\cdot\nabla{V}}\right)
+    $$
+    \paragraph{对于第一项}
+    因式$\left[\boldsymbol{r}\cdot\boldsymbol{p}, \hat{p}^2\right]$可以写为
+    $$
+        \left[\boldsymbol{r}\cdot\hat{\boldsymbol{p}}, \hat{p}^2\right]
+        =\left[x\hat{p}_x + y\hat{p}_y + z\hat{p}_z, \hat{p}_x^2+\hat{p}_y^2+\hat{p}_z^2\right]
+        =\left[x\hat{p}_x, \hat{p}_x^2\right] + \left[y\hat{p}_y, \hat{p}_y^2\right] + \left[z\hat{p}_z, \hat{p}_z^2\right]
+    $$
+    这显然具有极佳的轮换对称性，我们根据对易式的代数恒等式\footnote{
+        对易式的代数恒等式：$$\left[\hat{A}\hat{B}, \hat{C}\right]=\hat{A}\left[\hat{B}, \hat{C}\right]+\left[\hat{A}, \hat{C}\right]\hat{B}$$
+    }
+    和量子力学的基本对易式\footnote{
+        量子力学的基本对易式：$$[x, \hat{p}_x]=\mathrm{i}\hbar$$
+    }处理其中一项
+    $$
+        \begin{aligned}
+            \left[x\hat{p}_x, \hat{p}_x^2\right]
+             & =x\left[\hat{p}_x, \hat{p}_x^2\right] + \left[x, \hat{p}_x^2\right]\hat{p}_x                   \\
+             & =0 + \left[x, \hat{p}_x^2\right]\hat{p}_x                                                      \\
+             & =0 + \left[x, \hat{p}_x\hat{p}_x\right]\hat{p}_x                                               \\
+             & =0 + \hat{p}_x\left[x, \hat{p}_x\right]\hat{p}_x + \left[x, \hat{p}_x\right]\hat{p}_x^2        \\
+             & = \hat{p}_x(\mathrm{i}\hbar)\hat{p}_x+(\mathrm{i}\hbar)\hat{p}_x^2=2\mathrm{i}\hbar\hat{p}_x^2
+        \end{aligned}
+    $$
+    类似地，可以得到
+    $$
+        \left[\boldsymbol{r}\cdot\hat{\boldsymbol{p}}, \hat{p}^2\right] = 2\mathrm{i}\hbar\left(\hat{p}_x^2 + \hat{p}_y^2 + \hat{p}_z^2\right)= 2\mathrm{i}\hbar\hat{p}^2
+    $$
+    \paragraph{对于第二项} 也利用相同的对易代数恒等式展开
+    $$
+        \left[\boldsymbol{r}\cdot\boldsymbol{p}, V(\boldsymbol{r})\right]
+        = \boldsymbol{r}\left[\boldsymbol{p}, V(\boldsymbol{r})\right] + \left[\boldsymbol{r}, V(\boldsymbol{r})\right]\boldsymbol{p}
+        =\boldsymbol{r}[\boldsymbol{p}, V(\boldsymbol{r})]+0
+        = -\mathrm{i}\hbar\boldsymbol{r}\nabla{V(\boldsymbol{r})}
+    $$
+    考虑到定态下$\frac{\mathrm{d}}{\mathrm{d}t}\overline{\boldsymbol{r}\cdot\boldsymbol{p}}=0$，所以
+    $$
+        2\overline{T} = \overline{\boldsymbol{r}\cdot\nabla{V(r)}}
+    $$
+\end{proof}
 
 
 \begin{question}{题目4.2}
     设体系有两个粒子，每个粒子可处于三个单粒子态$\varphi_1$，$\varphi_2$，$\varphi_3$中的任何一个态。试求体系可能的态数目，分三种情况讨论：两个全同玻色子、两个全同费米子、两个不同粒子。
 \end{question}
 \begin{solution}
-    两个全同玻色子：对于全同玻色子，每个粒子都可以处于三个单粒子态中的任意一个，且两个粒子可以占据同一个态。因此，对于每个粒子，有三种选择，总共有 $3 \times 3 = 9$ 种可能的组合。然而，由于玻色子是全同的，这些组合中的重复状态需要被排除。我们知道，当两个玻色子占据同一个态时，它们是不可分辨的，因此只计算一次。因此，最终可能的态数目为 $9-1=8$。
-
-    两个全同费米子：对于全同费米子，根据泡利不相容原理，两个费米子不能同时占据同一个态。因此，对于第一个粒子，有三种选择，而对于第二个粒子，只剩下两种选择（除去第一个粒子占据的态）。因此，可能的态数目为 $3 \times 2 = 6$。
-
-    两个不同粒子：对于不同的粒子，每个粒子都可以处于三个单粒子态中的任意一个，且它们之间没有交换对称性的限制。因此，对于每个粒子，有三种选择，总共有 $3 \times 3 = 9$ 种可能的组合。由于粒子是不同的，这些组合中的重复状态不需要排除。因此，可能的态数目为 $9$。
-
-    所以，根据上述讨论，根据粒子的全同性质，两个粒子的可能态数目分别为：
     \begin{itemize}
         \item 全同玻色子：8个态
         \item 全同费米子：6个态
@@ -100,7 +165,7 @@ $$
 
 
 
-\begin{question}{题目4.5}
+\begin{question}{题目4.5(期末考证明题)}
     设力学量$A$不显含$t$，证明在束缚定态下
     $$
         \frac{\mathrm{d}\bar{A}}{\mathrm{d}t} = 0
@@ -121,7 +186,7 @@ $$
         =\frac{1}{\mathrm{i}\hbar}\frac{(\psi, [A,H]\psi)}{(\psi, \psi)}
         =\frac{1}{\mathrm{i}\hbar}\frac{(\psi, AH\psi)-(\psi, HA\psi)}{(\psi, \psi)}
     $$
-    利用能量本征方程和Hermite算符的性质
+    利用能量本征方程和Hermitian算符的性质
     $$
         \begin{aligned}
              & (\psi, AH\psi) = (\psi, AE\psi) \\

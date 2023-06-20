@@ -2,15 +2,15 @@
 
 \subsection{一维势场中粒子能量本征态的一般性质}
 
-设质量为$m$的粒子，沿$x$方向运动，势能为$V(x)$，则薛定谔方程表示为
+设质量为$m$的粒子沿$x$方向运动，势能为$V(x)$，波函数为$\Psi(x,t)$，其薛定谔方程为
 \begin{equation}\label{薛定谔方程}
-    \mathrm{i}\hbar\frac{\partial \psi(x,t)}{\partial t} = \left[-\frac{\hbar^2}{2m}\frac{\partial^2 }{\partial x^2}+V(x)\right]\psi(x,t)
+    \mathrm{i}\hbar\frac{\partial \Psi(x,t)}{\partial t} = \left[-\frac{\hbar^2}{2m}\frac{\partial^2 }{\partial x^2}+V(x)\right]\Psi(x,t)
 \end{equation}
-再分离变数，保留仅与波函数$\psi(x)$相关的定态薛定谔方程
+分离变数$\Psi(x,t)=\psi(x)\varphi(t)$，仅考虑$\psi(x)$的部分
 \begin{equation}\label{一维粒子的能量本征方程}
     \left[-\frac{\hbar^2}{2m}\frac{\mathrm{d}^2}{\mathrm{d}x^2}+V(x)\right]\psi(x)=E\psi(x)
 \end{equation}
-这也是一维粒子的能量本征方程. 在量子力学中，我们一般默认$V(x)$取实值，即
+这也是一维粒子的能量本征方程（也叫定态薛定谔方程、哈密顿算符本征方程）. 在量子力学中，我们一般默认$V(x)$取实值，即
 \begin{equation}\label{量子力学中的势能是实数}
     V^*(x) = V(x)
 \end{equation}
@@ -21,11 +21,11 @@
     设$\psi(x)$是方程$\eqref{一维粒子的能量本征方程}$的一个解，对应的能量本征值为$E$，则$\psi^*(x)$也是方程的一个解，对应的能量也是$E$.
 \end{theorem}
 \begin{proof}
-    对方程 $\eqref{一维粒子的能量本征方程}$ 取复共轭
+    对$\psi$的能量本征方程两边取复共轭
     $$
         \left[-\frac{\hbar}{2m}\frac{\mathrm{d}^2}{\mathrm{d}x^2}+V(x)\right]\psi^*(x)=E\psi^*(x)
     $$
-    即$\psi^*(x)$也满足方程$\eqref{一维粒子的能量本征方程}$，并且对应能量本征值为$E$.
+    这就是$\psi^*(x)$的能量本征方程，且能量本征值为$E$.
 \end{proof}
 
 
@@ -36,12 +36,12 @@
     对于能量的某个本征值$E$，总可以找到方程$\eqref{一维粒子的能量本征方程}$的一组实数解，凡是属于$E$的任何解，均可表示为这一组实解的线性叠加.
 \end{theorem}
 \begin{proof}
-    设$\psi(x)$是能量本征值$E$的一个解，那$\psi^*(x)$也必定是能量本征值$E$的解，我们利用二者的线性叠加构造出一组实解
+    根据定理\ref{定理2}，只要$\psi(x)$是能量本征值$E$的解，那$\psi^*(x)$也必定是能量本征值$E$的解，在此基础上利用二者的线性叠加就能构造出一组实解
     $$
         \varphi(x)=\psi(x)+\psi^*(x), \quad
         \chi(x) = -\mathrm{i}[\psi(x)-\psi^*(x)]
     $$
-    显然这组实数解也是能量本征值$E$的一组解，我们只要将这组实数解适当地线性叠加，就能得到能量本征值$E$的所有解
+    根据态叠加原理，只要对叠加态$\varphi(x)$和$\chi(x)$进行一次能量测量，这二者就会塌缩成本征态$\psi(x)$或$\psi^*(x)$，相应的能量的测量结果也会是能量本征值$E$，所以只要我们将这组实数解适当地线性叠加，就能表示能量本征值$E$的所有解
     $$
         \psi=\frac{1}{2}(\varphi+\mathrm{i}\chi), \quad
         \psi^*=\frac{1}{2}(\varphi-\mathrm{i}\chi)
@@ -55,15 +55,15 @@
 \end{theorem}
 
 \begin{proof}
-    令$x=-x$，再代回能量本征方程
+    二阶微分运算显然满足空间反射不变性
     $$
-        \frac{\mathrm{d}^2}{\mathrm{d}(-x)^2}=\frac{\mathrm{d}^2}{\mathrm{d}x^2}, \quad V(-x)=V(x)
+        \frac{\mathrm{d}^2}{\mathrm{d}(-x)^2}\rightarrow\frac{\mathrm{d}^2}{\mathrm{d}x^2},
     $$
-    结合空间反射不变性
+    又已知势能函数具有空间反射不变性$V(-x)=V(x)$
     $$
         \left[-\frac{\hbar}{2m}\frac{\mathrm{d}^2}{\mathrm{d}x^2}+V(x)\right]\psi(-x)=E\psi(-x)
     $$
-    显然$\psi(-x)$也满足方程，能量本征值也是$E$.
+    显然量子态$\psi(-x)$也满足能量本征方程，且能量本征值也是$E$.
 \end{proof}
 
 
@@ -85,7 +85,7 @@
     $$
         \psi(x)=\frac{1}{2}[f(x)+g(x)], \quad \psi(-x)=\frac{1}{2}[f(x)-g(x)]
     $$
-    实际上，一个实变函数总可以分解为偶函数$f(x)$和奇函数$g(x)$的和.
+    实际上，一个实变函数$\psi(x)$总可以分解为偶函数$f(x)$和奇函数$g(x)$的和.
 \end{proof}
 
 
@@ -102,7 +102,7 @@
     如果$(V_2-V_1)$有限，则能量本征方程$\psi(x)$及其导数$\psi'(x)$必定是连续的.
 \end{theorem}
 \begin{proof}
-    对能量本征方程的两边同乘$\mathrm{d}x$
+    对能量本征方程（定态薛定谔方程）两边同乘$\mathrm{d}x$
     $$
         \mathrm{d}\left[\frac{\mathrm{d}\psi(x)}{\mathrm{d}x}\right]
         =-\frac{2m}{\hbar}[E-V(x)]\psi(x)\,\mathrm{d}x
@@ -112,12 +112,12 @@
         \int_{a-\varepsilon}^{a+\varepsilon}\mathrm{d}\left[\frac{\mathrm{d}\psi(x)}{\mathrm{d}x}\right]
         =-\frac{2m}{\hbar}\int_{-\varepsilon}^{+\varepsilon}[E-V(x)]\psi(x)\,\mathrm{d}x
     $$
-    两边对$\varepsilon$取极限
+    对两边取极限$\varepsilon \to 0$构造无限窄区间
     $$
         \lim_{\varepsilon\to0^+}\int_{a-\varepsilon}^{a+\varepsilon}\mathrm{d}\left[\psi'(x)\right]
         =-\frac{2m}{\hbar}\lim_{\varepsilon\to0^+}\int_{-\varepsilon}^{+\varepsilon}[E-V(x)]\psi(x)\,\mathrm{d}x
     $$
-    其中$[E-V(x)]\psi(x)$有限，所以方程右侧为零，进而有
+    方程右侧$[E-V(x)]\psi(x)$是有限的，所以在无限窄区间上的积分只能为零，进而有
     $$
         \psi'(a+0^+)-\psi'(a-0^+)=0
     $$
@@ -136,6 +136,21 @@
     且与$x$无关.
 \end{theorem}
 \begin{proof}
+    这两个量子态的能量本征方程分别为
+    $$
+        \begin{aligned}
+            \psi_1''=-\frac{2m}{\hbar}[E-V(x)]\psi_1 \\
+            \psi_2''=-\frac{2m}{\hbar}[E-V(x)]\psi_2
+        \end{aligned}
+    $$
+    两式相除、整理、凑微分
+    $$
+        \psi_1\psi_2''-\psi_2\psi_1''=(\psi_2'\psi_1-\psi_2\psi_1')'=0
+    $$
+    两边积分得到
+    $$
+        \psi_1\psi_2' - \psi_2\psi_1' = {\rm Const}
+    $$
 \end{proof}
 
 
@@ -147,6 +162,19 @@
     设粒子在规则势场$V(x)$中运动，如存在束缚态，则必定是不简并的.
 \end{theorem}
 \begin{proof}
+    设能量本征方程的束缚态解存在简并，即不同的量子态$\psi_1$和$\psi_2$同时具有能量本征值$E$
+    $$
+        \psi_1\psi_2'=\psi_2\psi_1'
+    $$
+    分离变量的形式为
+    $$
+        \frac{\psi_1'}{\psi_1} = \frac{\psi_2'}{\psi_2}
+    $$
+    两边同时积分得到
+    $$
+        \psi_1(x)=C\psi_2(x)
+    $$
+    这说明两个束缚态解实际上描述同一个量子态，也即能级不简并。
 \end{proof}
 
 
@@ -158,14 +186,14 @@
 \begin{question}{P32练习：一维无限深方势阱问题}
     试取无限深方势阱的中心为坐标原点，即
     $$
-        V(x) = \begin{dcases}
+        V(x)=\begin{cases}
             0,      & |x|<\frac{a}{2}          \\
             \infty, & |x|\geqslant \frac{a}{2} \\
-        \end{dcases}
+        \end{cases}
     $$
     证明粒子的能量仍为
     $$
-        E = E_n = \frac{\hbar^2\pi^2n^2}{2ma^2}, \quad n=1,2,3,\cdots
+        E = E_n = \frac{n^2\pi^2\hbar^2}{2ma^2}, \quad n=1,2,3,\cdots
     $$
     但波函数表示为
     $$
@@ -473,23 +501,33 @@ $$
 
 
 \subsection{一维谐振子}
-利用一维谐振子回复力 $F=-kx$ 和固有频率 $\omega=\sqrt{\frac{k}{m}}$ 的关系，得到一维谐振子的势能
+利用一维谐振子回复力 $F=-kx$ 和固有频率 $\omega=\sqrt{\frac{k}{m}}$ 的关系，得到一维谐振子的势能表达式
 $$
     V(x)=\frac{1}{2}kx^2=\frac{1}{2}m\omega^2x^2
 $$
-再求解一维谐振子的定态薛定谔方程
+再将$V(x)$代入一维谐振子的定态薛定谔方程
 $$
     \frac{1}{2m}\left[ \hat{p}^2+(m\omega x)^2 \right]\psi=E\psi
 $$
-我们在此处定义升阶算符$a_{+}$和降阶算符$a_{-}$
+我们在此处定义升降阶算符$a_{\pm}$如下\footnote{跟我们之前定义角动量的升降阶算符$\hat{l}_{\pm}$类似，这里定义升降阶算符$a_{\pm}$是为了方便求解能量本征值}
 $$
-    a_{\pm} \equiv \frac{1}{\sqrt{2m\omega\hbar}}\left(\mp\mathrm{i}p+m\omega x \right)
+    \begin{aligned}
+        a_{+} & \equiv \frac{1}{\sqrt{2m\omega\hbar}}\left(-\mathrm{i}p+m\omega x \right) \\
+        a_{-} & \equiv \frac{1}{\sqrt{2m\omega\hbar}}\left(+\mathrm{i}p+m\omega x \right)
+    \end{aligned}
 $$
 可以证明$(a_{+}\psi)$是薛定谔方程的解，其对应能量为$(E+\hbar\omega)$；同时$(a_{-}\psi)$也是薛定谔方程的解，其对应能量为$(E-\hbar\omega)$。在反复使用降阶算符后，我们会得到一个最低能量$a_{-}\psi_0=0$
 $$
     \frac{1}{\sqrt{2m\omega\hbar}}\left(\hbar\frac{\mathrm{d}}{\mathrm{d}x}+m\omega x\right)\psi_0=0
 $$
-解得通解$\psi_0(x)=A\mathrm{e}^{-\frac{m\omega}{2\hbar}x^2}$并归一化$\psi_0(x)=\left(\frac{m\omega}{\pi\hbar}\right)^{1/4}\mathrm{e}^{-\frac{m\omega}{2\hbar}x^2}$
+解得通解
+$$
+    \psi_0(x)=A\mathrm{e}^{-\frac{m\omega}{2\hbar}x^2}
+$$
+对波函数归一化，得到
+$$
+    \psi_0(x)=\left(\frac{m\omega}{\pi\hbar}\right)^{1/4}\mathrm{e}^{-\frac{m\omega}{2\hbar}x^2}
+$$
 \begin{question}{题目2.10}
     电荷$q$的谐振子，受到外电场$\mathcal{E}$的作用
     $$
@@ -528,9 +566,9 @@ $$
     $$
 \end{question}
 \begin{solution}
-    在$x<0$的部分，势函数$V(x)$无穷大，粒子无法穿过势阱，所以
+    在$x<0$的部分，粒子无法穿过$V(x)=\infty$的势垒，所以
     $$
-        \psi(x)=0, \quad (x<0)
+        \psi(x)=0
     $$
     在$x>0$的部分，粒子运动的薛定谔方程为
     $$
@@ -538,11 +576,11 @@ $$
     $$
     这个变系数微分方程想要得到多项式解，必须满足
     $$
-        \frac{E}{\frac{1}{2}\hbar\omega}-1=2n
+        \lambda-1=2n \implies \frac{E}{\frac{1}{2}\hbar\omega}-1=2n
     $$
     此时方程的解形如
     $$
-        \psi_n(x)=A_nH_n(\alpha x)\mathrm{e}^{-\frac{\alpha^2x^2}{2}}
+        \psi_n(x)=A_nH_n(\alpha x)\mathrm{e}^{-\frac{1}{2}\alpha^2x^2}
     $$
     同时波函数必须连续
     $$

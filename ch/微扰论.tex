@@ -1,5 +1,16 @@
 \section{微扰论}
 
+\subsection{非简并态情形}
+一级能级修正
+$$
+    E_n^{(1)}=H_{nn}'
+$$
+一级波函数修正
+$$
+    \psi_n^{(1)}\sum_{m \neq n}\frac{H_{mn}'}{E_n^{(0)}-E_m^{(0)}}\psi_m^{(0)}
+$$
+一级能级修正
+
 \begin{question}{Ex85}
     设哈密顿量在能量表象中的矩阵形式为
     $$
@@ -27,185 +38,6 @@
             0   & 0   & c-1-E
         \end{vmatrix} = 0
     $$
-    计算行列式后化简得到：
-    $$
-        (1-E)[(3-E)(c-1-E) - 0] - c[c(c-1-E)] = 0
-    $$
-    展开化简后得到：
-    $$
-        (1-E)(3c - 3E - cE + E^2 - cE + c^2) = 0
-    $$
-    化简得到：
-    $$
-        (1-E)(E^2 - (3+2c)E + 3c - c^2) = 0
-    $$
-    解这个二次方程可以得到三个本征值
-    $$
-        E_1, \quad E_2, \quad E_3
-    $$
-    (2) 对于微扰参数 $c \ll 1$，我们将哈密顿量表示为 $H = H^{(0)} + cH^{(1)}$，其中 $H^{(0)}$ 是未受微扰的哈密顿量，$H^{(1)}$ 是微扰项。
-    \begin{itemize}
-        \item 在零级近似下，我们使用未受微扰的哈密顿量 $H^{(0)}$ 的本征值 $E^{(0)}$ 和本征态 $\psi^{(0)}$；
-        \item 在一级近似下，我们使用微扰项 $H^{(1)}$ 对本征值进行修正。能量修正为：
-              $$
-                  \Delta E^{(1)}_n = \langle \psi^{(0)}_n | H^{(1)} | \psi^{(0)}_n \rangle
-              $$
-        \item  在二级近似下，能量修正为：
-              $$
-                  \Delta E^{(2)}_n = \sum_{m \neq n} \frac{|\langle \psi^{(0)}_m | H^{(1)} | \psi^{(0)}_n \rangle|^2}{E^{(0)}_n - E^{(0)}_m}
-              $$
-    \end{itemize}
-    在一级近似下，我们需要计算能量的修正项 $\Delta E_n^{(1)}$。根据微扰理论，我们有：
-    $$
-        \Delta E_n^{(1)} = \langle\psi_n^{(0)}|H^{(1)}|\psi_n^{(0)}\rangle
-    $$
-    代入给定的哈密顿量矩阵形式，我们可以计算一级修正项为：
-    $$
-        \Delta E_n^{(1)} = \langle \psi_n^{(0)} | cH^{(1)} | \psi_n^{(0)} \rangle
-    $$
-    根据矩阵乘法的定义，我们可以将上式展开为：
-    $$
-        \Delta E_n^{(1)} = c \sum_{i,j} \psi_n^{(0)*}(i) H^{(1)}(i,j) \psi_n^{(0)}(j)
-    $$
-    % 其中，$\psi_n^{(0)}(i)$ 和 $\psi_n^{(0)*}(i)$ 分别表示本征态 $\psi_n^{(0)}$ 的第 $i$ 个分量和其复共轭。\\
-    (3) 在二级近似下，我们需要计算能量的二级修正项 $\Delta E_n^{(2)}$。根据微扰理论，我们有：
-    $$
-        \Delta E_n^{(2)} = \sum_{m \neq n} \frac{|\langle \psi_m^{(0)} | H^{(1)} | \psi_n^{(0)} \rangle|^2}{E_n^{(0)} - E_m^{(0)}}
-    $$
-    代入给定的哈密顿量矩阵形式，我们可以计算二级修正项为：
-    $$
-        \Delta E_n^{(2)} = \sum_{m \neq n} \frac{|c \psi_m^{(0)*}(i) H^{(1)}(i,j) \psi_n^{(0)}(j)|^2}{E_n^{(0)} - E_m^{(0)}}
-    $$
-    根据微扰理论的前提，微扰项应当是一个较小的修正。因此，当微扰参数 $c$ 足够小的时候，即 $c \ll 1$，才能保证一级和二级修正项都是可靠的近似。
-\end{solution}
-
-
-
-\begin{question}{Ex86}
-    设哈密顿量在能量表象中的矩阵形式为
-    $$
-        H=\begin{pmatrix}
-            A+B & A-B \\
-            A-B & A+B \\
-        \end{pmatrix}
-    $$
-    其中$A$、$B$为实数，求：
-    \begin{enumerate}
-        \item 若$A+B \gg A-B$，用微扰法求能量至一级修正；
-        \item 直接求能量本征值并和1所得结果进行比较。
-    \end{enumerate}
-\end{question}
-\begin{solution}
-    (1) 根据微扰理论，我们将哈密顿量表示为 $H = H^{(0)} + \lambda H^{(1)}$，在零级近似下，我们使用未受微扰的哈密顿量 $H^{(0)}$ 的本征值 $E^{(0)}$ 和本征态 $\psi^{(0)}$；在一级近似下，能量修正为：
-    $$
-        \Delta E^{(1)}_n = \langle \psi^{(0)}_n | H^{(1)} | \psi^{(0)}_n \rangle
-    $$
-    对于给定的哈密顿量矩阵，我们可以将其分解为 $H = H^{(0)} + \lambda H^{(1)}$，其中：
-    $$
-        H^{(0)} = \begin{pmatrix}
-            A & A \\
-            A & A \\
-        \end{pmatrix}
-        \quad
-        H^{(1)} = \begin{pmatrix}
-            B  & -B \\
-            -B & B  \\
-        \end{pmatrix}
-    $$
-    在零级近似下，本征值为 $E^{(0)}_1 = E^{(0)}_2 = A$，对应的本征态分别为
-    $$
-        \psi^{(0)}_1 = \begin{pmatrix} 1 \\ 1 \end{pmatrix}
-        \quad
-        \psi^{(0)}_2 = \begin{pmatrix} -1 \\ 1 \end{pmatrix}
-    $$
-    在一级近似下，我们计算能量的修正项 $\Delta E^{(1)}_n$，其中 $n = 1,2$：
-    $$
-        \Delta E^{(1)}_1
-        = \langle \psi^{(0)}_1 | H^{(1)} | \psi^{(0)}_1 \rangle
-        = \begin{pmatrix}
-            1 & 1
-        \end{pmatrix}\begin{pmatrix}
-            B  & -B \\
-            -B & B
-        \end{pmatrix}\begin{pmatrix}
-            1 \\
-            1
-        \end{pmatrix}
-        = 2B
-    $$
-    $$
-        \Delta E^{(1)}_2
-        = \langle \psi^{(0)}_2 | H^{(1)} | \psi^{(0)}_2 \rangle
-        = \begin{pmatrix}
-            -1 & 1
-        \end{pmatrix}\begin{pmatrix}
-            B  & -B \\
-            -B & B
-        \end{pmatrix}\begin{pmatrix}
-            -1 \\ 1
-        \end{pmatrix}
-        = -2B
-    $$
-    因此，能量修正项为
-    $$
-        \Delta E^{(1)}_1 = 2B \quad \Delta E^{(1)}_2 = -2B
-    $$
-    (2) 设对角化矩阵为$S$，即
-    $$
-        S^{-1} H S = \begin{pmatrix}
-            E_1^{(0)} & 0         \\
-            0         & E_2^{(0)} \\
-        \end{pmatrix}
-    $$
-    将哈密顿量矩阵$H$代入上式，我们可以得到
-    $$
-        S^{-1} H S = \begin{pmatrix}
-            A+B & A-B \\
-            A-B & A+B \\
-        \end{pmatrix} = \begin{pmatrix}
-            E_1^{(0)} & 0         \\
-            0         & E_2^{(0)} \\
-        \end{pmatrix}
-    $$
-    由此可知
-    $$
-        S = \begin{pmatrix}
-            a & b \\
-            c & d \\
-        \end{pmatrix}
-    $$
-    将$S$矩阵代入上式，我们可以得到以下方程组
-    $$
-        \begin{cases}
-            (A+B)a + (A-B)c = E_1^{(0)}a \\
-            (A+B)b + (A-B)d = E_1^{(0)}b \\
-            (A+B)a - (A-B)c = E_2^{(0)}c \\
-            (A+B)b - (A-B)d = E_2^{(0)}d \\
-        \end{cases}
-    $$
-    由于题目中给定的条件是$A+B \gg A-B$，我们可以做近似处理。在这种情况下，等式组的解可以近似为：
-    $$
-        \begin{cases}
-            a \approx 1 \\
-            b \approx 0 \\
-            c \approx 0 \\
-            d \approx 1 \\
-        \end{cases}
-    $$
-    因此，本征态矩阵$S$近似为：
-    $$
-        S \approx \begin{pmatrix}
-            1 & 0 \\
-            0 & 1 \\
-        \end{pmatrix}
-    $$
-    接下来，我们将微扰哈密顿量$H'$写成本征态的形式：
-    $$
-        H' = S^{-1} H S - \begin{pmatrix}
-            E_1^{(0)} & 0         \\
-            0         & E_2^{(0)} \\
-        \end{pmatrix}
-    $$
 \end{solution}
 
 
@@ -226,27 +58,6 @@
         E^{(1)} = \langle \psi^{(0)} | H' | \psi^{(0)} \rangle
     $$
     其中 $|\psi^{(0)}\rangle$ 是转子的零级近似能量本征态。
-
-    转子的零级近似能量本征态是转子的角动量本征态，即 $L^2$ 的本征态。因此，我们可以将 $|\psi^{(0)}\rangle$ 表示为 $|l, m\rangle$，其中 $l$ 是角动量量子数，$m$ 是角动量在 $z$ 方向上的投影量量子数。
-
-    现在，我们将 $H'$ 展开为 $H' = -D\varepsilon \cos \theta$，其中 $\theta$ 是转子运动平面与电场方向的夹角，$D = |\vec{D}|$ 是电矩的大小。
-
-    代入上述表达式，我们可以计算能量的一级修正 $E^{(1)}$：
-    $$
-        E^{(1)} = \langle l, m | -D\varepsilon \cos \theta | l, m \rangle
-    $$
-
-    由于 $|l, m\rangle$ 是角动量的本征态，$\cos \theta$ 是常数，我们可以将 $\cos \theta$ 移至左侧，得到：
-    $$
-        E^{(1)} = -D\varepsilon \cos \theta \langle l, m | l, m \rangle
-    $$
-
-    由于 $|l, m\rangle$ 是正交归一的，即 $\langle l, m | l, m \rangle = 1$，因此能量的一级修正简化为：
-    $$
-        E^{(1)} = -D\varepsilon \cos \theta
-    $$
-
-    这是转子能量的一级修正值。注意，这里的修正值是一个常数，不依赖于角动量量子数 $l$ 和 $m$。
 \end{solution}
 
 
@@ -255,29 +66,4 @@
     转动惯量为$I$，电矩为$\vec{D}$的平面转子处在均匀弱电场$\varepsilon$中，电场是在转子运动的平面上，用微扰法求转子能量的修正值。
 \end{question}
 \begin{solution}
-    在这个问题中，转子的零级近似哈密顿量是转子的转动能量：
-    $$
-        H^{(0)} = \frac{L^2}{2I}
-    $$
-    微扰项由转子的电矩 $\vec{D}$ 和均匀弱电场 $\varepsilon$ 组成：
-    $$
-        H' = -\vec{D} \cdot \vec{\varepsilon}
-    $$
-    能量的一级修正可以表示为：
-    $$
-        E^{(1)} = \langle \psi^{(0)} | H' | \psi^{(0)} \rangle
-    $$
-    现在，我们将 $H'$ 展开为 $H' = -D \varepsilon \cos \theta$，其中 $\theta$ 是电场矢量和转子角动量矢量的夹角，$D = |\vec{D}|$ 是电矩的大小。代入上述表达式，我们可以计算能量的一级修正 $E^{(1)}$：
-    $$
-        E^{(1)} = \langle l, m | -D \varepsilon \cos \theta | l, m \rangle
-    $$
-    由于 $|l, m\rangle$ 是角动量的本征态，$\cos\theta$ 是常数，我们可以将 $\cos\theta$ 移至左侧，得到：
-    $$
-        E^{(1)} = -D \varepsilon \cos \theta \langle l, m | l, m \rangle
-    $$
-    由于 $|l, m\rangle$ 是归一化的本征态，即 $\langle l, m | l, m \rangle = 1$，因此能量的一级修正简化为：
-    $$
-        E^{(1)} = -D \varepsilon \cos \theta
-    $$
-    这是转子能量的一级修正值。修正值与角动量量子数 $l$ 和 $m$ 无关，仅依赖于电矩的大小 $D$、电场的大小 $\varepsilon$ 和电场方向与转子运动平面的夹角 $\theta$。
 \end{solution}
