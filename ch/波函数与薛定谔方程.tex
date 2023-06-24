@@ -1,24 +1,18 @@
 \section{波函数与薛定谔方程}
 
 \subsection{波函数的统计诠释}
-微观粒子具有波粒二象性，其波长和频率分别为：
+微观粒子具有显著的波粒二象性，其波长和频率分别为：
 $$
-    \lambda=\frac{h}{p}, \quad \nu=\frac{E}{h}
+    \lambda=\frac{h}{p} \quad \nu=\frac{E}{h}
 $$
-微观粒子的运动状态可以用平面波函数来描述
+所以能用平面波函数来描述微观粒子的运动状态\footnote{表达式中各变量的含义在后续内容中会详细介绍，这里只是引出概念}
 $$
     \psi_{\vec{p}}=A\exp\left[\frac{\mathrm{i}}{\hbar}\left(\vec{p}\cdot\vec{r}-Et\right)\right]
 $$
-一般波函数具有常数因子不定性：
-$$
-    \left|\frac{C\psi(\vec{r}_1)}{C\psi(\vec{r}_2)}\right|^2 = \left|\frac{\psi(\vec{r}_1)}{\psi(\vec{r}_2)}\right|^2
-$$
-一般波函数具有位相因子不定性：
-$$
-    \left|\psi(\vec{r})\mathrm{e}^{\mathrm{i}\alpha}\right|^2
-    = |\psi(\vec{r})|^2\mathrm{e}^{\mathrm{i}\alpha}\cdot\mathrm{e}^{-\mathrm{i}\alpha}
-    = \left|\psi(\vec{r})\right|^2
-$$
+\begin{itemize}
+    \item 一般波函数具有常数因子不定性：$\psi(\vec{r},t)$和$A\psi(\vec{r},t)$描述的是同一个量子态
+    \item 一般波函数具有位相因子不定性：$\psi(\vec{r})$和$\psi(\vec{r})\mathrm{e}^{\mathrm{i}\alpha}$和描述的是同一个量子态
+\end{itemize}
 规范波函数必须在全空间满足归一化：
 $$
     \iiint\left|\psi(\vec{r})\right|^2\,\mathrm{d}x\mathrm{d}y\mathrm{d}z=1
@@ -35,31 +29,52 @@ $$
 
 
 \subsection{力学量算符}
-因为坐标的期望值和动量的期望值分别为
+与经典力学不同，微观粒子显著的波粒二象性使得我们无法其测量力学量的瞬时值，无论是多精密的仪器，其对力学量$Q$的测量，本质上都是测量$Q$在极短时间内的平均值。我们以坐标$x$和动量$p$为例，对这二者的测量结果（也就是平均值）分别可以写成
+$$
+    \langle x \rangle = \int\psi^*x\psi\,\mathrm{d}x
+    \quad \quad
+    \langle p \rangle = \int\psi^*\left(-\mathrm{i}\hbar\frac{\partial \psi}{\partial x}\right)\,\mathrm{d}x
+$$
+再结合经典力学的知识，所有力学量本质上都是坐标$x$和动量$p$的函数，所以对于任意力学量的测量结果可以写成
+$$
+    \langle{Q}\rangle=f\left(x, p\right)
+$$
+在量子理论中，我们把这种测量操作称为“算符”，写成$\hat{Q}$的形式，下面是几种常用力学量的算符形式
 \begin{itemize}
-    \item $\langle x \rangle = \int\psi^*(x)\psi\,\mathrm{d}x$
-    \item $\langle p \rangle = \int\psi^*\left(-\mathrm{i}\hbar\frac{\partial}{\partial x}\right)\psi\,\mathrm{d}x$
-\end{itemize}
-所有的经典力学量都可以表示为坐标和动量的函数$Q(x, p)$，我们只需将$Q(x,p)$中的$p$以$\left(-\mathrm{i}\hbar\frac{\partial}{\partial x}\right)$取代，即可得到任意力学量算符$\hat{Q}\left(\hat{x}, \hat{p}\right)$
-\begin{itemize}
-    \item 一维形式的动量算符$\hat{p}_x = -\mathrm{i}\hbar\frac{\mathrm{d}}{\mathrm{d}x}$，多维形式的动量算符$\hat{p}=-\mathrm{i}\hbar\nabla$
+    \item 动量算符
+          $$
+              \hat{p}=-\mathrm{i}\hbar\nabla
+              \quad
+              \lor
+              \quad
+              \begin{cases}
+                  \hat{p}_x=-\mathrm{i}\hbar\frac{\mathrm{d}}{\mathrm{d}x} \\
+                  \hat{p}_y=-\mathrm{i}\hbar\frac{\mathrm{d}}{\mathrm{d}y} \\
+                  \hat{p}_y=-\mathrm{i}\hbar\frac{\mathrm{d}}{\mathrm{d}y} \\
+              \end{cases}
+          $$
     \item 动能算符
-          $
+          $$
               \hat{T}=\frac{\hat{p}^2}{2m}
               =\frac{1}{2m}\left(-\mathrm{i}\hbar\nabla\right)^2
               =-\frac{\hbar^2}{2m}\nabla^2
-          $
+          $$
     \item Hamilton算符
-          $
+          $$
               \hat{H}=\hat{T}+\hat{V}(\vec{r})=-\frac{\hbar^2}{2m}\nabla^2+V(\vec{r})
-          $
+          $$
     \item 角动量算符
-          $
+          $$
               \hat{\boldsymbol{l}}
               = \boldsymbol{r} \times \hat{\boldsymbol{p}}
               = \boldsymbol{r} \times (-\mathrm{i}\hbar\nabla)
-              = \hat{l}_x\vec{e}_x + \hat{l}_y\vec{e}_y + \hat{l}_z\vec{e}_z
-          $
+              = -\mathrm{i}\hbar\left(\boldsymbol{r\times\nabla}\right)
+              =-\mathrm{i}\hbar\begin{vmatrix}
+                  i                           & j                           & k                           \\
+                  x                           & y                           & z                           \\
+                  \frac{\partial}{\partial x} & \frac{\partial}{\partial x} & \frac{\partial}{\partial x}
+              \end{vmatrix}
+          $$
 \end{itemize}
 
 
@@ -71,23 +86,27 @@ $$
 
 
 \subsection{薛定谔方程}
-一般粒子的薛定谔方程是
+薛定谔通过类别和最小作用量原理，推导出了微观粒子的波动方程（即含时薛定谔方程）
 $$
-    \mathrm{i}\hbar\frac{\partial }{\partial t}\Psi(\vec{r}, t) = \left[-\frac{\hbar^2}{2m}\nabla^2 + V(\vec{r})\right]\Psi(\vec{r}, t)
+    \mathrm{i}\hbar\frac{\partial \Psi(r, t)}{\partial t} = \left[-\frac{\hbar^2}{2m}\nabla^2 + V(r)\right]\Psi(r, t)
 $$
-设分离变量的形式为$\Psi(r,t)=\psi(r)\varphi(t)$
+我们在此基础上把波函数改写成分离变量的形式$\Psi(r,t)=\psi(r)\varphi(t)$
 $$
-    \mathrm{i}\hbar\frac{\partial \varphi(t)}{\partial t}\psi(r) = -\frac{\hbar^2}{2m}\varphi(t)\nabla^2\psi(r) + V\psi(r)\varphi(t)
+    \mathrm{i}\hbar\frac{\partial \varphi(t)}{\partial t}\psi(r) = \left[-\frac{\hbar^2}{2m}\nabla^2 + V(r)\right]\psi(r)\varphi(t)
 $$
-整理方程，左侧仅与$t$有关，右侧仅与$r$有关，想要等式成立，两侧必须同时等于某个常数$E$
+整理方程，使得等号左侧仅与时间$t$有关，等号右侧仅与位置$r$有关，两边完全独立
 $$
-    \mathrm{i}\hbar\frac{1}{\varphi}\frac{\partial \varphi}{\partial t} = -\frac{\hbar^2}{2m}\nabla^2 + V = E
+    \mathrm{i}\hbar\frac{1}{\varphi}\frac{\partial \varphi}{\partial t} = -\frac{\hbar^2}{2m}\nabla^2 + V(r)
 $$
-第二、三项就能构成\textbf{定态薛定谔方程（能量本征方程、哈密顿算符本征方程）}
+这两个无关式子相等的条件是两侧都等于某个常数$E$
 $$
     \left[-\frac{\hbar^2}{2m}\nabla^2 + V(r)\right]\psi(r) = E\psi(r)
 $$
-而对于处在定态的一维粒子，Hamilton算符的期望值和标准差分别为
+这就是\textbf{定态薛定谔方程（能量本征方程、哈密顿算符本征方程）}
+
+
+\subsection{一维粒子的}
+对于处在定态的一维粒子，其Hamilton算符的期望值（本征值）和标准差分别为
 $$
     \langle\hat{H}\rangle=\int\psi^*\hat{H}\psi\,\mathrm{d}x=\int\psi^*E\psi\,\mathrm{d}x=E\int\psi^*\psi\,\mathrm{d}x=E
 $$
@@ -106,7 +125,7 @@ $$
     =0
 $$
 \begin{question}{例题}
-    证明规范波函数的归一化不随时间变换，即
+    证明规范波函数的归一化不随时间变换，即证明：
     $$
         \frac{\partial }{\partial t}\int_{-\infty}^{+\infty}|\psi|^2 \,\mathrm{d}x=0
     $$
@@ -114,19 +133,19 @@ $$
 \begin{proof}
     先交换微分算符$\frac{\partial }{\partial t}$和积分算符$\int_{}^{}\mathrm{d}x$的顺序
     $$
-        \frac{\partial }{\partial t}\int|\psi|^2 \,\mathrm{d}x
-        =\int\frac{\partial |\psi|^2}{\partial t} \,\mathrm{d}x
-        =\int\frac{\partial (\psi\psi^*)}{\partial t} \,\mathrm{d}x
-        =\int\left(\frac{\partial \psi}{\partial t}\psi^*+\frac{\partial \psi^*}{\partial t}\psi\right)\mathrm{d}x
+        \frac{\partial }{\partial t}\int_{-\infty}^{+\infty}|\psi|^2 \,\mathrm{d}x
+        =\int_{-\infty}^{+\infty}\frac{\partial |\psi|^2}{\partial t} \,\mathrm{d}x
+        =\int_{-\infty}^{+\infty}\frac{\partial (\psi\psi^*)}{\partial t} \,\mathrm{d}x
+        =\int_{-\infty}^{+\infty}\left(\frac{\partial \psi}{\partial t}\psi^*+\frac{\partial \psi^*}{\partial t}\psi\right)\mathrm{d}x
     $$
     再根据薛定谔方程代换因式 $\frac{\partial \psi}{\partial t}$ 及其复共轭形式 $\frac{\partial \psi^*}{\partial t}$
     $$
         \begin{aligned}
-            \frac{\partial \psi}{\partial t}   & = +\frac{\mathrm{i}\hbar}{2m}\frac{\partial^2\psi}{\partial x^2}-\frac{\mathrm{i}}{\hbar}V\psi      \\
+            \frac{\partial \psi}{\partial t}   & = +\frac{\mathrm{i}\hbar}{2m}\frac{\partial^2\psi}{\partial x^2}-\frac{\mathrm{i}}{\hbar}V\psi     \\
             \frac{\partial \psi^*}{\partial t} & = -\frac{\mathrm{i}\hbar}{2m}\frac{\partial^2\psi^*}{\partial x^2}+\frac{\mathrm{i}}{\hbar}V\psi^*
         \end{aligned}
     $$
-    量子力学中的势能一般都是实数（即$V^*=V$）
+    量子力学中的势能都是实数（即$V^*=V$）
     $$
         \begin{aligned}
             \frac{\partial }{\partial t}\int_{-\infty}^{+\infty}|\psi|^2 \,\mathrm{d}x
@@ -135,18 +154,15 @@ $$
              & =\frac{\mathrm{i}\hbar}{2m}\left.\left(\frac{\partial \psi}{\partial x}\psi^*-\frac{\partial \psi^*}{\partial x}\psi\right)\right|_{-\infty}^{+\infty}
         \end{aligned}
     $$
-    最后根据归一化波函数的性质$\psi(-\infty)=0,\psi(+\infty)=0$，说明上式为零
+    最后根据规范波函数的性质$\psi(-\infty)=0,\psi(+\infty)=0$，说明上式为零
     $$
         \frac{\partial }{\partial t}\int_{-\infty}^{+\infty}|\psi|^2 \,\mathrm{d}x=0
-        \implies
-        \int_{-\infty}^{+\infty}|\psi|^2 \,\mathrm{d}x = \mathrm{C}
     $$
-    这说明规范波函数的归一化不会随时间变换。
+    这说对规范波函数的归一化求导不随时间改变
+    $$
+        \int_{-\infty}^{+\infty}|\psi|^2\,\mathrm{d}x=\mathrm{Const}
+    $$
 \end{proof}
-从例题中对$\frac{\partial \psi}{\partial t}$的代换，可以引出一维形式概率流密度函数
-$$
-    \vec{j}=\frac{\mathrm{i}\hbar}{2m}\left(\psi\frac{\partial \psi^*}{\partial x}-\psi^*\frac{\partial \psi}{\partial x}\right)
-$$
 
 
 \begin{question}{题目1}
@@ -155,7 +171,7 @@ $$
         \item[(1)] 能量为100电子伏特的自由电子；
         \item[(2)] 能量为0.1电子伏特的自由中子；
         \item[(3)] 能量为0.1电子伏特、质量为1克的自由粒子；
-        \item[(4)] 温度$T=\qty{1}{k}$时，具有动能$E=\dfrac{3kT}{2}$的氦原子，其中$k$为玻尔兹曼常数.
+        \item[(4)] 温度$T=\qty{1}{k}$时，具有动能$E=\frac{3kT}{2}$的氦原子，其中$k$为玻尔兹曼常数.
     \end{enumerate}
 \end{question}
 \begin{solution}
@@ -192,33 +208,25 @@ $$
     设一电子被电势差$U$所加速，最后打在靶上. 若电子的动能转化为一光子，求当这光子相应的光波波长分别为5000\AA（可见光），1\AA（X射线），0.001\AA（$\gamma$射线）时，加速电子所需的电势差各是多少？
 \end{question}
 \begin{solution}
-    电子的动能为
-    $$
-        E_k=eU
-    $$
-    光子的能量为
-    $$
-        E=h\nu=\frac{hc}{\lambda}
-    $$
-    电子的动能会全部转化为光子的能量，因此电势差
+    电子被加速后获得的动能为$E_k=eU$，动能转化形成的光子能量为$E=h\nu=\frac{hc}{\lambda}$，所以加速用的电势差$U$可以表示为
     $$
         U=\frac{hc}{e\lambda}
         =\frac{hc}{e}\cdot\frac{1}{\lambda}
         =\frac{1.24\times10^{-6}}{\lambda}
     $$
-    当光子对应的光波波长为 5000\AA 时，电势差为
+    (1) 当光子对应的光波波长为 5000\AA 时，电势差为
     $$
         U=\frac{1.24\times10^{-6}}{\lambda}
         =\frac{1.24\times10^{-6}}{5000\times10^{-10}}
         =2.48\,\rm{V}
     $$
-    当光子对应的光波波长为 1\AA 时，电势差为
+    (2) 当光子对应的光波波长为 1\AA 时，电势差为
     $$
         U=\frac{1.24\times10^{-6}}{\lambda}
         =\frac{1.24\times10^{-6}}{10^{-10}}
         =1.24\times10^4\,\rm{V}
     $$
-    当光子对应的光波波长为 0.001\AA 时，电势差为
+    (3) 当光子对应的光波波长为 0.001\AA 时，电势差为
     $$
         U=\frac{1.24\times10^{-6}}{\lambda}
         =\frac{1.24\times10^{-6}}{0.001\times10^{-10}}
@@ -230,7 +238,7 @@ $$
     设用球坐标表示，粒子波函数表为$\psi(\rho, \theta, \varphi)$，求：
     \begin{enumerate}
         \item[(1)] 粒子在球壳$(r, r+\mathrm{d}r)$中被测到的概率；
-        \item[(2)] 在$(\theta, \varphi)$方向的立体角元$\mathrm{d}\Omega=\sin\theta\,\mathrm{d}\theta\mathrm{d}\varphi$中找到粒子的概率.
+        \item[(2)] 在$(\theta, \varphi)$方向的立体角元$\mathrm{d}\Omega$中找到粒子的概率.
     \end{enumerate}
 \end{question}
 \begin{solution}
@@ -244,7 +252,8 @@ $$
     $$
     (2) 在$(\theta, \varphi)$方向的立体角元内找到粒子的概率为
     $$
-        P=\left[\int_{0}^{+\infty}\left|\psi(r, \theta, \varphi)\right|^2r^2\,\mathrm{d}r\right]\sin\theta\,\mathrm{d}\theta\mathrm{d}\varphi
+        P=\left[\int_{0}^{\infty}|\psi|^2r^2\,\mathrm{d}r\right]\mathrm{d}\Omega
+        =\left[\int_{0}^{\infty}\left|\psi(r, \theta, \varphi)\right|^2r^2\,\mathrm{d}r\right]\sin\theta\,\mathrm{d}\theta\mathrm{d}\varphi
     $$
 \end{solution}
 
@@ -277,7 +286,7 @@ $$
     $$
         \rho'(x)=\frac{30}{a^5}[4x^3-6ax^2+2a^2x]=\frac{60}{a^5}x(2x-a)(x-a)
     $$
-    因此，$\rho(x)$在$\left(0,\dfrac{a}{2}\right)$上单调递增，在$\left(\dfrac{a}{2},a\right)$上单调递减，在极大值点$x=\dfrac{a}{2}$附近找到粒子的概率最大.
+    因此，$\rho(x)$在$\left(0,\frac{a}{2}\right)$上单调递增，在$\left(\frac{a}{2},a\right)$上单调递减，在极大值点$x=\frac{a}{2}$附近找到粒子的概率最大.
 \end{solution}
 
 
@@ -367,7 +376,7 @@ $$
     \end{enumerate}
 \end{question}
 \begin{solution}
-    对于一维自由粒子：
+    一维自由粒子只有动能$E_p=\frac{p^2}{2m}$，没有势能$V(x)$
     \paragraph{(a)} 我们将Hamilton算符作用于波函数
     $$
         \hat{H}\psi_p(x)
@@ -375,18 +384,15 @@ $$
         =-\frac{\hbar^2}{2m}\left(\frac{\mathrm{i}p}{\hbar}\right)^2 \frac{1}{\sqrt{2\pi\hbar}}\mathrm{e}^{\mathrm{i}px/\hbar}
         =\frac{p^2}{2m}\psi_p(x)
     $$
-    这说明动量本征态$\psi_p(x)$也是Hamilton量的本征态，且本征值为$E=\dfrac{p^2}{2m}$
+    这说明动量本征函数$\psi_p(x)$也是Hamilton算符的本征函数，且本征值为$E=\frac{p^2}{2m}$
 
-    \paragraph{(b)}粒子在初始时刻$\psi(x,0) = \psi_p(x) = \mathrm{e}^{\mathrm{i}p_0x/\hbar}$，结合Fourier变换$\eqref{复数形式的傅里叶变换}$
+    \paragraph{(b)}粒子在初始时刻的波函数为
     $$
-        \psi(p)=\mathcal{F}[\psi(x)]
-        =\frac{1}{\sqrt{2\pi\hbar}}\int_{-\infty}^{+\infty}\mathrm{e}^{\mathrm{i}p_0x/\hbar}\mathrm{e}^{-\mathrm{i}px/\hbar}\,\mathrm{d}x
-        =\sqrt{2\pi\hbar}\delta(p-p_0)
+        \psi(x,0)=\psi_p(x)=\mathrm{e}^{\mathrm{i}p_0x/\hbar}
     $$
-    由于$\psi(x,0)$是能量本征态
+    在此基础上再添加时间因子，就能得到粒子在任意时刻的波函数
     $$
-        \psi(x, t) = \frac{1}{\sqrt{2\pi\hbar}}\int_{-\infty}^{+\infty}\sqrt{2\pi\hbar}\mathrm{e}^{\mathrm{i}px/\hbar}\delta(p-p_0)\,\mathrm{d}p\cdot\mathrm{e}^{-\mathrm{i}Et/\hbar}
-        =\mathrm{e}^{-\mathrm{i}p_0x/\hbar-\mathrm{i}Et/\hbar}
+        \psi(x,t)=\mathrm{e}^{\mathrm{i}p_0x/\hbar}\cdot\mathrm{e}^{-\frac{\mathrm{i}}{\hbar}Et}=\mathrm{e}^{\mathrm{i}(p_0x/\hbar-Et)}
     $$
 
     \paragraph{(c)} 对于自由粒子而言，动量本征态和能量本征态是等价的，但是题目中的$\psi(x, 0)=\delta(x)$是无穷多个动量本征态$\mathrm{e}^{\mathrm{i}px}$的叠加（即所谓叠加态），所以显然不是能量本征态。
@@ -395,13 +401,21 @@ $$
 \begin{question}{习题12}
     由下列两个定态波函数计算几率流密度：
     \begin{enumerate}
-        \item[(1)] $\psi_1(r)=\dfrac{A}{r}\mathrm{e}^{\mathrm{i}kr}$
-        \item[(2)] $\psi_2(r)=\dfrac{A}{r}\mathrm{e}^{-\mathrm{i}kr}$
+        \item[(1)] $\psi_1(r)=\frac{A}{r}\mathrm{e}^{\mathrm{i}kr}$
+        \item[(2)] $\psi_2(r)=\frac{A}{r}\mathrm{e}^{-\mathrm{i}kr}$
     \end{enumerate}
     从所得结果证明$\psi_1(r)$表示向外传播的球面波，$\psi_2(r)$表示向内（即向原点）传播的平面波.
 \end{question}
 \begin{solution}
-    概率流密度的表达式为\footnote{球坐标系中的$\nabla$算符为$$\nabla=\frac{\partial }{\partial r}\vec{e}_r + \frac{1}{r}\frac{\partial }{\partial \theta}\vec{e}_{\theta} + \frac{1}{r\sin\theta}\frac{\partial }{\partial \varphi}\vec{e}_{\varphi}$$}
+    概率流密度的表达式为\footnote{
+        直角坐标系中的$\nabla$算符为
+        $$
+            \nabla = \frac{\partial}{\partial x}\vec{e}_x+\frac{\partial}{\partial y}\vec{e}_y+\frac{\partial}{\partial z}\vec{e}_z
+        $$
+        球坐标系中的$\nabla$算符为$$
+            \nabla=\frac{\partial }{\partial r}\vec{e}_r + \frac{1}{r}\frac{\partial }{\partial \theta}\vec{e}_{\theta} + \frac{1}{r\sin\theta}\frac{\partial }{\partial \varphi}\vec{e}_{\varphi}
+        $$
+    }
     \begin{equation}\label{概率流密度}
         \vec{j}(\vec{r}, t) = -\frac{\mathrm{i}\hbar}{2m}\left(\psi^*\nabla\psi-\psi\nabla\psi^*\right)
     \end{equation}

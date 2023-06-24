@@ -6,11 +6,11 @@
 \begin{equation}\label{薛定谔方程}
     \mathrm{i}\hbar\frac{\partial \Psi(x,t)}{\partial t} = \left[-\frac{\hbar^2}{2m}\frac{\partial^2 }{\partial x^2}+V(x)\right]\Psi(x,t)
 \end{equation}
-分离变数$\Psi(x,t)=\psi(x)\varphi(t)$，仅考虑$\psi(x)$的部分
+分离变数$\Psi(x,t)=\psi(x)\varphi(t)$，并考虑仅包含$\psi(x)$的部分
 \begin{equation}\label{一维粒子的能量本征方程}
     \left[-\frac{\hbar^2}{2m}\frac{\mathrm{d}^2}{\mathrm{d}x^2}+V(x)\right]\psi(x)=E\psi(x)
 \end{equation}
-这也是一维粒子的能量本征方程（也叫定态薛定谔方程、哈密顿算符本征方程）. 在量子力学中，我们一般默认$V(x)$取实值，即
+这也是一维粒子的\textbf{能量本征方程（也叫定态薛定谔方程、哈密顿算符本征方程）}. 在量子力学中，我们一般默认$V(x)$取实值，即
 \begin{equation}\label{量子力学中的势能是实数}
     V^*(x) = V(x)
 \end{equation}
@@ -36,12 +36,26 @@
     对于能量的某个本征值$E$，总可以找到方程$\eqref{一维粒子的能量本征方程}$的一组实数解，凡是属于$E$的任何解，均可表示为这一组实解的线性叠加.
 \end{theorem}
 \begin{proof}
-    根据定理\ref{定理2}，只要$\psi(x)$是能量本征值$E$的解，那$\psi^*(x)$也必定是能量本征值$E$的解，在此基础上利用二者的线性叠加就能构造出一组实解
+    根据定理\ref{定理1}，只要$\psi(x)$是能量本征值$E$的解，那$\psi^*(x)$也必定是能量本征值$E$的解，再利用二者的线性叠加构造出实解\footnote{复数解可以写为三角函数的形式
+        $$
+            \begin{aligned}
+                \psi(x)   & =A\cos{kx}+\mathrm{i}B\sin{kx} \\
+                \psi^*(x) & =A\cos{kx}-\mathrm{i}B\sin{kx}
+            \end{aligned}
+        $$
+        所以叠加态的实数解可以写为
+        $$
+            \begin{aligned}
+                \varphi(x) & =\psi(x)+\psi^*(x)=2A\cos{kx}              \\
+                \chi(x)    & =-\mathrm{i}[\psi(x)-\psi^*(x)]=2B\sin{kx}
+            \end{aligned}
+        $$
+    }
     $$
         \varphi(x)=\psi(x)+\psi^*(x), \quad
         \chi(x) = -\mathrm{i}[\psi(x)-\psi^*(x)]
     $$
-    根据态叠加原理，只要对叠加态$\varphi(x)$和$\chi(x)$进行一次能量测量，这二者就会塌缩成本征态$\psi(x)$或$\psi^*(x)$，相应的能量的测量结果也会是能量本征值$E$，所以只要我们将这组实数解适当地线性叠加，就能表示能量本征值$E$的所有解
+    实际上，这组实数解和复数解是等效的 \footnote{根据态叠加原理，对叠加态$\varphi(x)$和$\chi(x)$进行能量测量，二者就会塌缩成能量本征态$\psi(x)$或$\psi^*(x)$，相应的测量结果也会是能量本征值$E$} 所以能用这组用实数解的线性叠加表示所有解
     $$
         \psi=\frac{1}{2}(\varphi+\mathrm{i}\chi), \quad
         \psi^*=\frac{1}{2}(\varphi-\mathrm{i}\chi)
@@ -112,7 +126,7 @@
         \int_{a-\varepsilon}^{a+\varepsilon}\mathrm{d}\left[\frac{\mathrm{d}\psi(x)}{\mathrm{d}x}\right]
         =-\frac{2m}{\hbar}\int_{-\varepsilon}^{+\varepsilon}[E-V(x)]\psi(x)\,\mathrm{d}x
     $$
-    对两边取极限$\varepsilon \to 0$构造无限窄区间
+    对两边取极限$\varepsilon \to 0$，得到无限窄区间
     $$
         \lim_{\varepsilon\to0^+}\int_{a-\varepsilon}^{a+\varepsilon}\mathrm{d}\left[\psi'(x)\right]
         =-\frac{2m}{\hbar}\lim_{\varepsilon\to0^+}\int_{-\varepsilon}^{+\varepsilon}[E-V(x)]\psi(x)\,\mathrm{d}x
@@ -121,7 +135,7 @@
     $$
         \psi'(a+0^+)-\psi'(a-0^+)=0
     $$
-    这说明一阶导函数$\psi'(x)$在跳跃点$x=a$处存在，所以原函数$\psi(x)$必定连续.
+    这说明一阶导函数$\psi'(x)$在跳跃点$x=a$处存在，一阶导函数连续，所以原函数$\psi(x)$必定连续.
 \end{proof}
 
 
@@ -219,7 +233,7 @@
         \quad
         \left(k=\sqrt{\frac{2mE}{\hbar^2}}\right)
     $$
-    在无限深方势阱内部$\psi(x)\neq0$，方势阱外部$\psi(x)\equiv0$，考虑到边界条件$\psi\left(\pm\frac{a}{2}\right)=0$，如果是奇宇称，则$k=\frac{(2n+1)\pi}{a}$；如果是偶宇称，则$k=\frac{(2n)\pi}{a}$，但无论如何，粒子的能量都可以写成
+    在无限深方势阱内部$\psi(x)\neq0$，方势阱外部$\psi(x)=0$，考虑到边界条件$\psi\left(\pm\frac{a}{2}\right)=0$，如果是奇宇称，则$k=\frac{(2n+1)\pi}{a}$；如果是偶宇称，则$k=\frac{(2n)\pi}{a}$，但无论如何，粒子的能量都可以写成
     $$
         E=E_n=\frac{n^2\pi^2\hbar^2}{2ma^2}, \quad n=1, 2, 3, \cdots
     $$

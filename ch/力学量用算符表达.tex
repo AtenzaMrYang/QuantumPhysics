@@ -239,8 +239,22 @@ $$
 \begin{question}{扩展问题}
     微分算符$\frac{\mathrm{d}}{\mathrm{d}x}$是Hermitian算符吗？
     \tcblower
-    提示：考虑$\left\langle \psi \middle| \frac{\mathrm{d}}{\mathrm{d}x}\psi\right\rangle$与$\left\langle \frac{\mathrm{d}}{\mathrm{d}x}\psi \middle| \psi\right\rangle$是否相等？可以证明微分算符是反Hermitian算符。
+    提示：考虑$\left\langle \psi \middle| \frac{\mathrm{d}}{\mathrm{d}x}\psi\right\rangle$与$\left\langle \frac{\mathrm{d}}{\mathrm{d}x}\psi \middle| \psi\right\rangle$是否相等
 \end{question}
+\begin{solution}
+    微分算符的本征方程为
+    $$
+        \int_{-\infty}^{+\infty}\psi^*\frac{\mathrm{d}\psi}{\mathrm{d}x}\,\mathrm{d}x
+        =\left.\psi^*\psi\right|_{-\infty}^{+\infty}-\int_{-\infty}^{+\infty}\psi\,\mathrm{d}\psi^*
+        =-\int_{-\infty}^{+\infty}\psi\,\mathrm{d}\psi^*
+    $$
+    类似地，考虑其转置再取复共轭的形式
+    $$
+        \int_{-\infty}^{+\infty}\frac{\mathrm{d}\psi^*}{\mathrm{d}x}\psi\,\mathrm{d}x
+        =\int_{-\infty}^{+\infty}\psi\,\mathrm{d}\psi^*
+    $$
+    二者的结果相反，说明微分算符是反Hermitian算符。
+\end{solution}
 
 \subsubsection{转置并取复共轭}
 $$
@@ -248,7 +262,7 @@ $$
 $$
 
 \begin{question}{题目3.1}
-    设$A$与$B$为Hermitian算符，则$\dfrac{1}{2}(AB+BA)$和$\dfrac{1}{2\mathrm{i}}(AB-BA)$也是Hermitian算符. 由此证明：任何一个算符$F$均可分解为$F=F_{+}+\mathrm{i}F_{-}$
+    设$A$与$B$为Hermitian算符，则$\frac{1}{2}(AB+BA)$和$\frac{1}{2\mathrm{i}}(AB-BA)$也是Hermitian算符. 由此证明：任何一个算符$F$均可分解为$F=F_{+}+\mathrm{i}F_{-}$
     $$
         F_{+}=\frac{1}{2}(F+F^{\dagger}),\quad
         F_{-}=\frac{1}{2\mathrm{i}}(F-F^{\dagger})
@@ -264,7 +278,7 @@ $$
     $$
     对于
     $$
-        \frac{1}{2}(AB+BA)^\dagger
+        \left[\frac{1}{2}(AB+BA)\right]^\dagger
         = \frac{1}{2}\left(B^\dagger A^\dagger + A^\dagger B^\dagger\right)
         = \frac{1}{2}(BA+AB)
         = \frac{1}{2}(AB+BA)
@@ -275,13 +289,13 @@ $$
         = -\frac{1}{2\mathrm{i}}\left(BA-AB\right)
         = \frac{1}{2\mathrm{i}}\left(AB-BA\right)
     $$
-    这说明以上两个算符都是Hermitian算符，根据这一结论，我们再对任一算符$F$分解
+    这说明以上两个算符都是Hermitian算符，根据这一结论，我们再对任意算符$F$进行分解
     $$
         F = \frac{F}{2}+\frac{F}{2}
         = \frac{1}{2}\left(F+F^\dagger\right)+\frac{1}{2}\left(F-F^\dagger\right)
         = F_{\dagger}+\mathrm{i}F_{-}
     $$
-    这说明$F_{+}$和$F_{-}$都是Hermitian算符.
+    这说明$F_{+}$和$F_{-}$都是Hermitian算符.\footnote{升降阶算符对于我们求解能量本征值是十分有用的，不过具体的构造方法还是需要李代数的相应知识}
 \end{solution}
 
 
@@ -403,7 +417,7 @@ $$
 $$
     \left(\phi_{n\beta}, \phi_{n\beta'}\right)=\delta_{\beta\beta'}
 $$
-实际上，我们目前有$\dfrac{1}{2}f_n(f_n-1)+f_n=\dfrac{1}{2}f_n(f_n+1)$个线性方程，而待解系数$a_{\beta\alpha}$只有$f_n^2$个，根据
+实际上，我们目前有$\frac{1}{2}f_n(f_n-1)+f_n=\frac{1}{2}f_n(f_n+1)$个线性方程，而待解系数$a_{\beta\alpha}$只有$f_n^2$个，根据
 $$
     f_n^2 \geqslant \frac{1}{2}f_n(f_n+1)
 $$
