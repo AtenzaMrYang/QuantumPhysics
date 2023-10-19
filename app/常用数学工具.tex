@@ -119,13 +119,14 @@ $$
 
 
 \subsection{求矩阵的逆矩阵}
-1. 定义法：寻找一个与$\boldsymbol{A}$同阶的方阵$\boldsymbol{B}$，使得
+
+定义法：寻找一个与$\boldsymbol{A}$同阶的方阵$\boldsymbol{B}$，使得
 $$
     \boldsymbol{AB}=\boldsymbol{E}
     ,\quad
     \boldsymbol{BA}=\boldsymbol{E}
 $$
-2. 公式法：可利用矩阵行列式和代数余子式构成的伴随矩阵来求逆矩阵 \footnote{
+公式法：可利用矩阵行列式和代数余子式构成的伴随矩阵来求逆矩阵 \footnote{
     例如矩阵$\begin{pmatrix} 1 & 2 \\ 2 & 5 \end{pmatrix}$的伴随矩阵为
     $$
         \boldsymbol{A}^* = \begin{pmatrix}
@@ -149,7 +150,7 @@ $$
 $$
     \boldsymbol{A}^{-1} = \frac{1}{|\boldsymbol{A}|}\boldsymbol{A}^*
 $$
-3. 初等变换法：
+初等变换法：
 $$
     \begin{pmatrix}
         \boldsymbol{A} & \vdots & \boldsymbol{E}
@@ -171,7 +172,7 @@ $$
         \boldsymbol{A}^{-1}
     \end{pmatrix}
 $$
-4. 分块矩阵法：当$\boldsymbol{A}, \boldsymbol{B}$均可逆时
+分块矩阵法：当$\boldsymbol{A}, \boldsymbol{B}$均可逆时
 $$
     \begin{pmatrix}
         \boldsymbol{A} & \boldsymbol{O} \\
@@ -191,6 +192,7 @@ $$
         \boldsymbol{B}^{-1} & \boldsymbol{O}
     \end{pmatrix}
 $$
+
 
 
 

@@ -86,7 +86,7 @@ $$
 
 
 \subsection{薛定谔方程}
-薛定谔通过类别和最小作用量原理，推导出了微观粒子的波动方程（即含时薛定谔方程）
+薛定谔通过类别经典力学中的最小作用量原理，推导出了微观粒子的波动方程（即含时薛定谔方程）
 $$
     \mathrm{i}\hbar\frac{\partial \Psi(r, t)}{\partial t} = \left[-\frac{\hbar^2}{2m}\nabla^2 + V(r)\right]\Psi(r, t)
 $$
@@ -94,18 +94,18 @@ $$
 $$
     \mathrm{i}\hbar\frac{\partial \varphi(t)}{\partial t}\psi(r) = \left[-\frac{\hbar^2}{2m}\nabla^2 + V(r)\right]\psi(r)\varphi(t)
 $$
-整理方程，使得等号左侧仅与时间$t$有关，等号右侧仅与位置$r$有关，两边完全独立
+整理方程，使得等号左侧仅与时间$t$有关，等号右侧仅与位矢$r$有关，两边完全独立
 $$
     \mathrm{i}\hbar\frac{1}{\varphi}\frac{\partial \varphi}{\partial t} = -\frac{\hbar^2}{2m}\nabla^2 + V(r)
 $$
-这两个无关式子相等的条件是两侧都等于某个常数$E$
+这两个无关式子相等的条件是两侧都等于某个常数$E$，仅包含位矢$r$的部分
 $$
     \left[-\frac{\hbar^2}{2m}\nabla^2 + V(r)\right]\psi(r) = E\psi(r)
 $$
-这就是\textbf{定态薛定谔方程（能量本征方程、哈密顿算符本征方程）}
+被称为\textbf{定态薛定谔方程（能量本征方程、哈密顿算符本征方程）}
 
 
-\subsection{一维粒子的}
+\subsection{定态一维粒子的哈密顿量}
 对于处在定态的一维粒子，其Hamilton算符的期望值（本征值）和标准差分别为
 $$
     \langle\hat{H}\rangle=\int\psi^*\hat{H}\psi\,\mathrm{d}x=\int\psi^*E\psi\,\mathrm{d}x=E\int\psi^*\psi\,\mathrm{d}x=E
@@ -127,18 +127,18 @@ $$
 \begin{question}{例题}
     证明规范波函数的归一化不随时间变换，即证明：
     $$
-        \frac{\partial }{\partial t}\int_{-\infty}^{+\infty}|\psi|^2 \,\mathrm{d}x=0
+        \frac{\mathrm{d}}{\mathrm{d}t}\int_{-\infty}^{+\infty}|\psi|^2 \,\mathrm{d}x=0
     $$
 \end{question}
 \begin{proof}
-    先交换微分算符$\frac{\partial }{\partial t}$和积分算符$\int_{}^{}\mathrm{d}x$的顺序
+    先交换微分算符$\frac{\mathrm{d}}{\mathrm{d}t}$和积分算符$\int_{}^{}\mathrm{d}x$的顺序
     $$
-        \frac{\partial }{\partial t}\int_{-\infty}^{+\infty}|\psi|^2 \,\mathrm{d}x
+        \frac{\mathrm{d}}{\mathrm{d}t}\int_{-\infty}^{+\infty}|\psi|^2 \,\mathrm{d}x
         =\int_{-\infty}^{+\infty}\frac{\partial |\psi|^2}{\partial t} \,\mathrm{d}x
         =\int_{-\infty}^{+\infty}\frac{\partial (\psi\psi^*)}{\partial t} \,\mathrm{d}x
         =\int_{-\infty}^{+\infty}\left(\frac{\partial \psi}{\partial t}\psi^*+\frac{\partial \psi^*}{\partial t}\psi\right)\mathrm{d}x
     $$
-    再根据薛定谔方程代换因式 $\frac{\partial \psi}{\partial t}$ 及其复共轭形式 $\frac{\partial \psi^*}{\partial t}$
+    再根据薛定谔方程代换因式 $\frac{\partial \psi}{\partial t}$ 和 $\frac{\partial \psi^*}{\partial t}$
     $$
         \begin{aligned}
             \frac{\partial \psi}{\partial t}   & = +\frac{\mathrm{i}\hbar}{2m}\frac{\partial^2\psi}{\partial x^2}-\frac{\mathrm{i}}{\hbar}V\psi     \\
@@ -148,20 +148,13 @@ $$
     量子力学中的势能都是实数（即$V^*=V$）
     $$
         \begin{aligned}
-            \frac{\partial }{\partial t}\int_{-\infty}^{+\infty}|\psi|^2 \,\mathrm{d}x
-             & =\int_{-\infty}^{+\infty}\left(\frac{\mathrm{i}\hbar}{2m}\frac{\partial^2 \psi}{\partial x^2}\psi^*-\frac{\mathrm{i}\hbar}{2m}\frac{\partial^2 \psi^*}{\partial x^2}\psi\right)\mathrm{d}x \\
-             & =\frac{\mathrm{i}\hbar}{2m}\int_{-\infty}^{+\infty}\frac{\partial}{\partial x}\left(\frac{\partial \psi}{\partial x}\psi^*-\frac{\partial \psi^*}{\partial x}\psi\right)\mathrm{d}x        \\
+            \frac{\mathrm{d}}{\mathrm{d}t}\int_{-\infty}^{+\infty}|\psi|^2 \,\mathrm{d}x
+             & =\int_{-\infty}^{+\infty}\left(\frac{\mathrm{i}\hbar}{2m}\frac{\partial^2 \psi}{\partial x^2}\psi^*-\frac{\mathrm{i} \hbar}{2m}\frac{\partial^2 \psi^*}{\partial x^2}\psi\right)\mathrm{d}x \\
+             & =\frac{\mathrm{i}\hbar}{2m}\int_{-\infty}^{+\infty}\frac{\partial}{\partial x}\left(\frac{\partial \psi}{\partial x}\psi^*-\frac{\partial \psi^*}{\partial x}\psi\right)\mathrm{d}x         \\
              & =\frac{\mathrm{i}\hbar}{2m}\left.\left(\frac{\partial \psi}{\partial x}\psi^*-\frac{\partial \psi^*}{\partial x}\psi\right)\right|_{-\infty}^{+\infty}
         \end{aligned}
     $$
-    最后根据规范波函数的性质$\psi(-\infty)=0,\psi(+\infty)=0$，说明上式为零
-    $$
-        \frac{\partial }{\partial t}\int_{-\infty}^{+\infty}|\psi|^2 \,\mathrm{d}x=0
-    $$
-    这说对规范波函数的归一化求导不随时间改变
-    $$
-        \int_{-\infty}^{+\infty}|\psi|^2\,\mathrm{d}x=\mathrm{Const}
-    $$
+    最后根据规范波函数的性质$\psi(-\infty)=0$，$\psi(+\infty)=0$，说明上式为零，证毕。
 \end{proof}
 
 
